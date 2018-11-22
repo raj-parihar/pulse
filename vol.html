@@ -21,6 +21,7 @@
         padding: 0;
       }
 
+
 /* Add a black background color to the top navigation */
 .topnav {
     position: relative;
@@ -80,6 +81,40 @@
 }
 
 
+      body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    max-width:900px;
+}
+
     </style>
   </head>
   <body>
@@ -95,11 +130,11 @@
 
   <!-- Centered link -->
   <div class="topnav-centered">
-    <a href="" class="active">Home</a>
+    <a href="index.html">Home</a>
   </div>
 
   <!-- Left-aligned links (default) -->
-  <a href="vol.html">Volunteer</a>
+  <a href="" class="active">Volunteer</a>
   <a href="dir.php">Directory</a>
 
   <!-- Right-aligned links -->
@@ -113,26 +148,35 @@
 	  <br><br>
 
 	  <center>
-		   <font size="100" face="georgia">Pulse: A Social Infographic Platform</font> 
-	   </center>
+		   <font size="50" face="georgia">Signup as a Pulse Volunteer</font> 
+	  <br><br>
 	  <br><br>
 
-    <div id="map" height="460px" width="100%"></div>
-        <br>
-    <div id="form">
-      <table align="center">
-      <tr><td>Name:</td> <td><input size="20" type='text' id='name'/> </td> 
-	      <td>Age:</td> <td><input size="4" type=number' id='age'/> </td>
-      <td>Sex:</td> <td><select id='sex'> +
-                 <option value='other' SELECTED> </option>
-                 <option value='male'>male</option>
-                 <option value='female'>female</option>
-	      </select> </td> </tr>
-      <tr><td>Location:</td> <td><input size="15" type='text' id='address'/> </td> 
-	      <td><b>Pulse:</b></td> <td><input size="30" type='text' id='pulse'/> </td> 
-                 <td></td><td><input type='button' value='Submit' style="font-size:10pt;color:white;background-color:green;border:2px solid #336600;padding:3px" onclick='saveData()'/></td></tr>
-      </table>
-    </div>
+
+<div class="container" >
+  <form action="/action_page.php">
+    <label for="fname">Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="First, Last">
+
+    <label for="lname">Email</label>
+    <input type="text" id="lname" name="lastname" placeholder="abc@xyz.com">
+
+    <label for="country">Country</label>
+    <select id="country" name="country">
+      <option value="usa">USA</option>
+      <option value="india">INDIA</option>
+      <option value="australia">Australia</option>
+      <option value="canada">Canada</option>
+    </select>
+
+    <label for="subject">About yourself</label>
+    <textarea id="subject" name="subject" placeholder="Tell us about yourself ..." style="height:200px"></textarea>
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+	   </center>
     <!---div id="message">Pulse info saved!</div--->
         <br><br>
 	<footer>&copy; Copyright 2018 Pulse Infographics </footer>

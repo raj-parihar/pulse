@@ -21,6 +21,7 @@
         padding: 0;
       }
 
+
 /* Add a black background color to the top navigation */
 .topnav {
     position: relative;
@@ -111,6 +112,7 @@ input[type=submit]:hover {
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
+    max-width:900px;
 }
 
     </style>
@@ -132,8 +134,8 @@ input[type=submit]:hover {
   </div>
 
   <!-- Left-aligned links (default) -->
-  <a href="#search">Search</a>
-  <a href="#directory">Directory</a>
+  <a href="vol.html">Volunteer</a>
+  <a href="dir.php">Directory</a>
 
   <!-- Right-aligned links -->
   <div class="topnav-right">
@@ -147,19 +149,17 @@ input[type=submit]:hover {
 
 	  <center>
 		   <font size="50" face="georgia">Contact US</font> 
-	   </center>
+	  <br><br>
 	  <br><br>
 
 
-	  <h3>Contact Form</h3>
-
 <div class="container" >
   <form action="/action_page.php">
-    <label for="fname">First Name</label>
-    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+    <label for="fname">Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="First, Last">
 
-    <label for="lname">Last Name</label>
-    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+    <label for="lname">Email</label>
+    <input type="text" id="lname" name="lastname" placeholder="abc@xyz.com">
 
     <label for="country">Country</label>
     <select id="country" name="country">
@@ -169,14 +169,14 @@ input[type=submit]:hover {
       <option value="canada">Canada</option>
     </select>
 
-    <label for="subject">Subject</label>
-    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+    <label for="subject">Comments</label>
+    <textarea id="subject" name="subject" placeholder="Write your feedback ..." style="height:200px"></textarea>
 
     <input type="submit" value="Submit">
   </form>
 </div>
 
-    </div>
+	   </center>
     <!---div id="message">Pulse info saved!</div--->
         <br><br>
 	<footer>&copy; Copyright 2018 Pulse Infographics </footer>

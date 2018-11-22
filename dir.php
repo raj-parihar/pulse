@@ -79,6 +79,13 @@
   }
 }
 
+div.srch_eng {
+    max-width:400px;
+    margin: auto;
+    align: right;
+    border: 2px solid #73AD21;
+}
+
 
     </style>
   </head>
@@ -95,12 +102,12 @@
 
   <!-- Centered link -->
   <div class="topnav-centered">
-    <a href="" class="active">Home</a>
+    <a href="index.html" >Home</a>
   </div>
 
   <!-- Left-aligned links (default) -->
   <a href="vol.html">Volunteer</a>
-  <a href="dir.php">Directory</a>
+  <a href="" class="active">Directory</a>
 
   <!-- Right-aligned links -->
   <div class="topnav-right">
@@ -113,26 +120,40 @@
 	  <br><br>
 
 	  <center>
-		   <font size="100" face="georgia">Pulse: A Social Infographic Platform</font> 
+		   <font size="50" face="georgia">Directory of Locations (A-Z)</font> 
 	   </center>
 	  <br><br>
 
-    <div id="map" height="460px" width="100%"></div>
-        <br>
-    <div id="form">
-      <table align="center">
-      <tr><td>Name:</td> <td><input size="20" type='text' id='name'/> </td> 
-	      <td>Age:</td> <td><input size="4" type=number' id='age'/> </td>
-      <td>Sex:</td> <td><select id='sex'> +
-                 <option value='other' SELECTED> </option>
-                 <option value='male'>male</option>
-                 <option value='female'>female</option>
-	      </select> </td> </tr>
-      <tr><td>Location:</td> <td><input size="15" type='text' id='address'/> </td> 
-	      <td><b>Pulse:</b></td> <td><input size="30" type='text' id='pulse'/> </td> 
-                 <td></td><td><input type='button' value='Submit' style="font-size:10pt;color:white;background-color:green;border:2px solid #336600;padding:3px" onclick='saveData()'/></td></tr>
-      </table>
-    </div>
+<div class="srch_eng">
+<script>
+  (function() {
+    var cx = '005828985785630724111:ekaqk3jotby';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+</div>
+
+
+<?php
+echo "<html><body><table>\n\n";
+$f = fopen("world-cities.csv", "r");
+while (($line = fgetcsv($f)) !== false) {
+        echo "<tr>";
+        foreach ($line as $cell) {
+                echo "<td>" . htmlspecialchars($cell) . "</td>";
+        }
+        echo "</tr>\n";
+}
+fclose($f);
+echo "\n</table></body></html>";
+?>
+
     <!---div id="message">Pulse info saved!</div--->
         <br><br>
 	<footer>&copy; Copyright 2018 Pulse Infographics </footer>
