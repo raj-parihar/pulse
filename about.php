@@ -21,6 +21,7 @@
         padding: 0;
       }
 
+
 /* Add a black background color to the top navigation */
 .topnav {
     position: relative;
@@ -79,11 +80,45 @@
   }
 }
 
-div.srch_eng {
-    max-width:400px;
+
+      body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    max-width:900px;
+}
+
+div.textbox {
+    max-width:900px;
     margin: auto;
-    align: right;
-    border: 2px solid #73AD21;
+    left:00px;
 }
 
 
@@ -102,17 +137,17 @@ div.srch_eng {
 
   <!-- Centered link -->
   <div class="topnav-centered">
-    <a href="index.php" >Home</a>
+    <a href="index.php">Home</a>
   </div>
 
   <!-- Left-aligned links (default) -->
   <a href="vol.php">Volunteer</a>
-  <a href="" class="active">Directory</a>
+  <a href="dir.php">Directory</a>
 
   <!-- Right-aligned links -->
   <div class="topnav-right">
-    <a href="contact.php">Contact</a>
-    <a href="about.php">About</a>
+    <a href="contact.php" >Contact</a>
+    <a href="" class="active">About</a>
   </div>
 
 </div> 
@@ -120,39 +155,34 @@ div.srch_eng {
 	  <br><br>
 
 	  <center>
-		   <font size="50" face="georgia">Directory of Locations (A-Z)</font> 
-	   </center>
+		   <font size="50" face="georgia">About US</font> 
 	  <br><br>
 
-<div class="srch_eng">
-<script>
-  (function() {
-    var cx = '005828985785630724111:ekaqk3jotby';
-    var gcse = document.createElement('script');
-    gcse.type = 'text/javascript';
-    gcse.async = true;
-    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(gcse, s);
-  })();
-</script>
-<gcse:search></gcse:search>
+	   </center>
+
+<div class="textbox">
+	  <br><br>
+	  <h1>
+	   <font  face="georgia">Mission</font> 
+	  <br>
+	  </h1>
+	  To provide socioecominic data, trends and insights across various geographical locations ...
+	  <br><br>
+	  <br><br>
+
+
+	  <h1>
+	   <font face="georgia">Team</font> 
+	  <br>
+	  </h1>
+	  A bunch of dedicated individuals who believe in democratizing information ...
+	  <br><br>
+	  <br><br>
+	  <br><br>
+	  <br><br>
+	  <br><br>
+
 </div>
-
-
-<?php
-echo "<html><body><table>\n\n";
-$f = fopen("/var/www/html/data/pulse_db.csv", "r");
-while (($line = fgetcsv($f)) !== false) {
-        echo "<tr>";
-        foreach ($line as $cell) {
-                echo "<td>" . htmlspecialchars($cell) . "</td>";
-        }
-        echo "</tr>\n";
-}
-fclose($f);
-echo "\n</table></body></html>";
-?>
 
     <!---div id="message">Pulse info saved!</div--->
         <br><br>

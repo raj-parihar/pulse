@@ -79,13 +79,6 @@
   }
 }
 
-div.srch_eng {
-    max-width:400px;
-    margin: auto;
-    align: right;
-    border: 2px solid #73AD21;
-}
-
 
     </style>
   </head>
@@ -102,17 +95,17 @@ div.srch_eng {
 
   <!-- Centered link -->
   <div class="topnav-centered">
-    <a href="index.php" >Home</a>
+    <a href="" class="active">Home</a>
   </div>
 
   <!-- Left-aligned links (default) -->
   <a href="vol.php">Volunteer</a>
-  <a href="" class="active">Directory</a>
+  <a href="dir.php">Directory</a>
 
   <!-- Right-aligned links -->
   <div class="topnav-right">
     <a href="contact.php">Contact</a>
-    <a href="about.php">About</a>
+    <a href="about.html">About</a>
   </div>
 
 </div> 
@@ -120,41 +113,39 @@ div.srch_eng {
 	  <br><br>
 
 	  <center>
-		   <font size="50" face="georgia">Directory of Locations (A-Z)</font> 
+		   <font size="100" face="georgia">Pulse: A Social Infographic Platform</font> 
 	   </center>
 	  <br><br>
 
-<div class="srch_eng">
-<script>
-  (function() {
-    var cx = '005828985785630724111:ekaqk3jotby';
-    var gcse = document.createElement('script');
-    gcse.type = 'text/javascript';
-    gcse.async = true;
-    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(gcse, s);
-  })();
-</script>
-<gcse:search></gcse:search>
-</div>
+    <div id="map" height="460px" width="100%"></div>
+        <br>
+    <div id="form">
+      <table align="center">
+      <tr><td>Name:</td> <td><input size="20" type='text' id='name'/> </td> 
+	      <td>Location:</td> <td><input size="15" type='text' id='address'/> </td></tr> 
+	      <td>Age:</td> <td><input size="5" type=number' id='age'/> </td>
+              <td>Sex:</td> <td><select id='sex'> +
+                 <option value='other' SELECTED> </option>
+                 <option value='male'>Male</option>
+                 <option value='female'>Female</option>
+	         </select> </td>
+       <tr><td>Category:</td> <td><select id='sex'> +
+                 <option value='general' SELECTED>General</option>
+                 <option value='health'>Health</option>
+                 <option value='education'>Education</option>
+                 <option value='water'>Water</option>
+		 <option value='economic'>Economic</option>
+		 <option value='governence'>Governence</option>
+		 <option value='social'>Social</option>
+		 <option value='environment'>Environmental</option>
+		 <option value='other'>Other</option>
+	         </select> </td> 
 
-
-<?php
-echo "<html><body><table>\n\n";
-$f = fopen("/var/www/html/data/pulse_db.csv", "r");
-while (($line = fgetcsv($f)) !== false) {
-        echo "<tr>";
-        foreach ($line as $cell) {
-                echo "<td>" . htmlspecialchars($cell) . "</td>";
-        }
-        echo "</tr>\n";
-}
-fclose($f);
-echo "\n</table></body></html>";
-?>
-
-    <!---div id="message">Pulse info saved!</div--->
+	      <td><b>Pulse info:</b></td> <td><input size="40" type='text' id='pulse'/> </td> 
+                 <td></td><td><input type='button' value='Submit' style="font-size:11pt;color:white;background-color:green;border:2px solid #336600;padding:3px;border-radius:12px;" onclick='saveData()'/></td></tr>
+      </table>
+    </div>
+    <div id="message">Pulse info saved!</div>
         <br><br>
 	<footer>&copy; Copyright 2018 Pulse Infographics </footer>
         <br>

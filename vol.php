@@ -219,7 +219,7 @@ input[type=submit]:hover {
 
   <!-- Centered link -->
   <div class="topnav-centered">
-    <a href="index.html">Home</a>
+    <a href="index.php">Home</a>
   </div>
 
   <!-- Left-aligned links (default) -->
@@ -228,8 +228,8 @@ input[type=submit]:hover {
 
   <!-- Right-aligned links -->
   <div class="topnav-right">
-    <a href="contact.html">Contact</a>
-    <a href="about.html">About</a>
+    <a href="contact.php">Contact</a>
+    <a href="about.php">About</a>
   </div>
 
 </div> 
@@ -275,6 +275,7 @@ input[type=submit]:hover {
 </div>
 
     <!---div id="message">Pulse info saved!</div--->
+        <br><br>
         <br><br>
 	<footer>&copy; Copyright 2018 Pulse Infographics </footer>
         <br>
