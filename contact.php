@@ -1,3 +1,92 @@
+
+<?php
+//index.php
+
+$error = '';
+$name = '';
+$email = '';
+$subject = '';
+$message = '';
+
+function clean_text($string)
+{
+ $string = trim($string);
+ $string = stripslashes($string);
+ $string = htmlspecialchars($string);
+ return $string;
+}
+
+if(isset($_POST["submit"]))
+{
+ if(empty($_POST["name"]))
+ {
+  $error .= '<p><label class="text-danger">Please Enter your Name</label></p>';
+ }
+ else
+ {
+  $name = clean_text($_POST["name"]);
+  if(!preg_match("/^[a-zA-Z ]*$/",$name))
+  {
+   $error .= '<p><label class="text-danger">Only letters and white space allowed</label></p>';
+  }
+ }
+ if(empty($_POST["email"]))
+ {
+  $error .= '<p><label class="text-danger">Please Enter your Email</label></p>';
+ }
+ else
+ {
+  $email = clean_text($_POST["email"]);
+  if(!filter_var($email, FILTER_VALIDATE_EMAIL))
+  {
+   $error .= '<p><label class="text-danger">Invalid email format</label></p>';
+  }
+ }
+ if(empty($_POST["subject"]))
+ {
+  $error .= '<p><label class="text-danger">Subject is required</label></p>';
+ }
+ else
+ {
+  $subject = clean_text($_POST["subject"]);
+ }
+ if(empty($_POST["message"]))
+ {
+  $error .= '<p><label class="text-danger">Message is required</label></p>';
+ }
+ else
+ {
+  $message = clean_text($_POST["message"]);
+ }
+
+ if($error == '')
+ {
+  $file_open = fopen("/var/www/html/data/contact_data.csv", "a");
+  $no_rows = count(file("/var/www/html/data/contact_data.csv"));
+  if($no_rows > 1)
+  {
+   $no_rows = ($no_rows - 1) + 1;
+  }
+  $form_data = array(
+   'sr_no'  => $no_rows,
+   'name'  => $name,
+   'email'  => $email,
+   'subject' => $subject,
+   'message' => $message
+  );
+  fputcsv($file_open, $form_data);
+  $error = '<label class="text-success">Thank you for contacting us!</label>';
+  $name = '';
+  $email = '';
+  $subject = '';
+  $message = '';
+ }
+}
+
+?>
+
+
+
 <!DOCTYPE html >
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
@@ -134,12 +223,12 @@ input[type=submit]:hover {
   </div>
 
   <!-- Left-aligned links (default) -->
-  <a href="" class="active">Volunteer</a>
+  <a href="" >Volunteer</a>
   <a href="dir.php">Directory</a>
 
   <!-- Right-aligned links -->
   <div class="topnav-right">
-    <a href="contact.html">Contact</a>
+    <a href="" class="active" >Contact</a>
     <a href="about.html">About</a>
   </div>
 
@@ -148,35 +237,43 @@ input[type=submit]:hover {
 	  <br><br>
 
 	  <center>
-		   <font size="50" face="georgia">Signup as a Pulse Volunteer</font> 
+		   <font size="50" face="georgia">Contact Us</font> 
 	  <br><br>
 	  <br><br>
+	   </center>
 
 
-<div class="container" >
-  <form action="/action_page.php">
-    <label for="fname">Name</label>
-    <input type="text" id="fname" name="firstname" placeholder="First, Last">
 
-    <label for="lname">Email</label>
-    <input type="text" id="lname" name="lastname" placeholder="abc@xyz.com">
 
-    <label for="country">Country</label>
-    <select id="country" name="country">
-      <option value="usa">USA</option>
-      <option value="india">INDIA</option>
-      <option value="australia">Australia</option>
-      <option value="canada">Canada</option>
-    </select>
+   <div class="container" style="margin:0 auto; float:none;">
+    <form method="post">
+     <br />
+     <?php echo $error; ?>
+     <div class="form-group">
+      <label>Name</label>
+      <input type="text" name="name" placeholder="First, Last" class="form-control" value="<?php echo $name; ?>" />
+     </div>
+     <div class="form-group">
+      <label>Email</label>
+      <input type="text" name="email" class="form-control" placeholder="abc@xyz.com" value="<?php echo $email; ?>" />
+     </div>
+     <div class="form-group">
+      <label>Location</label>
+      <input type="text" name="subject" class="form-control" placeholder="Town, State, Country" value="<?php echo $subject; ?>" />
+     </div>
+     <div class="form-group">
+      <label>Comments or Suggestions</label>
+      <textarea name="message" class="form-control" placeholder="Tell us about yourself in a few words ..."><?php echo $message; ?></textarea>
+     </div>
+     <div class="form-group" align="center">
+      <input type="submit" name="submit" class="btn btn-info" value="Submit" />
+     </div>
+    </form>
+   </div>
 
-    <label for="subject">About yourself</label>
-    <textarea id="subject" name="subject" placeholder="Tell us about yourself ..." style="height:200px"></textarea>
 
-    <input type="submit" value="Submit">
-  </form>
 </div>
 
-	   </center>
     <!---div id="message">Pulse info saved!</div--->
         <br><br>
 	<footer>&copy; Copyright 2018 Pulse Infographics </footer>

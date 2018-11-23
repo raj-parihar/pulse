@@ -106,12 +106,12 @@ div.srch_eng {
   </div>
 
   <!-- Left-aligned links (default) -->
-  <a href="vol.html">Volunteer</a>
+  <a href="vol.php">Volunteer</a>
   <a href="" class="active">Directory</a>
 
   <!-- Right-aligned links -->
   <div class="topnav-right">
-    <a href="contact.html">Contact</a>
+    <a href="contact.php">Contact</a>
     <a href="about.html">About</a>
   </div>
 
@@ -142,7 +142,7 @@ div.srch_eng {
 
 <?php
 echo "<html><body><table>\n\n";
-$f = fopen("world-cities.csv", "r");
+$f = fopen("/var/www/html/data/pulse_db.csv", "r");
 while (($line = fgetcsv($f)) !== false) {
         echo "<tr>";
         foreach ($line as $cell) {
