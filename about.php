@@ -147,9 +147,7 @@ input[type=submit]:hover {
 	   <font face="georgia">Mission</font> 
 	  <br>
 	  </h1>
-	  <h3>
 	  To provide socioecominic data, trends and insights across various geographical locations ...
-	  </h3>
 	  <br><br>
 	  <br><br>
 
@@ -158,9 +156,7 @@ input[type=submit]:hover {
 	   <font face="georgia">Team</font> 
 	  <br>
 	  </h1>
-	  <h3>
 	  A bunch of dedicated individuals who believe in democratizing information ...
-	  </h3>
 	  <br><br>
 	  <br><br>
 	  <br><br>
