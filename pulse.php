@@ -7,7 +7,13 @@
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
-        height: 100%;
+        height: 90%;
+	width: 90%;
+	top: 0%;
+	left: 3%;
+	right: 3%;
+	bottom: 25%;
+	padding: 2%;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
@@ -82,6 +88,38 @@
 
 	  <br><br>
 
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    max-width: 1000px;
+    margin: 50px;
+}
+</style>
 
  <!-- Top navigation -->
 <div class="topnav">
@@ -111,6 +149,13 @@
 	  <br><br>
     <div id="map"></div>
 
+
+        <br><br>
+	<footer>&copy; Copyright 2018 Pulse Infographics </footer>
+        <br>
+
+
+
     <script>
       var customLabel = {
         restaurant: {
@@ -123,8 +168,8 @@
 
         function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
-          center: new google.maps.LatLng(-33.863276, 151.207977),
-          zoom: 12
+          center: new google.maps.LatLng(40, 250),
+          zoom: 5
         });
         var infoWindow = new google.maps.InfoWindow;
 

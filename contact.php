@@ -5,22 +5,6 @@
     <title>pulse.fyi</title>
     <style>
 
-      #map {
-        height: 90%;
-	width: 90%;
-	top: 0%;
-	left: 3%;
-	right: 3%;
-	bottom: 25%;
-	padding: 2%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-
 
 /* Add a black background color to the top navigation */
 .topnav {
@@ -81,40 +65,6 @@
 }
 
 
-      body {font-family: Arial, Helvetica, sans-serif;}
-* {box-sizing: border-box;}
-
-input[type=text], select, textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin-top: 6px;
-    margin-bottom: 16px;
-    resize: vertical;
-}
-
-input[type=submit] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-input[type=submit]:hover {
-    background-color: #45a049;
-}
-
-.container {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-    max-width:900px;
-}
-
     </style>
   </head>
   <body>
@@ -149,126 +99,81 @@ input[type=submit]:hover {
 
 	  <center>
 		   <font size="50" face="georgia">Contact Us</font> 
-	  <br><br>
-	  <br><br>
 	   </center>
 
 
+<style>
+
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    max-width: 1000px;
+    margin: 50px;
+}
+
+</style>
 
 
-   <div class="container" style="margin:0 auto; float:none;">
-    <form method="post">
-     <br />
-     <?php echo $error; ?>
-     <div class="form-group">
-      <label>Name</label>
-      <input type="text" name="name" placeholder="First, Last" class="form-control" value="<?php echo $name; ?>" />
-     </div>
-     <div class="form-group">
-      <label>Email</label>
-      <input type="text" name="email" class="form-control" placeholder="abc@xyz.com" value="<?php echo $email; ?>" />
-     </div>
-     <div class="form-group">
-      <label>Location</label>
-      <input type="text" name="subject" class="form-control" placeholder="Town, State, Country" value="<?php echo $subject; ?>" />
-     </div>
-     <div class="form-group">
-      <label>Comments or Suggestions</label>
-      <textarea name="message" class="form-control" placeholder="Tell us about yourself in a few words ..."><?php echo $message; ?></textarea>
-     </div>
-     <div class="form-group" align="center">
-      <input type="submit" name="submit" class="btn btn-info" value="Submit" />
-     </div>
-    </form>
-   </div>
+<div class="container">
+  <form action="/action.php">
 
+    <label for="subject">Subject</label>
+    <select id="subject" name="country">
+      <option value="feedback">Feedback/comments/suggestions</option>
+      <option value="volunteer">Volunteering</option>
+      <option value="inquiry">General inquiry</option>
+      <option value="others">Others</option>
+    </select>
 
+    <label for="fname">Name*</label>
+    <input type="text" id="name" name="name" placeholder="First, Last">
+
+    <label for="email">Email*</label>
+    <input type="text" id="email" name="email" placeholder="abc@xyz.com">
+
+    <label for="lname">Location</label>
+    <input type="text" id="location" name="location" placeholder="Town, State, Country">
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" placeholder="Write your detailed message/comments here..." style="height:200px"></textarea>
+
+    <input type="submit" value="Submit">
+  </form>
 </div>
 
-    <!---div id="message">Pulse info saved!</div--->
         <br><br>
         <br><br>
 	<footer>&copy; Copyright 2018 Pulse Infographics </footer>
         <br>
 
-    <script>
-      var map;
-      var marker;
-      var infowindow;
-      var messagewindow;
-
-      function initMap() {
-        var california = {lat: 37.4419, lng: -122.1419};
-        var map_ctr = {lat: 25, lng: 0};
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: map_ctr,
-          zoom: 2.9
-        });
-
-        infowindow = new google.maps.InfoWindow({
-          content: document.getElementById('form')
-        });
-
-        messagewindow = new google.maps.InfoWindow({
-          content: document.getElementById('message')
-        });
-
-        google.maps.event.addListener(map, 'click', function(event) {
-          marker = new google.maps.Marker({
-            position: event.latLng,
-            map: map
-          });
-
-
-          google.maps.event.addListener(marker, 'click', function() {
-            infowindow.open(map, marker);
-          });
-        });
-      }
-
-      function saveData() {
-        var name = escape(document.getElementById('name').value);
-        var age = escape(document.getElementById('age').value);
-        var sex = document.getElementById('sex').value;
-        var address = escape(document.getElementById('address').value);
-        var pulse = escape(document.getElementById('pulse').value);
-        var latlng = marker.getPosition();
-        var url = 'phpsqlinfo_addrow.php?name=' + name + '&age=' + age + '&sex=' + sex 
-		  + '&address=' + address + 
-                  '&pulse=' + pulse + '&lat=' + latlng.lat() + '&lng=' + latlng.lng();
-
-        downloadUrl(url, function(data, responseCode) {
-
-          if (responseCode == 200 && data.length <= 1) {
-            infowindow.close();
-            messagewindow.open(map, marker);
-          }
-        });
-      }
-
-      function downloadUrl(url, callback) {
-        var request = window.ActiveXObject ?
-            new ActiveXObject('Microsoft.XMLHTTP') :
-            new XMLHttpRequest;
-
-        request.onreadystatechange = function() {
-          if (request.readyState == 4) {
-            request.onreadystatechange = doNothing;
-            callback(request.responseText, request.status);
-          }
-        };
-
-        request.open('GET', url, true);
-        request.send(null);
-      }
-
-      function doNothing () {
-      }
-
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8n7c7LxEqjjVotJUW-B22a9ysIqZPDjo&callback=initMap">
-    </script>
   </body>
 </html>
 

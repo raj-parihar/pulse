@@ -5,22 +5,6 @@
     <title>pulse.fyi</title>
     <style>
 
-      #map {
-        height: 90%;
-	width: 90%;
-	top: 0%;
-	left: 3%;
-	right: 3%;
-	bottom: 25%;
-	padding: 2%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-
 
 /* Add a black background color to the top navigation */
 .topnav {
@@ -80,10 +64,15 @@
   }
 }
 
+.textbox {
+    margin-left: 100px;
+}
 
-      body {font-family: Arial, Helvetica, sans-serif;}
+    </style>
+
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box;}
-
 input[type=text], select, textarea {
     width: 100%;
     padding: 12px;
@@ -94,7 +83,6 @@ input[type=text], select, textarea {
     margin-bottom: 16px;
     resize: vertical;
 }
-
 input[type=submit] {
     background-color: #4CAF50;
     color: white;
@@ -103,26 +91,19 @@ input[type=submit] {
     border-radius: 4px;
     cursor: pointer;
 }
-
 input[type=submit]:hover {
     background-color: #45a049;
 }
-
 .container {
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
-    max-width:900px;
+    max-width: 1000px;
+    margin: 50px;
 }
-
-div.textbox {
-    max-width:900px;
-    margin: auto;
-    left:00px;
-}
+</style>
 
 
-    </style>
   </head>
   <body>
 	  <div>
@@ -155,7 +136,7 @@ div.textbox {
 	  <br><br>
 
 	  <center>
-		   <font size="50" face="georgia">About US</font> 
+		   <font size="50" face="georgia">About Us</font> 
 	  <br><br>
 
 	   </center>
@@ -163,10 +144,12 @@ div.textbox {
 <div class="textbox">
 	  <br><br>
 	  <h1>
-	   <font  face="georgia">Mission</font> 
+	   <font face="georgia">Mission</font> 
 	  <br>
 	  </h1>
+	  <h3>
 	  To provide socioecominic data, trends and insights across various geographical locations ...
+	  </h3>
 	  <br><br>
 	  <br><br>
 
@@ -175,8 +158,9 @@ div.textbox {
 	   <font face="georgia">Team</font> 
 	  <br>
 	  </h1>
+	  <h3>
 	  A bunch of dedicated individuals who believe in democratizing information ...
-	  <br><br>
+	  </h3>
 	  <br><br>
 	  <br><br>
 	  <br><br>
@@ -189,85 +173,6 @@ div.textbox {
 	<footer>&copy; Copyright 2018 Pulse Infographics </footer>
         <br>
 
-    <script>
-      var map;
-      var marker;
-      var infowindow;
-      var messagewindow;
-
-      function initMap() {
-        var california = {lat: 37.4419, lng: -122.1419};
-        var map_ctr = {lat: 25, lng: 0};
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: map_ctr,
-          zoom: 2.9
-        });
-
-        infowindow = new google.maps.InfoWindow({
-          content: document.getElementById('form')
-        });
-
-        messagewindow = new google.maps.InfoWindow({
-          content: document.getElementById('message')
-        });
-
-        google.maps.event.addListener(map, 'click', function(event) {
-          marker = new google.maps.Marker({
-            position: event.latLng,
-            map: map
-          });
-
-
-          google.maps.event.addListener(marker, 'click', function() {
-            infowindow.open(map, marker);
-          });
-        });
-      }
-
-      function saveData() {
-        var name = escape(document.getElementById('name').value);
-        var age = escape(document.getElementById('age').value);
-        var sex = document.getElementById('sex').value;
-        var address = escape(document.getElementById('address').value);
-        var pulse = escape(document.getElementById('pulse').value);
-        var latlng = marker.getPosition();
-        var url = 'phpsqlinfo_addrow.php?name=' + name + '&age=' + age + '&sex=' + sex 
-		  + '&address=' + address + 
-                  '&pulse=' + pulse + '&lat=' + latlng.lat() + '&lng=' + latlng.lng();
-
-        downloadUrl(url, function(data, responseCode) {
-
-          if (responseCode == 200 && data.length <= 1) {
-            infowindow.close();
-            messagewindow.open(map, marker);
-          }
-        });
-      }
-
-      function downloadUrl(url, callback) {
-        var request = window.ActiveXObject ?
-            new ActiveXObject('Microsoft.XMLHTTP') :
-            new XMLHttpRequest;
-
-        request.onreadystatechange = function() {
-          if (request.readyState == 4) {
-            request.onreadystatechange = doNothing;
-            callback(request.responseText, request.status);
-          }
-        };
-
-        request.open('GET', url, true);
-        request.send(null);
-      }
-
-      function doNothing () {
-      }
-
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8n7c7LxEqjjVotJUW-B22a9ysIqZPDjo&callback=initMap">
-    </script>
   </body>
 </html>
-
 
