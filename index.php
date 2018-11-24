@@ -99,7 +99,7 @@
   </div>
 
   <!-- Left-aligned links (default) -->
-  <a href="vol.php">Volunteer</a>
+  <a href="pulse.php">Pulse</a>
   <a href="dir.php">Directory</a>
 
   <!-- Right-aligned links -->

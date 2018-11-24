@@ -106,7 +106,7 @@ div.srch_eng {
   </div>
 
   <!-- Left-aligned links (default) -->
-  <a href="vol.php">Volunteer</a>
+  <a href="pulse.php">Pulse</a>
   <a href="" class="active">Directory</a>
 
   <!-- Right-aligned links -->
@@ -139,20 +139,6 @@ div.srch_eng {
 <gcse:search></gcse:search>
 </div>
 
-
-<?php
-echo "<html><body><table>\n\n";
-$f = fopen("/var/www/html/data/pulse_db.csv", "r");
-while (($line = fgetcsv($f)) !== false) {
-        echo "<tr>";
-        foreach ($line as $cell) {
-                echo "<td>" . htmlspecialchars($cell) . "</td>";
-        }
-        echo "</tr>\n";
-}
-fclose($f);
-echo "\n</table></body></html>";
-?>
 
     <!---div id="message">Pulse info saved!</div--->
         <br><br>
