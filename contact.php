@@ -143,27 +143,27 @@ input[type=submit]:hover {
 
 
 <div class="container">
-  <form action="/action.php">
+  <form action="action.php">
 
     <label for="subject">Subject</label>
-    <select id="subject" name="country">
+    <select id="subject" name="subject">
       <option value="feedback">Feedback/comments/suggestions</option>
       <option value="volunteer">Volunteering</option>
       <option value="inquiry">General inquiry</option>
       <option value="others">Others</option>
     </select>
 
-    <label for="fname">Name*</label>
+    <label for="name">Name*</label>
     <input type="text" id="name" name="name" placeholder="First, Last">
 
     <label for="email">Email*</label>
     <input type="text" id="email" name="email" placeholder="abc@xyz.com">
 
-    <label for="lname">Location</label>
+    <label for="location">Location</label>
     <input type="text" id="location" name="location" placeholder="Town, State, Country">
 
     <label for="message">Message</label>
-    <textarea id="message" name="message" placeholder="Write your detailed message/comments here..." style="height:200px"></textarea>
+    <textarea id="message" name="message" placeholder="Write your message/comments here..." style="height:200px"></textarea>
 
     <input type="submit" value="Submit">
   </form>
