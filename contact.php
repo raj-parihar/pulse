@@ -141,6 +141,23 @@ input[type=submit]:hover {
 
 </style>
 
+<?php
+
+    if($_GET['msg'])
+    { ?>
+<div class="container">
+    <p> <b>
+    <font face="georgia" color="green">
+    Message has been sent successfully.
+    We will get back to you soon. Thank you!
+    </font>
+    </b>
+    </p>
+</div>
+
+<?php }
+
+ ?>
 
 <div class="container">
   <form action="action.php">
@@ -168,6 +185,9 @@ input[type=submit]:hover {
     <input type="submit" value="Submit">
   </form>
 </div>
+
+
+
 
         <br><br>
         <br><br>

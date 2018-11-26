@@ -145,9 +145,24 @@ input[type=submit]:hover {
 	  <br><br>
 
 	  <center>
-		   <font size="100" face="georgia">Pulse: A Social Infographic Platform</font> 
-	   </center>
+		   <font size="100" face="georgia">Pulse: A Social Infographic Platform</font>
+
 	  <br><br>
+<?php
+    if($_GET['msg'])
+    { ?>
+<div class="container">
+    <p> <b>
+    <font face="georgia" color="blue">
+    Thank you for submitting your pulse info!
+    </font>
+    </b>
+    </p>
+</div>
+<?php }
+ ?>
+
+	   </center>
 
     <div id="map" height="460px" width="100%"></div>
 	<br>
