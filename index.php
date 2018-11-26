@@ -150,34 +150,70 @@ input[type=submit]:hover {
 	  <br><br>
 
     <div id="map" height="460px" width="100%"></div>
-        <br>
-    <div id="form">
-      <table align="center">
-      <tr><td>Name:</td> <td><input size="20" type='text' id='name'/> </td> 
-	      <td>Location:</td> <td><input size="15" type='text' id='address'/> </td></tr> 
-	      <td>Age:</td> <td><input size="4" type='text' id='age'/> </td>
-              <td>Sex:</td> <td><select id='sex'> +
-                 <option value='other' SELECTED> </option>
-                 <option value='male'>Male</option>
-                 <option value='female'>Female</option>
-	         </select> </td>
-       <tr><td>Category:</td> <td><select id='sex'> +
-                 <option value='general' SELECTED>General</option>
-                 <option value='health'>Health</option>
-                 <option value='education'>Education</option>
-                 <option value='water'>Water</option>
-		 <option value='economic'>Economic</option>
-		 <option value='governence'>Governence</option>
-		 <option value='social'>Social</option>
-		 <option value='environment'>Environmental</option>
-		 <option value='other'>Other</option>
-	         </select> </td> 
+	<br>
 
-	      <td><b>Pulse info:</b></td> <td><input size="40" type='text' id='pulse'/> </td> 
-                 <td></td><td><input type='button' value='Submit' style="font-size:11pt;color:white;background-color:green;border:2px solid #336600;padding:3px;border-radius:12px;" onclick='saveData()'/></td></tr>
-      </table>
-    </div>
-    <div id="message">Pulse info saved!</div>
+<div id="form">
+  <form action="info.php">
+   <table align="center">
+
+    <tr><td>
+    </td>
+
+    <tr><td>
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" placeholder="First, Last"> 
+    </td>
+    <td>
+    <label for="age">Age</label>
+    <input type="text" id="age" name="age" placeholder="in years"> 
+    </td></tr>
+
+    <tr><td>
+    <label for="location">Location*</label>
+    <input type="text" id="location" name="location" placeholder="Town, State, Country"> 
+    </td>
+    <td>
+    <label for="sex">Sex</label>
+    <select id="sex" name="sex">
+      <option value="other"> </option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select></td></tr>
+
+    <tr><td colspan="2">
+    <label for="category">Category</label>
+    <select id="category" name="category">
+      <option value='blank'> </option>
+      <option value='general'>General</option>
+      <option value='health'>Health</option>
+      <option value='education'>Education</option>
+      <option value='water'>Water</option>
+      <option value='economic'>Economic</option>
+      <option value='governence'>Governence</option>
+      <option value='social'>Social</option>
+      <option value='cultural'>Cultural</option>
+      <option value='environment'>Environmental</option>
+      <option value='housing'>Housing</option>
+      <option value='laworder'>Law and Order</option>
+      <option value='malnourishment'>Malnourishment</option>
+      <option value='agrarian'>Agrarian</option>
+      <option value='industrial'>Industrial</option>
+      <option value='other'>Other</option>
+    </select></td></tr>
+
+    <tr><td colspan="2">
+    <label for="pulse"><b>*Pulse Info:</b></label>
+    <textarea id="pulse" name="pulse" placeholder="Write your pulse info here..." style="height:40px"></textarea>
+    </td> </tr>
+
+    <tr><td>
+    <input type="submit" value="Submit"></td></tr>
+
+   </table>
+  </form>
+</div>
+
+
         <br><br>
 	<footer>&copy; Copyright 2018 Pulse Infographics </footer>
         <br>
