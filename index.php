@@ -221,7 +221,7 @@ input[type=submit]:hover {
     <textarea id="pulse" name="pulse" placeholder="Write your pulse info here..." style="height:40px"></textarea>
     </td> </tr>
 
-    <tr><td>
+    <tr><td colspan="2" align="center">
     <input type="submit" value="Submit"></td></tr>
 
    </table>
