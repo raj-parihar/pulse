@@ -162,8 +162,8 @@ input[type=submit]:hover {
       var map, infoWindow;
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 24.397, lng: 81.644},
-          zoom: 8
+          center: {lat: 37, lng: -121},
+          zoom: 9
         });
         infoWindow = new google.maps.InfoWindow;
 

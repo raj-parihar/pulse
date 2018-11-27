@@ -156,7 +156,7 @@ input[type=submit]:hover {
 	   <font face="georgia">Team</font> 
 	  <br>
 	  </h1>
-	  A bunch of dedicated individuals who believe in democratizing information ...
+	  A bunch of dedicated individuals who believe in democratizing access to information ...
 	  <br><br>
 	  <br><br>
 	  <br><br>

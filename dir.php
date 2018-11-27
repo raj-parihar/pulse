@@ -127,6 +127,35 @@ input[type=submit]:hover {
     max-width: 1000px;
     margin: 50px;
 }
+
+
+#cities {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+}
+
+#cities td, #cities th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#cities tr:nth-child(even){background-color: #f2f2f2;}
+
+#cities tr:hover {background-color: #ddd;}
+
+#cities th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+
+
+
+
 </style>
 
  <!-- Top navigation -->
@@ -170,6 +199,33 @@ input[type=submit]:hover {
 </script>
 <gcse:search></gcse:search>
 </div>
+
+<br><br>
+
+<div>
+<?php
+include_once "includes/dbh.inc.php"; // this will include a.php
+?>
+<table id="cities" align="center">
+    		<th><center>Locations reporting</center></th>
+		<tbody>
+		<?php
+		while ($row = mysqli_fetch_array($query))
+		{
+			echo '<tr>
+					<td>'.$row['location'].'</td>
+				</tr>';
+		}?>
+		</tbody>
+	</table>
+
+
+
+
+</div>
+
+
+
 
 
     <!---div id="message">Pulse info saved!</div--->

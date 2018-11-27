@@ -1,9 +1,24 @@
 <?php
-$server = "35.236.87.60";
+$servername = "localhost";
 $username = "user";
-$password = "user@123";
-$database = "pulseinfo";
+$password = "password";
+$dbname = "pulseinfo";
 
-$conn = mysqli_connect($server, $username, $password, $database);
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$sql = 'SELECT DISTINCT location FROM pulse';
+		
+$query = mysqli_query($conn, $sql);
+
+if (!$query) {
+	die ('SQL Error: ' . mysqli_error($conn));
+}
+
 
 ?>
