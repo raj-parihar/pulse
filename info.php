@@ -18,12 +18,13 @@ $age = $_GET["age"];
 $location = $_GET["location"];
 $sex = $_GET["sex"];
 $category = $_GET["category"];
+$sentiment = $_GET["sentiment"];
 $pulse = $_GET["pulse"];
 
 
 // creating info into the pulseinfo db
-$sql = "INSERT INTO pulse (name, age, location, sex, category, pulse)
-VALUES ('$name', '$age', '$location', '$sex', '$category', '$pulse')";
+$sql = "INSERT INTO pulse (name, age, location, sex, category, sentiment, pulse)
+VALUES ('$name', '$age', '$location', '$sex', '$category', '$sentiment', '$pulse')";
 
 if (mysqli_query($conn, $sql)) {
     echo "Thank you for submitting your pulse info!";

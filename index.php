@@ -195,7 +195,7 @@ input[type=submit]:hover {
       <option value="female">Female</option>
     </select></td></tr>
 
-    <tr><td colspan="2">
+    <tr><td>
     <label for="category">Category</label>
     <select id="category" name="category">
       <option value='blank'> </option>
@@ -214,7 +214,16 @@ input[type=submit]:hover {
       <option value='agrarian'>Agrarian</option>
       <option value='industrial'>Industrial</option>
       <option value='other'>Other</option>
+    </select></td>
+    <td>
+    <label for="sentiment">Sentiment</label>
+    <select id="sentiment" name="sentiment">
+      <option value="positive">Positive</option>
+      <option value="negative">Negative</option>
+      <option value="neutral">Neutral</option>
     </select></td></tr>
+    </td>
+    </tr>
 
     <tr><td colspan="2">
     <label for="pulse"><b>*Pulse Info:</b></label>
