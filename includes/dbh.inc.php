@@ -44,5 +44,13 @@ if (!$query3) {
 }
 
 
+// sentiment histogram
+$sql4 = 'SELECT sentiment, COUNT(sentiment) AS freq FROM pulse GROUP BY sentiment';
+$query4 = mysqli_query($conn, $sql4);
+if (!$query4) {
+	die ('SQL Error: ' . mysqli_error($conn));
+}
+
+
 
 ?>

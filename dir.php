@@ -1,4 +1,5 @@
 <!DOCTYPE html >
+<html lang="en">
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
@@ -132,7 +133,7 @@ input[type=submit]:hover {
 #cities {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    width: 50%;
+    width: 75%;
 }
 
 #cities td, #cities th {
@@ -204,63 +205,37 @@ input[type=submit]:hover {
 
 
 
-
-
-
 <div>
 <?php
 include_once "includes/dbh.inc.php"; // this will include a.php
 ?>
 
 <table id="cities" align="center">
-    		<th colspan="2"><center>Gender Ratio (Fixme: PieChart)</center></th>
+    		<th colspan="2"><center>Global Respondents</center></th>
 		<tbody>
-		<?php
-		while ($row = mysqli_fetch_array($query1))
-		{
-			echo '<tr>
-					<td>'.$row['sex'].'</td>
-					<td>'.$row['freq'].'</td>
-				</tr>';
+		<tr>
+			<td><div id="piechart"></div> </td>
+			<td><div id="histgram"></div> </td>
 
-		}
-                ?>
+		</tr>
+
 		</tbody>
 	</table>
 
 <br><br>
 <table id="cities" align="center">
-    		<th colspan="2"><center>Age Group (Fixme: HistGram)</center></th>
+    		<th colspan="2"><center>Pulse Analysis</center></th>
 		<tbody>
-		<?php
-		while ($row = mysqli_fetch_array($query2))
-		{
-			echo '<tr>
-					<td>'.$row['age'].'</td>
-					<td>'.$row['freq'].'</td>
-				</tr>';
+		<tr>
+			<td><div id="piechart1"></div> </td>
+			<td><div id="histgram1"></div> </td>
 
-		}
-                ?>
+		</tr>
+
 		</tbody>
 	</table>
 
-<br><br>
-<table id="cities" align="center">
-    		<th colspan="2"><center>Pulse by Categories (Fixme: HistGram)</center></th>
-		<tbody>
-		<?php
-		while ($row = mysqli_fetch_array($query3))
-		{
-			echo '<tr>
-					<td>'.$row['category'].'</td>
-					<td>'.$row['freq'].'</td>
-				</tr>';
 
-		}
-                ?>
-		</tbody>
-	</table>
 <br><br>
 <table id="cities" align="center">
     		<th><center>Locations Reporting Pulses (Fixme: add links)</center></th>
@@ -286,6 +261,144 @@ include_once "includes/dbh.inc.php"; // this will include a.php
         <br><br>
 	<footer>&copy; Copyright 2018 Pulse Infographics </footer>
         <br>
+
+<?php
+// Database credentials
+$dbHost = 'localhost';
+$dbUsername = 'user';
+$dbPassword = 'password';
+$dbName = 'pulseinfo';
+
+// Create connection and select db
+$db = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
+
+// Get data from database
+$sex_pie = $db->query("SELECT sex, COUNT(sex) AS freq FROM pulse GROUP BY sex");
+
+$senti_pie = $db->query("SELECT sentiment, COUNT(sentiment) AS freq FROM pulse GROUP BY sentiment");
+
+$age_hist = $db->query("SELECT age, COUNT(age) AS freq FROM pulse GROUP BY age");
+
+$cat_hist = $db->query("SELECT category, COUNT(category) AS freq FROM pulse GROUP BY category");
+
+?>
+
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart_sex);
+google.charts.setOnLoadCallback(drawChart_senti);
+google.charts.setOnLoadCallback(drawChart_age);
+google.charts.setOnLoadCallback(drawChart_cat);
+
+function drawChart_sex() {
+
+    var data = google.visualization.arrayToDataTable([
+      ['Language', 'Rating'],
+      <?php
+      if($sex_pie->num_rows > 0){
+          while($row = $sex_pie->fetch_assoc()){
+            echo "['".$row['sex']."', ".$row['freq']."],";
+          }
+      }
+      ?>
+    ]);
+    
+    var options = {
+        title: 'Gender Ratio',
+        width: 600,
+	height: 300,
+	pieHole: 0.4,
+    };
+    
+    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+    
+    chart.draw(data, options);
+}
+
+function drawChart_senti() {
+
+    var data = google.visualization.arrayToDataTable([
+      ['Language', 'Rating'],
+      <?php
+      if($senti_pie->num_rows > 0){
+          while($row = $senti_pie->fetch_assoc()){
+            echo "['".$row['sentiment']."', ".$row['freq']."],";
+          }
+      }
+      ?>
+    ]);
+    
+    var options = {
+        title: 'Pulse Sentiment',
+        width: 600,
+	height: 300,
+	pieHole: 0.4,
+    };
+    
+    var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
+    
+    chart.draw(data, options);
+}
+
+
+function drawChart_age() {
+
+    var data = google.visualization.arrayToDataTable([
+      ['Language', 'Count'],
+      <?php
+      if($age_hist->num_rows > 0){
+          while($row = $age_hist->fetch_assoc()){
+            echo "['".$row['age']."', ".$row['freq']."],";
+          }
+      }
+      ?>
+    ]);
+    
+    var options = {
+        title: 'Distribution by Age (in years)',
+        width: 600,
+	height: 300,
+	bar: {groupWidth: "20%"},
+    };
+    
+    var chart = new google.visualization.ColumnChart(document.getElementById('histgram'));
+    
+    chart.draw(data, options);
+}
+
+function drawChart_cat() {
+
+    var data = google.visualization.arrayToDataTable([
+      ['Language', 'Count'],
+      <?php
+      if($cat_hist->num_rows > 0){
+          while($row = $cat_hist->fetch_assoc()){
+            echo "['".$row['category']."', ".$row['freq']."],";
+          }
+      }
+      ?>
+    ]);
+    
+    var options = {
+        title: 'Pulse by Categories',
+        width: 650,
+	height: 300,
+	bar: {groupWidth: "20%"},
+    };
+    
+    var chart = new google.visualization.ColumnChart(document.getElementById('histgram1'));
+    
+    chart.draw(data, options);
+}
+
+
+</script>
+
+
+
 
     <script>
       var map;
