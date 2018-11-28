@@ -175,12 +175,17 @@ input[type=submit]:hover {
     </td>
 
     <tr><td>
-    <label for="name">Name</label>
+    <label for="name">Name (opt)</label>
     <input type="text" id="name" name="name" placeholder="First, Last"> 
     </td>
     <td>
-    <label for="age">Age</label>
-    <input type="text" id="age" name="age" placeholder="in years"> 
+    <label for="age">Age Group</label>
+    <select id="age" name="age">
+      <option value="other"> </option>
+      <option value="teen">Teen (10-19)</option>
+      <option value="youth">Youth (20-34)</option>
+      <option value="adult">Adult (35-55)</option>
+      <option value="senior">Senior (55+)</option>
     </td></tr>
 
     <tr><td>
@@ -190,9 +195,10 @@ input[type=submit]:hover {
     <td>
     <label for="sex">Sex</label>
     <select id="sex" name="sex">
-      <option value="other"> </option>
+      <option value="na"> </option>
       <option value="male">Male</option>
       <option value="female">Female</option>
+      <option value="other">Other</option>
     </select></td></tr>
 
     <tr><td>

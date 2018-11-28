@@ -182,7 +182,7 @@ input[type=submit]:hover {
 	  <br><br>
 
 	  <center>
-		   <font size="50" face="georgia">Directory of Locations (A-Z)</font> 
+		   <font size="50" face="georgia">Pulse Directory (A-Z)</font> 
 	   </center>
 	  <br><br>
 
@@ -211,7 +211,7 @@ include_once "includes/dbh.inc.php"; // this will include a.php
 ?>
 
 <table id="cities" align="center">
-    		<th colspan="2"><center>Global Respondents</center></th>
+    		<th colspan="2"><center>Respondents</center></th>
 		<tbody>
 		<tr>
 			<td><div id="piechart"></div> </td>
@@ -234,9 +234,19 @@ include_once "includes/dbh.inc.php"; // this will include a.php
 
 		</tbody>
 	</table>
-
-
 <br><br>
+
+<table id="cities" align="center">
+    		<th colspan="2"><center>Pulse Timeline</center></th>
+		<tbody>
+		<tr>
+			<td><div id="histgram2"></div> </td>
+		</tr>
+
+		</tbody>
+	</table>
+<br><br>
+
 <table id="cities" align="center">
     		<th><center>Locations Reporting Pulses (Fixme: add links)</center></th>
 		<tbody>
@@ -281,6 +291,8 @@ $age_hist = $db->query("SELECT age, COUNT(age) AS freq FROM pulse GROUP BY age")
 
 $cat_hist = $db->query("SELECT category, COUNT(category) AS freq FROM pulse GROUP BY category");
 
+$time_hist = $db->query("SELECT date(time), COUNT(if(category = 'economic', 1, 0)) AS cat1 FROM pulse GROUP BY date(time)");
+
 ?>
 
 
@@ -292,6 +304,7 @@ google.charts.setOnLoadCallback(drawChart_sex);
 google.charts.setOnLoadCallback(drawChart_senti);
 google.charts.setOnLoadCallback(drawChart_age);
 google.charts.setOnLoadCallback(drawChart_cat);
+google.charts.setOnLoadCallback(drawChart_time);
 
 function drawChart_sex() {
 
@@ -390,6 +403,33 @@ function drawChart_cat() {
     };
     
     var chart = new google.visualization.ColumnChart(document.getElementById('histgram1'));
+    
+    chart.draw(data, options);
+}
+
+
+function drawChart_time() {
+
+    var data = google.visualization.arrayToDataTable([
+      ['Language', 'Cat1', 'Cat2'],
+      <?php
+      if($time_hist->num_rows > 0){
+          while($row = $time_hist->fetch_assoc()){
+            echo "['".$row['date(time)']."', ".$row['cat1']." ,".$row['cat1']."],";
+          }
+      }
+      ?>
+    ]);
+    
+    var options = {
+        title: 'Pulse Timeline',
+        width: 1100,
+	height: 300,
+	bar: {groupWidth: "20%"},
+        isStacked: true,
+    };
+    
+    var chart = new google.visualization.ColumnChart(document.getElementById('histgram2'));
     
     chart.draw(data, options);
 }
