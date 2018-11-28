@@ -202,12 +202,68 @@ input[type=submit]:hover {
 
 <br><br>
 
+
+
+
+
+
 <div>
 <?php
 include_once "includes/dbh.inc.php"; // this will include a.php
 ?>
+
 <table id="cities" align="center">
-    		<th><center>Locations reporting</center></th>
+    		<th colspan="2"><center>Gender Ratio (Fixme: PieChart)</center></th>
+		<tbody>
+		<?php
+		while ($row = mysqli_fetch_array($query1))
+		{
+			echo '<tr>
+					<td>'.$row['sex'].'</td>
+					<td>'.$row['freq'].'</td>
+				</tr>';
+
+		}
+                ?>
+		</tbody>
+	</table>
+
+<br><br>
+<table id="cities" align="center">
+    		<th colspan="2"><center>Age Group (Fixme: HistGram)</center></th>
+		<tbody>
+		<?php
+		while ($row = mysqli_fetch_array($query2))
+		{
+			echo '<tr>
+					<td>'.$row['age'].'</td>
+					<td>'.$row['freq'].'</td>
+				</tr>';
+
+		}
+                ?>
+		</tbody>
+	</table>
+
+<br><br>
+<table id="cities" align="center">
+    		<th colspan="2"><center>Pulse by Categories (Fixme: HistGram)</center></th>
+		<tbody>
+		<?php
+		while ($row = mysqli_fetch_array($query3))
+		{
+			echo '<tr>
+					<td>'.$row['category'].'</td>
+					<td>'.$row['freq'].'</td>
+				</tr>';
+
+		}
+                ?>
+		</tbody>
+	</table>
+<br><br>
+<table id="cities" align="center">
+    		<th><center>Locations Reporting Pulses (Fixme: add links)</center></th>
 		<tbody>
 		<?php
 		while ($row = mysqli_fetch_array($query))
@@ -218,8 +274,6 @@ include_once "includes/dbh.inc.php"; // this will include a.php
 		}?>
 		</tbody>
 	</table>
-
-
 
 
 </div>

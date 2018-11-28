@@ -21,4 +21,28 @@ if (!$query) {
 }
 
 
+//sex ratio 
+$sql1 = 'SELECT sex, COUNT(sex) AS freq FROM pulse GROUP BY sex';
+$query1 = mysqli_query($conn, $sql1);
+if (!$query1) {
+	die ('SQL Error: ' . mysqli_error($conn));
+}
+
+// age histogram
+$sql2 = 'SELECT age, COUNT(age) AS freq FROM pulse GROUP BY age';
+$query2 = mysqli_query($conn, $sql2);
+if (!$query2) {
+	die ('SQL Error: ' . mysqli_error($conn));
+}
+
+
+// category histogram
+$sql3 = 'SELECT category, COUNT(category) AS freq FROM pulse GROUP BY category';
+$query3 = mysqli_query($conn, $sql3);
+if (!$query3) {
+	die ('SQL Error: ' . mysqli_error($conn));
+}
+
+
+
 ?>
