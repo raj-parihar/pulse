@@ -291,7 +291,16 @@ $age_hist = $db->query("SELECT age, COUNT(age) AS freq FROM pulse GROUP BY age")
 
 $cat_hist = $db->query("SELECT category, COUNT(category) AS freq FROM pulse GROUP BY category");
 
-$time_hist = $db->query("SELECT date(time), COUNT(if(category = 'economic', 1, 0)) AS cat1 FROM pulse GROUP BY date(time)");
+$time_hist = $db->query("SELECT date(time), category FROM pulse");
+
+if($time_hist->num_rows > 0){
+   while($row = $time_hist->fetch_assoc()){
+	   //echo "['".$row[0]."', ".$row[1]."],";
+	   echo $row['date(time)'];
+	   echo $row['category'];
+     }
+}
+
 
 ?>
 
