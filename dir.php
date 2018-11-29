@@ -133,7 +133,7 @@ input[type=submit]:hover {
 #cities {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    width: 75%;
+    width: 80%;
 }
 
 #cities td, #cities th {
@@ -186,7 +186,7 @@ input[type=submit]:hover {
 	   </center>
 	  <br><br>
 
-<div class="srch_eng">
+<div class="srch_eng" align="left">
 <script>
   (function() {
     var cx = '005828985785630724111:ekaqk3jotby';
@@ -248,7 +248,7 @@ include_once "includes/dbh.inc.php"; // this will include a.php
 <br><br>
 
 <table id="cities" align="center">
-    		<th><center>Locations Reporting Pulses (Fixme: add links)</center></th>
+    		<th><center>Locations Reporting Pulses</center></th>
 		<tbody>
 		<?php
 		while ($row = mysqli_fetch_array($query))
@@ -278,33 +278,37 @@ $dbHost = 'localhost';
 $dbUsername = 'user';
 $dbPassword = 'password';
 $dbName = 'pulseinfo';
-
 // Create connection and select db
 $db = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
 
 // Get data from database
 $sex_pie = $db->query("SELECT sex, COUNT(sex) AS freq FROM pulse GROUP BY sex");
-
 $senti_pie = $db->query("SELECT sentiment, COUNT(sentiment) AS freq FROM pulse GROUP BY sentiment");
-
 $age_hist = $db->query("SELECT age, COUNT(age) AS freq FROM pulse GROUP BY age");
-
 $cat_hist = $db->query("SELECT category, COUNT(category) AS freq FROM pulse GROUP BY category");
-
 $time_hist = $db->query("SELECT date(time), category FROM pulse");
+
+$time_stamp = array();
+$cats = array("general", "health", "education", "water", "economic", "governence", "social", "cultural", "environment", "housing", "laworder", "malnourishment", "agrarian", "industrial", "other");
 
 if($time_hist->num_rows > 0){
    while($row = $time_hist->fetch_assoc()){
 	   //echo "['".$row[0]."', ".$row[1]."],";
-	   echo $row['date(time)'];
-	   echo $row['category'];
-     }
+	   //echo $row['date(time)'], $row['category']; 
+	   //echo "<br>";
+
+	   if(!array_key_exists($row['date(time)'], $time_stamp)) {
+		   $time_stamp[$row['date(time)']] = array_fill(0, count($cats), 0);
+	   }
+           
+	   $cat_idx = array_search($row['category'], $cats);
+	   //echo "<br>";
+
+	   $time_stamp[$row['date(time)']][$cat_idx] ++;
+   }
+
 }
-
-
 ?>
-
-
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
@@ -314,6 +318,44 @@ google.charts.setOnLoadCallback(drawChart_senti);
 google.charts.setOnLoadCallback(drawChart_age);
 google.charts.setOnLoadCallback(drawChart_cat);
 google.charts.setOnLoadCallback(drawChart_time);
+
+function drawChart_time() {
+
+    var data = google.visualization.arrayToDataTable([
+       ["TimeStamp", "general", "health", "education", "water", "economic", "governence", "social", "cultural", "environment", "housing", "laworder", "malnourishment", "agrarian", "industrial", "other"],
+<?php
+
+      foreach($time_stamp as $key => $value){
+	      $line =  "['".$key."', ";
+
+	  foreach($value as $val) {
+              $line = $line.$val.", ";
+	  }
+	  $line = $line."],";
+	  echo $line;
+      }   
+
+      ?>
+    ]);
+    
+    var options = {
+        title: 'Pulse Timeline',
+        width: 1120,
+	height: 500,
+	bar: {groupWidth: "20%"},
+	isStacked: 'percent',
+	legend: { position: 'top', maxLines: 3 },
+        vAxis: {
+            minValue: 0,
+            ticks: [0, .2, .4, .6, .8, 1]
+          }
+
+    };
+    
+    var chart = new google.visualization.ColumnChart(document.getElementById('histgram2'));
+    
+    chart.draw(data, options);
+}
 
 function drawChart_sex() {
 
@@ -330,7 +372,7 @@ function drawChart_sex() {
     
     var options = {
         title: 'Gender Ratio',
-        width: 600,
+        width: 500,
 	height: 300,
 	pieHole: 0.4,
     };
@@ -355,7 +397,7 @@ function drawChart_senti() {
     
     var options = {
         title: 'Pulse Sentiment',
-        width: 600,
+        width: 500,
 	height: 300,
 	pieHole: 0.4,
     };
@@ -380,10 +422,11 @@ function drawChart_age() {
     ]);
     
     var options = {
-        title: 'Distribution by Age (in years)',
+        title: 'Age Group Distribution',
         width: 600,
 	height: 300,
 	bar: {groupWidth: "20%"},
+	legend: {position: 'none'}
     };
     
     var chart = new google.visualization.ColumnChart(document.getElementById('histgram'));
@@ -406,9 +449,10 @@ function drawChart_cat() {
     
     var options = {
         title: 'Pulse by Categories',
-        width: 650,
+        width: 600,
 	height: 300,
 	bar: {groupWidth: "20%"},
+	legend: {position: 'none'}
     };
     
     var chart = new google.visualization.ColumnChart(document.getElementById('histgram1'));
@@ -417,31 +461,6 @@ function drawChart_cat() {
 }
 
 
-function drawChart_time() {
-
-    var data = google.visualization.arrayToDataTable([
-      ['Language', 'Cat1', 'Cat2'],
-      <?php
-      if($time_hist->num_rows > 0){
-          while($row = $time_hist->fetch_assoc()){
-            echo "['".$row['date(time)']."', ".$row['cat1']." ,".$row['cat1']."],";
-          }
-      }
-      ?>
-    ]);
-    
-    var options = {
-        title: 'Pulse Timeline',
-        width: 1100,
-	height: 300,
-	bar: {groupWidth: "20%"},
-        isStacked: true,
-    };
-    
-    var chart = new google.visualization.ColumnChart(document.getElementById('histgram2'));
-    
-    chart.draw(data, options);
-}
 
 
 </script>
