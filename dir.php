@@ -182,11 +182,10 @@ input[type=submit]:hover {
 	  <br><br>
 
 	  <center>
-		   <font size="50" face="georgia">Pulse Directory (A-Z)</font> 
-	   </center>
+		   <font size="50" face="georgia">Global Pulse</font> 
 	  <br><br>
 
-<div class="srch_eng" align="left">
+<div class="srch_eng" align="center">
 <script>
   (function() {
     var cx = '005828985785630724111:ekaqk3jotby';
@@ -200,6 +199,7 @@ input[type=submit]:hover {
 </script>
 <gcse:search></gcse:search>
 </div>
+	   </center>
 
 <br><br>
 
@@ -208,6 +208,7 @@ input[type=submit]:hover {
 <div>
 <?php
 include_once "includes/dbh.inc.php"; // this will include a.php
+$loc_address = "https://www.pulse.fyi/location.php"; 
 ?>
 
 <table id="cities" align="center">
@@ -247,15 +248,16 @@ include_once "includes/dbh.inc.php"; // this will include a.php
 	</table>
 <br><br>
 
+
 <table id="cities" align="center">
     		<th><center>Locations Reporting Pulses</center></th>
 		<tbody>
 		<?php
 		while ($row = mysqli_fetch_array($query))
 		{
-			echo '<tr>
-					<td>'.$row['location'].'</td>
-				</tr>';
+			//echo '<tr><td>'.$row['location'].'</td></tr>';
+			$loc = $row['location'];
+                        echo "<tr><td><a href='$loc_address?loc=$loc'>".$row['location']."</a></td></tr>";
 		}?>
 		</tbody>
 	</table>
