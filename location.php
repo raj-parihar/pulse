@@ -250,11 +250,11 @@ $dbName = 'pulseinfo';
 $db = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
 
 // Get data from database
-$sex_pie = $db->query("SELECT sex, COUNT(sex) AS freq FROM pulse GROUP BY sex");
-$senti_pie = $db->query("SELECT sentiment, COUNT(sentiment) AS freq FROM pulse GROUP BY sentiment");
-$age_hist = $db->query("SELECT age, COUNT(age) AS freq FROM pulse GROUP BY age");
-$cat_hist = $db->query("SELECT category, COUNT(category) AS freq FROM pulse GROUP BY category");
-$time_hist = $db->query("SELECT date(time), category FROM pulse");
+$sex_pie = $db->query("SELECT sex, COUNT(sex) AS freq FROM (SELECT * FROM pulse WHERE location='$location') AS pulse_loc GROUP BY sex");
+$senti_pie = $db->query("SELECT sentiment, COUNT(sentiment) AS freq FROM (SELECT * FROM pulse WHERE location='$location') AS pulse_loc GROUP BY sentiment");
+$age_hist = $db->query("SELECT age, COUNT(age) AS freq FROM (SELECT * FROM pulse WHERE location='$location') AS pulse_loc GROUP BY age");
+$cat_hist = $db->query("SELECT category, COUNT(category) AS freq FROM (SELECT * FROM pulse WHERE location='$location') AS pulse_loc GROUP BY category");
+$time_hist = $db->query("SELECT date(time), category FROM (SELECT * FROM pulse WHERE location='$location') AS pulse_loc");
 
 $time_stamp = array();
 $cats = array("general", "health", "education", "water", "economic", "governence", "social", "cultural", "environment", "housing", "laworder", "malnourishment", "agrarian", "industrial", "other");
