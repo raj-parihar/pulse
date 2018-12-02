@@ -3,6 +3,7 @@ $servername = "localhost";
 $username = "user";
 $password = "password";
 $dbname = "pulseinfo";
+$dbuser = "pulseuser";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -50,6 +51,30 @@ $query4 = mysqli_query($conn, $sql4);
 if (!$query4) {
 	die ('SQL Error: ' . mysqli_error($conn));
 }
+
+
+/////////////// Visitor counter impl //////////////
+
+    $conn_v = new mysqli($servername, $username, $password, $dbuser);
+    if ($conn_v->connect_error) {
+        die("Connection failed: " . $conn_v->connect_error);
+    } 
+
+    $sql_v = "UPDATE counter SET visits = visits+1 WHERE id = 1";
+    $conn_v->query($sql_v);
+
+    $sql_v = "SELECT visits FROM counter WHERE id = 1";
+    $result = $conn_v->query($sql_v);
+
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            $visits = $row["visits"];
+        }
+    } else {
+        echo "no results";
+    }
+    
+    $conn_v->close();
 
 
 

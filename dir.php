@@ -258,18 +258,45 @@ $loc_address = "https://www.pulse.fyi/location.php";
 			//echo '<tr><td>'.$row['location'].'</td></tr>';
 			$loc = $row['location'];
                         echo "<tr><td><a href='$loc_address?loc=$loc'>".$row['location']."</a></td></tr>";
-		}?>
+		}
+                ?>
 		</tbody>
 	</table>
 
 
 </div>
 
+<canvas id="cloudcanvas" width="600" height="400"></canvas>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="wordcloud/jquery.wordcloud.js"></script>
 
 
+<script type="text/javascript">
+jQuery(function ($) {
+
+$("#cloudcanvas").wordCloud({
+   database: {
+   // database parameters go here, see parameters section
+						dbHost: $('localhost').val(),
+						dbUser: $('user').val(),
+						dbPass: $('password').val(),
+						dbName: $('pulseinfo').val(),
+						selectFields: $('location').val(),
+						tableName: $('pulse').val(),
+						where: $('').val(),
+						maxWords: $('100').val(),
+						excludedWords: $('').val()
+
+   }
+});
 
 
-    <!---div id="message">Pulse info saved!</div--->
+});
+</script>
+
+
+    <!--div id="message">Pulse info saved!</div-->
         <br><br>
 	<footer>&copy; Copyright 2018 Pulse Infographics </footer>
         <br>

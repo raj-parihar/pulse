@@ -1,7 +1,10 @@
 <!DOCTYPE html >
+<html lang="en">
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>pulse.fyi</title>
     <style>
 
@@ -243,6 +246,40 @@ input[type=submit]:hover {
   </form>
 </div>
 
+	<br><br>
+
+<?php
+include_once "includes/dbh.inc.php"; // this will include a.php
+//$cntr = str_split($visits);
+$cntr  = array_map('intval', str_split($visits));
+?>
+
+<style>
+span {
+  display: inline-block;
+  padding: 6px 6px 4px;
+  border-radius: 3px;
+  background: #b09dc4;
+  margin-right: -2px;
+}
+.center {
+  text-align: center;
+  width: 50%;
+  margin: 20px auto;
+}
+.message {
+  color: #ccc6e3;
+  font-family: Verdana;
+  font-size: 12px;
+</style>
+
+<div class="center message">
+  Pulse visitor #: 
+</div>
+<div class="center">
+  <span> <?php print $visits; ?></span>
+
+</div>
 
         <br><br>
 	<footer>&copy; Copyright 2018 Pulse Infographics </footer>
