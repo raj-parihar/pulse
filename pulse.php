@@ -150,6 +150,28 @@ input[type=submit]:hover {
     <div id="map"></div>
 
 
+<?php
+include_once "includes/track.php";
+?>
+
+<div class="container">
+    <p> <b>
+    <font face="georgia" color="green">
+    <?php
+    echo "Location: ".ip_info("Visitor", "Address");
+    ?>
+    </font>
+    <font face="georgia" color="blue">
+    <?php
+    echo "<br><br>";
+    echo "IP Address: ".ip_info("Visitor", "ipaddr");
+    ?>
+    </font>
+    </b>
+    </p>
+</div>
+
+
         <br><br>
 	<footer>&copy; Copyright 2018 Pulse Infographics </footer>
         <br>

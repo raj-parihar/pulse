@@ -78,4 +78,27 @@ if (!$query4) {
 
 
 
+    //////////////// Track visitor ///////////////
+    include_once"track.php";
+// Create connection
+$conn_t = mysqli_connect($servername, $username, $password, $dbuser);
+
+// Check connection
+if (!$conn_t) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$ip_addr = ip_info("Visitor", "ipaddr");
+$loc = ip_info("Visitor", "Address");
+
+$sql_t = "INSERT INTO visitor (ipaddr, location)
+VALUES ('$ip_addr', '$loc')";
+if (mysqli_query($conn_t, $sql_t)) {
+} else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
+
+mysqli_close($conn);
+
+
 ?>

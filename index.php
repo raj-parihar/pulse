@@ -285,6 +285,18 @@ span {
 	<footer>&copy; Copyright 2018 Pulse Infographics </footer>
         <br>
 
+<?php
+include_once "includes/track.php"; 
+
+
+?>
+
+
+
+
+
+
+
     <script>
       var map;
       var marker;
