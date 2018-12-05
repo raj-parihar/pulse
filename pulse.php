@@ -132,11 +132,13 @@ input[type=submit]:hover {
   <!-- Left-aligned links (default) -->
   <a href="" class="active">Pulse</a>
   <a href="dir.php">Directory</a>
+  <a href="cloud.php">Cloud</a>
+
 
   <!-- Right-aligned links -->
   <div class="topnav-right">
     <a href="contact.php">Contact</a>
-    <a href="about.html">About</a>
+    <a href="about.php">About</a>
   </div>
 
 </div> 

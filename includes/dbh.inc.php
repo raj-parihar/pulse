@@ -53,6 +53,16 @@ if (!$query4) {
 }
 
 
+
+/////////////////////// tag cloud: location, category, and pulse
+$sql5 = 'SELECT location, category, pulse FROM pulse';
+$query_pulse = mysqli_query($conn, $sql5);
+if (!$query_pulse) {
+	die ('SQL Error: ' . mysqli_error($conn));
+}
+
+
+
 /////////////// Visitor counter impl //////////////
 
     $conn_v = new mysqli($servername, $username, $password, $dbuser);

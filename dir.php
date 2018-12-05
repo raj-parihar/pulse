@@ -170,6 +170,8 @@ input[type=submit]:hover {
   <!-- Left-aligned links (default) -->
   <a href="pulse.php">Pulse</a>
   <a href="" class="active">Directory</a>
+  <a href="cloud.php">Cloud</a>
+
 
   <!-- Right-aligned links -->
   <div class="topnav-right">
@@ -212,6 +214,22 @@ $loc_address = "https://www.pulse.fyi/location.php";
 ?>
 
 <table id="cities" align="center">
+    		<th><center>Locations Reporting Pulses</center></th>
+		<tbody>
+		<?php
+		while ($row = mysqli_fetch_array($query))
+		{
+			//echo '<tr><td>'.$row['location'].'</td></tr>';
+			$loc = $row['location'];
+                        echo "<tr><td><a href='$loc_address?loc=$loc'>".$row['location']."</a></td></tr>";
+		}
+                ?>
+		</tbody>
+	</table>
+</div>
+<br><br>
+
+<table id="cities" align="center">
     		<th colspan="2"><center>Respondents</center></th>
 		<tbody>
 		<tr>
@@ -249,24 +267,7 @@ $loc_address = "https://www.pulse.fyi/location.php";
 <br><br>
 
 
-<table id="cities" align="center">
-    		<th><center>Locations Reporting Pulses</center></th>
-		<tbody>
-		<?php
-		while ($row = mysqli_fetch_array($query))
-		{
-			//echo '<tr><td>'.$row['location'].'</td></tr>';
-			$loc = $row['location'];
-                        echo "<tr><td><a href='$loc_address?loc=$loc'>".$row['location']."</a></td></tr>";
-		}
-                ?>
-		</tbody>
-	</table>
 
-
-</div>
-
-<canvas id="cloudcanvas" width="600" height="400"></canvas>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="wordcloud/jquery.wordcloud.js"></script>
