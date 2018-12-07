@@ -311,13 +311,8 @@ function drawChart_time() {
         width: 1120,
 	height: 500,
 	bar: {groupWidth: "20%"},
-	isStacked: 'percent',
+	isStacked: true,
 	legend: { position: 'top', maxLines: 3 },
-        vAxis: {
-            minValue: 0,
-            ticks: [0, .2, .4, .6, .8, 1]
-          }
-
     };
     
     var chart = new google.visualization.ColumnChart(document.getElementById('histgram2'));

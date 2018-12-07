@@ -13,7 +13,8 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = 'SELECT DISTINCT location FROM pulse';
+//$sql = 'SELECT DISTINCT location FROM pulse';
+$sql = 'SELECT location, COUNT(location) as freq FROM pulse GROUP BY location';
 		
 $query = mysqli_query($conn, $sql);
 

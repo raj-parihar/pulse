@@ -214,14 +214,15 @@ $loc_address = "https://www.pulse.fyi/location.php";
 ?>
 
 <table id="cities" align="center">
-    		<th><center>Locations Reporting Pulses</center></th>
+    		<th colspan=2><center>Locations Reporting Pulses (A-Z)</center></th>
 		<tbody>
 		<?php
 		while ($row = mysqli_fetch_array($query))
 		{
 			//echo '<tr><td>'.$row['location'].'</td></tr>';
 			$loc = $row['location'];
-                        echo "<tr><td><a href='$loc_address?loc=$loc'>".$row['location']."</a></td></tr>";
+			$freq = $row['freq'];
+                        echo "<tr><td><a href='$loc_address?loc=$loc'>".$row['location']."</a></td> <td>$freq</td></tr>";
 		}
                 ?>
 		</tbody>
@@ -265,37 +266,6 @@ $loc_address = "https://www.pulse.fyi/location.php";
 		</tbody>
 	</table>
 <br><br>
-
-
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript" src="wordcloud/jquery.wordcloud.js"></script>
-
-
-<script type="text/javascript">
-jQuery(function ($) {
-
-$("#cloudcanvas").wordCloud({
-   database: {
-   // database parameters go here, see parameters section
-						dbHost: $('localhost').val(),
-						dbUser: $('user').val(),
-						dbPass: $('password').val(),
-						dbName: $('pulseinfo').val(),
-						selectFields: $('location').val(),
-						tableName: $('pulse').val(),
-						where: $('').val(),
-						maxWords: $('100').val(),
-						excludedWords: $('').val()
-
-   }
-});
-
-
-});
-</script>
-
 
     <!--div id="message">Pulse info saved!</div-->
         <br><br>
@@ -373,13 +343,8 @@ function drawChart_time() {
         width: 1120,
 	height: 500,
 	bar: {groupWidth: "20%"},
-	isStacked: 'percent',
+	isStacked: true,
 	legend: { position: 'top', maxLines: 3 },
-        vAxis: {
-            minValue: 0,
-            ticks: [0, .2, .4, .6, .8, 1]
-          }
-
     };
     
     var chart = new google.visualization.ColumnChart(document.getElementById('histgram2'));
@@ -490,13 +455,7 @@ function drawChart_cat() {
     chart.draw(data, options);
 }
 
-
-
-
 </script>
-
-
-
 
     <script>
       var map;
