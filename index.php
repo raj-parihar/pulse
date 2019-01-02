@@ -149,7 +149,7 @@ input[type=submit]:hover {
 	  <br><br>
 
 	  <center>
-		   <font size="100" face="georgia">Pulse: A Social Infographic Platform</font>
+		   <font size="100" face="georgia">Pulse: A Socio-Economic Infographic Platform</font>
 
 	  <br><br>
 <?php
@@ -237,7 +237,7 @@ input[type=submit]:hover {
 
     <tr><td colspan="2">
     <label for="pulse"><b>*Pulse Info:</b></label>
-    <textarea id="pulse" name="pulse" placeholder="Write your pulse info here..." style="height:40px"></textarea>
+    <textarea id="pulse" name="pulse" placeholder="Enter your pulse info here ..." style="height:40px"></textarea>
     </td> </tr>
 
     <tr><td colspan="2" align="center">
@@ -330,7 +330,8 @@ include_once "includes/track.php";
           google.maps.event.addListener(marker, 'click', function() {
             infowindow.open(map, marker);
           });
-        });
+	});
+
       }
 
       function saveData() {

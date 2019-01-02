@@ -199,12 +199,31 @@ include_once "includes/track.php";
               lng: position.coords.longitude
             };
 
-	    var marker = new google.maps.Marker({position: pos, map: map});
+	    var marker = new google.maps.Marker({
+	    	position: pos,
+		map: map,
+		draggable: true,
+		animation: google.maps.Animation.DROP,
+		title:"You!"
+	    });
+
+	    marker.addListener('click', toggleBounce);
+
+	    function toggleBounce() {
+  		if (marker.getAnimation() !== null) {
+    			marker.setAnimation(null);
+  		} else {
+			marker.setAnimation(google.maps.Animation.BOUNCE);
+			setTimeout(function(){ marker.setAnimation(null); }, 750);
+  		}
+	    }
+
 
 	    //infoWindow.setPosition(pos);
             //infoWindow.setContent('You!');
             //infoWindow.open(map);
-            map.setCenter(pos);
+	    map.setCenter(pos);
+
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           });
