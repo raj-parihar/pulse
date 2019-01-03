@@ -149,7 +149,7 @@ input[type=submit]:hover {
 	  <br><br>
 
 	  <center>
-		   <font size="100" face="georgia">Pulse: A Socio-Economic Infographic Platform</font>
+		   <font size="100" face="georgia">Pulse: A Socio-Economic Info Platform</font>
 
 	  <br><br>
 <?php
@@ -185,21 +185,23 @@ input[type=submit]:hover {
     <td>
     <label for="age">Age Group</label>
     <select id="age" name="age">
-      <option value="other"> </option>
+      <option value="blank"> select </option>
       <option value="teen">Teen (10-19)</option>
-      <option value="youth">Youth (20-34)</option>
-      <option value="adult">Adult (35-55)</option>
-      <option value="senior">Senior (55+)</option>
+      <option value="youth">Youth (20-29)</option>
+      <option value="adult">Adult (30-49)</option>
+      <option value="senior">Senior (50-69)</option>
+      <option value="supersenior">Super Senior (70+)</option>
+      <option value="other">Other (NA)</option>
     </td></tr>
 
     <tr><td>
-    <label for="location">Location*</label>
+    <label for="location"><b>Location*</b></label>
     <input type="text" id="location" name="location" placeholder="Town, State, Country"> 
     </td>
     <td>
     <label for="sex">Sex</label>
     <select id="sex" name="sex">
-      <option value="na"> </option>
+      <option value="blank"> select </option>
       <option value="male">Male</option>
       <option value="female">Female</option>
       <option value="other">Other</option>
@@ -208,7 +210,7 @@ input[type=submit]:hover {
     <tr><td>
     <label for="category">Category</label>
     <select id="category" name="category">
-      <option value='blank'> </option>
+      <option value='blank'> select </option>
       <option value='general'>General</option>
       <option value='health'>Health</option>
       <option value='education'>Education</option>
@@ -231,6 +233,7 @@ input[type=submit]:hover {
       <option value="positive">Positive</option>
       <option value="negative">Negative</option>
       <option value="neutral">Neutral</option>
+      <option value="other">Other</option>
     </select></td></tr>
     </td>
     </tr>

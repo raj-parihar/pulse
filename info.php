@@ -12,6 +12,10 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
+// Form validation
+$locationErr = $pulseErr = "";
+$location = $pulse = "";
+
 // from html code
 $name = $_GET["name"];
 $age = $_GET["age"];
