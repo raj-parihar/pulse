@@ -154,6 +154,8 @@ input[type=submit]:hover {
 
 <?php
 include_once "includes/track.php";
+$v_loc = ip_info("Visitor", "city");
+$v_url = "https://www.pulse.fyi/location.php?loc=";
 ?>
 
 <div class="container">
@@ -204,6 +206,7 @@ include_once "includes/track.php";
 		map: map,
 		draggable: true,
 		animation: google.maps.Animation.DROP,
+		url: "<?php echo $v_url.$v_loc?>", 
 		title:"You!"
 	    });
 
@@ -218,6 +221,15 @@ include_once "includes/track.php";
   		}
 	    }
 
+        marker.addListener('click', function() {
+          map.setZoom(8);
+          map.setCenter(marker.getPosition());
+        });
+
+
+    google.maps.event.addListener(marker, 'click', function() {
+        window.location.href = this.url;
+    });
 
 	    //infoWindow.setPosition(pos);
             //infoWindow.setContent('You!');
