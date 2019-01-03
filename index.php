@@ -125,23 +125,27 @@ input[type=submit]:hover {
 }
 </style>
 
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
  <!-- Top navigation -->
 <div class="topnav">
 
   <!-- Centered link -->
   <div class="topnav-centered">
-    <a href="" class="active">Home</a>
+    <a href="index.php" class="active"><div class="w3-xxxlarge"><i class="fa fa-home"></i></div></a> 
   </div>
 
   <!-- Left-aligned links (default) -->
-  <a href="pulse.php">Pulse</a>
-  <a href="dir.php">Directory</a>
-  <a href="cloud.php">Cloud</a>
+  <a href="pulse.php"><div class="w3-xxlarge"><i class="fa fa-heartbeat"></i></div></a>
+  <a href="dir.php"><div class="w3-xxlarge"><i class="fa fa-globe"></i></div></a>
+  <a href="cloud.php"><div class="w3-xxlarge"><i class="fa fa-cloud"></i></div></a>
 
   <!-- Right-aligned links -->
   <div class="topnav-right">
-    <a href="contact.php">Contact</a>
-    <a href="about.php">About</a>
+    <a href="contact.php"><div class="w3-xxlarge"><i class="fa fa-envelope"></i></div></a>
+    <a href="about.php"><div class="w3-xxlarge"><i class="fa fa-users"></i></div></a>
   </div>
 
 </div> 
@@ -185,7 +189,7 @@ input[type=submit]:hover {
     <td>
     <label for="age">Age Group</label>
     <select id="age" name="age">
-      <option value="blank"> select </option>
+      <option value="blank"> select one </option>
       <option value="teen">Teen (10-19)</option>
       <option value="youth">Youth (20-29)</option>
       <option value="adult">Adult (30-49)</option>
@@ -201,7 +205,7 @@ input[type=submit]:hover {
     <td>
     <label for="sex">Sex</label>
     <select id="sex" name="sex">
-      <option value="blank"> select </option>
+      <option value="blank"> select one</option>
       <option value="male">Male</option>
       <option value="female">Female</option>
       <option value="other">Other</option>
@@ -210,7 +214,7 @@ input[type=submit]:hover {
     <tr><td>
     <label for="category">Category</label>
     <select id="category" name="category">
-      <option value='blank'> select </option>
+      <option value='blank'> select one </option>
       <option value='general'>General</option>
       <option value='health'>Health</option>
       <option value='education'>Education</option>

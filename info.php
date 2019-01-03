@@ -25,6 +25,7 @@ $category = $_GET["category"];
 $sentiment = $_GET["sentiment"];
 $pulse = $_GET["pulse"];
 
+print $location;
 
 // creating info into the pulseinfo db
 $sql = "INSERT INTO pulse (name, age, location, sex, category, sentiment, pulse)
