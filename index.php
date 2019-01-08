@@ -189,12 +189,12 @@ input[type=submit]:hover {
     <td>
     <label for="age">Age Group</label>
     <select id="age" name="age">
-      <option value="blank"> select one </option>
-      <option value="teen">Teen (10-19)</option>
-      <option value="youth">Youth (20-29)</option>
-      <option value="adult">Adult (30-49)</option>
-      <option value="senior">Senior (50-69)</option>
-      <option value="supersenior">Super Senior (70+)</option>
+      <option value="blank"> (select one) </option>
+      <option value="teen">Teen (10-20)</option>
+      <option value="youth">Youth (20-30)</option>
+      <option value="adult">Adult (30-45)</option>
+      <option value="senior">Senior (45-60)</option>
+      <option value="supersenior">Veteran (60+)</option>
       <option value="other">Other (NA)</option>
     </td></tr>
 
@@ -205,16 +205,18 @@ input[type=submit]:hover {
     <td>
     <label for="sex">Sex</label>
     <select id="sex" name="sex">
-      <option value="blank"> select one</option>
+      <option value="blank">(select one)</option>
       <option value="male">Male</option>
       <option value="female">Female</option>
+      <option value="trans">Trans</option>
       <option value="other">Other</option>
+      <option value="NA">Perfer not to disclose</option>
     </select></td></tr>
 
     <tr><td>
     <label for="category">Category</label>
     <select id="category" name="category">
-      <option value='blank'> select one </option>
+      <option value='blank'>(select one)</option>
       <option value='general'>General</option>
       <option value='health'>Health</option>
       <option value='education'>Education</option>
@@ -234,6 +236,7 @@ input[type=submit]:hover {
     <td>
     <label for="sentiment">Sentiment</label>
     <select id="sentiment" name="sentiment">
+      <option value='blank'>(select one)</option>
       <option value="positive">Positive</option>
       <option value="negative">Negative</option>
       <option value="neutral">Neutral</option>
