@@ -26,17 +26,22 @@ $pulse = $_GET["pulse"];
 $sql = "INSERT INTO pulse (name, age, location, sex, category, sentiment, pulse)
 VALUES ('$name', '$age', '$location', '$sex', '$category', '$sentiment', '$pulse')";
 
-if(!empty($_POST['location'])){
+//print "location=".$location;
 
-if (mysqli_query($conn, $sql)) {
-    echo "Thank you for submitting your pulse info!";
-} else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+if($location != ""){
+
+	if (mysqli_query($conn, $sql)) {
+		echo "Thank you for submitting your pulse info!";
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	}
+	header('Location: index.php?msg=success');
 }
+else {
+	header('Location: index.php?msg=fail');
 }
 
 mysqli_close($conn);
 
-header('Location: index.php?msg=successful');
 
 ?>

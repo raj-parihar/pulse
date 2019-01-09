@@ -157,12 +157,28 @@ input[type=submit]:hover {
 
 	  <br><br>
 <?php
-    if($_GET['msg'])
-    { ?>
+    if($_GET['msg'] == "success")
+    { 
+?>
 <div class="container">
     <p> <b>
-    <font face="georgia" color="blue">
-    Thank you for submitting your pulse info!
+    <font face="georgia" color="green" size="6">
+    Thank you for submitting your pulse info! <font size="8"><i class="fa fa-smile-o"></i></font>
+    </font>
+    </b>
+    </p>
+</div>
+<?php }
+?>
+
+<?php
+    if($_GET['msg'] == "fail")
+    { 
+?>
+<div class="container">
+    <p> <b>
+    <font face="georgia" color="red" size="6">
+    Please submit pulse info with a location! <font size="8"><i class="fa fa-frown-o"></i></font>
     </font>
     </b>
     </p>
