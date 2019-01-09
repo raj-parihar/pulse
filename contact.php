@@ -93,7 +93,8 @@
 
   <!-- Right-aligned links -->
   <div class="topnav-right">
-    <a href="" class="active"><div class="w3-xxlarge"><i class="fa fa-envelope"></i></div></a>
+    <a href="contest.php"><div class="w3-xxlarge"><i class="fa fa-trophy"></i></div></a>
+    <a href="" class="active"><div class="w3-xxlarge"><font color="darkviolet"><i class="fa fa-envelope"></i></font></div></a>
     <a href="about.php"><div class="w3-xxlarge"><i class="fa fa-users"></i></div></a>
   </div>
 

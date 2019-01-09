@@ -168,11 +168,12 @@ input[type=submit]:hover {
 
   <!-- Left-aligned links (default) -->
   <a href="pulse.php"><div class="w3-xxlarge"><i class="fa fa-heartbeat"></i></div></a>
-  <a href="" class="active"><div class="w3-xxlarge"><i class="fa fa-globe"></i></div></a>
+  <a href="" class="active"><div class="w3-xxlarge"><font color="darkviolet"><i class="fa fa-globe"></i></font></div></a>
   <a href="cloud.php"><div class="w3-xxlarge"><i class="fa fa-cloud"></i></div></a>
 
   <!-- Right-aligned links -->
   <div class="topnav-right">
+    <a href="contest.php"><div class="w3-xxlarge"><i class="fa fa-trophy"></i></div></a>
     <a href="contact.php"><div class="w3-xxlarge"><i class="fa fa-envelope"></i></div></a>
     <a href="about.php"><div class="w3-xxlarge"><i class="fa fa-users"></i></div></a>
   </div>
@@ -182,7 +183,7 @@ input[type=submit]:hover {
 	  <br><br>
 
 	  <center>
-		   <font size="50" face="georgia">Global Pulse Info</font> 
+		   <font size="50" face="georgia">Global Pulse Directory</font> 
 	  <br><br>
 
 <div class="srch_eng" align="center">

@@ -173,6 +173,7 @@ input[type=submit]:hover {
 
   <!-- Right-aligned links -->
   <div class="topnav-right">
+    <a href="contest.php"><div class="w3-xxlarge"><i class="fa fa-trophy"></i></div></a>
     <a href="contact.php"><div class="w3-xxlarge"><i class="fa fa-envelope"></i></div></a>
     <a href="about.php"><div class="w3-xxlarge"><i class="fa fa-users"></i></div></a>
   </div>

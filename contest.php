@@ -134,7 +134,7 @@ input[type=submit]:hover {
 
   <!-- Centered link -->
   <div class="topnav-centered">
-    <a href="index.php" class="active"><div class="w3-xxxlarge"><font color="darkviolet"><i class="fa fa-home"></i></font></div></a> 
+    <a href="index.php"><div class="w3-xxxlarge"><i class="fa fa-home"></i></div></a> 
   </div>
 
   <!-- Left-aligned links (default) -->
@@ -144,170 +144,94 @@ input[type=submit]:hover {
 
   <!-- Right-aligned links -->
   <div class="topnav-right">
-    <a href="contest.php"><div class="w3-xxlarge"><i class="fa fa-trophy"></i></div></a>
+    <a href="contest.php" class="active"><font color="darkviolet"><div class="w3-xxlarge"><i class="fa fa-trophy"></i></div></a></font>
     <a href="contact.php"><div class="w3-xxlarge"><i class="fa fa-envelope"></i></div></a>
     <a href="about.php"><div class="w3-xxlarge"><i class="fa fa-users"></i></div></a>
   </div>
+
+
+
+
 
 </div> 
 
 	  <br><br>
 
 	  <center>
-		   <font size="100" face="georgia"><font color="darkviolet"><b>Pulse:</b></font> A Socio-Economic Info Platform</font>
+		   <font size="100" face="georgia">Pulse Care: Make a Difference!</font>
 
-	  <br><br>
-<?php
-    if($_GET['msg'] == "success")
-    { 
-?>
+	  <br>
+
 <div class="container">
     <p> <b>
-    <font face="georgia" color="green" size="6">
-    Thank you for submitting your pulse info! <font size="8"><i class="fa fa-smile-o"></i></font>
+    <font face="georgia" color="blue" size="5">
+    Submit your <a href="index.php"><font color="fuchsia">pulse</font></a> with a valid email in the name field <font size="6" color="fuchsia"><i class="fa fa-heartbeat"></i></font>
     </font>
     </b>
     </p>
 </div>
-<?php }
-?>
 
-<?php
-    if($_GET['msg'] == "fail")
-    { 
-?>
 <div class="container">
     <p> <b>
-    <font face="georgia" color="red" size="6">
-    Please submit pulse info with a location! <font size="8"><i class="fa fa-frown-o"></i></font>
+    <font face="georgia" color="blue" size="5">
+    Pulses from the location with highest entries will enter in a draw <font size="6" color="gold"><i class="fa fa-ticket"></i></font>
     </font>
     </b>
     </p>
 </div>
-<?php }
- ?>
+
+<div class="container">
+    <p> <b>
+    <font face="georgia" color="blue" size="5">
+    Three random winners will be picked from the draw every week <font size="6" color="darkgoldenrod"><i class="fa fa-trophy"></i></font>
+    </font>
+    </b>
+    </p>
+</div>
+
+<div class="container">
+    <p> <b>
+    <font face="georgia" color="blue" size="5">
+    Winners will receive $21, $15, $11 reward along with a certificate <font size="6" color="mediumseagreen"><i class="fa fa-money"></i></font>
+    </font>
+    </b>
+    </p>
+</div>
+
+<div class="container">
+    <p> <b>
+    <font face="georgia" color="blue" size="5">
+    A team of volunteers will be assigned to understand the problem better <font size="6" color="cadetblue"><i class="fa fa-handshake-o"></i></font>
+    </font>
+    </b>
+    </p>
+</div>
+
+<div class="container">
+    <p> <b>
+    <font face="georgia" color="blue" size="5">
+    Approach appropriate authorities to register the concerns and follow ups <font size="6" color="red"><i class="fa fa-comments"></i></font>
+    </font>
+    </b>
+    </p>
+</div>
+
+<div class="container">
+    <p> <b>
+    <font face="georgia" color="blue" size="5">
+    Finally, winners will be archived on pulse platform with a badge of honor! <font size="6" color="gold"><i class="fa fa-star"></i></font>
+    </font>
+    </b>
+    </p>
+</div>
+
 
 	   </center>
 
-    <div id="map" height="460px" width="100%"></div>
 	<br>
-
-<div id="form">
-  <form action="info.php">
-   <table align="center">
-
-    <tr><td>
-    </td>
-
-    <tr><td>
-    <label for="name">Name/email (opt)</label>
-    <input type="text" id="name" name="name" placeholder="First, Last"> 
-    </td>
-    <td>
-    <label for="age">Age Group</label>
-    <select id="age" name="age">
-      <option value="blank"> (select one) </option>
-      <option value="teen">Teen (10-20)</option>
-      <option value="youth">Youth (20-30)</option>
-      <option value="adult">Adult (30-45)</option>
-      <option value="senior">Senior (45-60)</option>
-      <option value="supersenior">Veteran (60+)</option>
-      <option value="other">Other (NA)</option>
-    </td></tr>
-
-    <tr><td>
-    <label for="location"><b>Location*</b></label>
-    <input type="text" id="location" name="location" placeholder="Town, State, Country"> 
-    </td>
-    <td>
-    <label for="sex">Sex</label>
-    <select id="sex" name="sex">
-      <option value="blank">(select one)</option>
-      <option value="male">Male</option>
-      <option value="female">Female</option>
-      <option value="trans">Trans</option>
-      <option value="other">Other</option>
-      <option value="NA">Perfer not to disclose</option>
-    </select></td></tr>
-
-    <tr><td>
-    <label for="category">Category</label>
-    <select id="category" name="category">
-      <option value='blank'>(select one)</option>
-      <option value='general'>General</option>
-      <option value='health'>Health</option>
-      <option value='education'>Education</option>
-      <option value='water'>Water</option>
-      <option value='economic'>Economic</option>
-      <option value='governence'>Governence</option>
-      <option value='social'>Social</option>
-      <option value='cultural'>Cultural</option>
-      <option value='environment'>Environmental</option>
-      <option value='housing'>Housing</option>
-      <option value='laworder'>Law and Order</option>
-      <option value='malnourishment'>Malnourishment</option>
-      <option value='agrarian'>Agrarian</option>
-      <option value='industrial'>Industrial</option>
-      <option value='other'>Other</option>
-    </select></td>
-    <td>
-    <label for="sentiment">Sentiment</label>
-    <select id="sentiment" name="sentiment">
-      <option value='blank'>(select one)</option>
-      <option value="positive">Positive</option>
-      <option value="negative">Negative</option>
-      <option value="neutral">Neutral</option>
-      <option value="other">Other</option>
-    </select></td></tr>
-    </td>
-    </tr>
-
-    <tr><td colspan="2">
-    <label for="pulse"><b>*Pulse Info:</b></label>
-    <textarea id="pulse" name="pulse" placeholder="Enter your pulse info here ..." style="height:50px"></textarea>
-    </td> </tr>
-
-    <tr><td colspan="2" align="center">
-    <input type="submit" value="Submit"></td></tr>
-
-   </table>
-  </form>
-</div>
 
 	<br><br>
 
-<?php
-include_once "includes/dbh.inc.php"; // this will include a.php
-//$cntr = str_split($visits);
-$cntr  = array_map('intval', str_split($visits));
-?>
-
-<style>
-span {
-  display: inline-block;
-  padding: 6px 6px 4px;
-  border-radius: 3px;
-  background: #b09dc4;
-  margin-right: -2px;
-}
-.center {
-  text-align: center;
-  width: 50%;
-  margin: 20px auto;
-}
-.message {
-  color: #ccc6e3;
-  font-family: Verdana;
-  font-size: 12px;
-</style>
-
-<div class="center message">
-  Pulse visitor #: 
-</div>
-<div class="center">
-  <span> <?php print $visits; ?></span>
-
-</div>
 
         <br><br>
 	<footer>&copy; Copyright 2018 Pulse Infographics </footer>
