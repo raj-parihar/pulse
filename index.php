@@ -173,7 +173,7 @@ input[type=submit]:hover {
 ?>
 
 <?php
-    if($_GET['msg'] == "fail")
+    if($_GET['msg'] == "errlocation")
     { 
 ?>
 <div class="container">
@@ -185,7 +185,86 @@ input[type=submit]:hover {
     </p>
 </div>
 <?php }
- ?>
+?>
+
+<?php
+    if($_GET['msg'] == "errage")
+    { 
+?>
+<div class="container">
+    <p> <b>
+    <font face="georgia" color="red" size="6">
+    Please select an age group! <font size="8"><i class="fa fa-frown-o"></i></font>
+    </font>
+    </b>
+    </p>
+</div>
+<?php }
+?>
+
+<?php
+    if($_GET['msg'] == "errsex")
+    { 
+?>
+<div class="container">
+    <p> <b>
+    <font face="georgia" color="red" size="6">
+    Please select a gender option! <font size="8"><i class="fa fa-frown-o"></i></font>
+    </font>
+    </b>
+    </p>
+</div>
+<?php }
+?>
+
+
+<?php
+    if($_GET['msg'] == "errsentiment")
+    { 
+?>
+<div class="container">
+    <p> <b>
+    <font face="georgia" color="red" size="6">
+    Please select an apporopriate sentiment! <font size="8"><i class="fa fa-frown-o"></i></font>
+    </font>
+    </b>
+    </p>
+</div>
+<?php }
+?>
+
+<?php
+    if($_GET['msg'] == "errcategory")
+    { 
+?>
+<div class="container">
+    <p> <b>
+    <font face="georgia" color="red" size="6">
+    Please select an apporopriate category! <font size="8"><i class="fa fa-frown-o"></i></font>
+    </font>
+    </b>
+    </p>
+</div>
+<?php }
+?>
+
+<?php
+    if($_GET['msg'] == "errpulse")
+    { 
+?>
+<div class="container">
+    <p> <b>
+    <font face="georgia" color="red" size="6">
+    Please describe your pulse in a few words! <font size="8"><i class="fa fa-frown-o"></i></font>
+    </font>
+    </b>
+    </p>
+</div>
+<?php }
+?>
+
+
+
 
 	   </center>
 
@@ -201,10 +280,10 @@ input[type=submit]:hover {
 
     <tr><td>
     <label for="name">Name/email (opt)</label>
-    <input type="text" id="name" name="name" placeholder="First, Last"> 
+    <input type="text" id="name" name="name" placeholder="First, Last / abc@xyz.com"> 
     </td>
     <td>
-    <label for="age">Age Group</label>
+    <label for="age">Age Group*</label>
     <select id="age" name="age">
       <option value="blank"> (select one) </option>
       <option value="teen">Teen (10-20)</option>
@@ -220,7 +299,7 @@ input[type=submit]:hover {
     <input type="text" id="location" name="location" placeholder="Town, State, Country"> 
     </td>
     <td>
-    <label for="sex">Sex</label>
+    <label for="sex">Sex*</label>
     <select id="sex" name="sex">
       <option value="blank">(select one)</option>
       <option value="male">Male</option>
@@ -231,7 +310,7 @@ input[type=submit]:hover {
     </select></td></tr>
 
     <tr><td>
-    <label for="category">Category</label>
+    <label for="category">Category*</label>
     <select id="category" name="category">
       <option value='blank'>(select one)</option>
       <option value='general'>General</option>
@@ -251,7 +330,7 @@ input[type=submit]:hover {
       <option value='other'>Other</option>
     </select></td>
     <td>
-    <label for="sentiment">Sentiment</label>
+    <label for="sentiment">Sentiment*</label>
     <select id="sentiment" name="sentiment">
       <option value='blank'>(select one)</option>
       <option value="positive">Positive</option>
@@ -266,7 +345,7 @@ input[type=submit]:hover {
     <label for="pulse"><b>*Pulse Info:</b></label>
     <textarea id="pulse" name="pulse" placeholder="Enter your pulse info here ..." style="height:50px"></textarea>
     </td> </tr>
-
+    <br><br>
     <tr><td colspan="2" align="center">
     <input type="submit" value="Submit"></td></tr>
 

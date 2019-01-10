@@ -155,7 +155,7 @@ $v_url = "https://www.pulse.fyi/location.php?loc=";
 	  <br><br>
 
 	  <center>
-	  <font size="100" face="georgia">Pulse @ Your Location: <font color="blue"><?php echo $v_loc ?></font> </font>
+	  <font size="100" face="georgia">Pulse @ Your Location: <font color="darkviolet"><b><?php echo $v_loc ?></b></font> </font>
 	   </center>
 	  <br><br>
     <div id="map"></div>

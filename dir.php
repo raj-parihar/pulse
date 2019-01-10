@@ -183,7 +183,7 @@ input[type=submit]:hover {
 	  <br><br>
 
 	  <center>
-		   <font size="50" face="georgia">Global Pulse Directory</font> 
+		   <font size="50" face="georgia"><font color="darkviolet"><b>Global</b></font> Pulse Directory</font> 
 	  <br><br>
 
 <div class="srch_eng" align="center">

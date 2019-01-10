@@ -158,7 +158,7 @@ input[type=submit]:hover {
 	  <br><br>
 
 	  <center>
-		   <font size="100" face="georgia">Pulse Care: Make a Difference!</font>
+		   <font size="100" face="georgia">Pulse <font color="darkviolet"><b>Contest</b></font>: Make a Difference!</font>
 
 	  <br>
 

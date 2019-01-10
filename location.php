@@ -187,7 +187,7 @@ $location = $_GET["loc"];
 	  <br><br>
 
 	  <center>
-	  <font size="40" face="georgia"> <?php echo "Location: $location";?> </font> 
+	  <font size="100" face="georgia">Location: <font color="darkviolet"><b><?php echo $location ?></b></font> </font>
 	   </center>
 	  <br><br>
 

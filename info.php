@@ -22,23 +22,37 @@ $sentiment = $_GET["sentiment"];
 $pulse = $_GET["pulse"];
 
 
+
 // creating info into the pulseinfo db
 $sql = "INSERT INTO pulse (name, age, location, sex, category, sentiment, pulse)
 VALUES ('$name', '$age', '$location', '$sex', '$category', '$sentiment', '$pulse')";
 
-//print "location=".$location;
 
-if($location != ""){
-
+if ($age == "blank") {
+	header('Location: index.php?msg=errage');
+}
+elseif ($sex == "blank") {
+	header('Location: index.php?msg=errsex');
+}
+elseif ($category == "blank") {
+	header('Location: index.php?msg=errcategory');
+}
+elseif ($sentiment == "blank") {
+	header('Location: index.php?msg=errsentiment');
+}
+elseif($location == ""){
+	header('Location: index.php?msg=errlocation');
+}
+elseif($pulse ==""){
+	header('Location: index.php?msg=errpulse');
+}
+else {
 	if (mysqli_query($conn, $sql)) {
 		echo "Thank you for submitting your pulse info!";
 	} else {
 		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 	}
 	header('Location: index.php?msg=success');
-}
-else {
-	header('Location: index.php?msg=fail');
 }
 
 mysqli_close($conn);

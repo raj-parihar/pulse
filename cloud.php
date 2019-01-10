@@ -121,7 +121,7 @@ input[type=submit]:hover {
 </div>
           <br><br>
           <center>
-                   <font size="50" face="georgia">Pulse Info Cloud</font>
+                   <font size="50" face="georgia">Pulse Info <font color="darkviolet"><b>Cloud</b></font></font>
           <br><br>
            </center>
 
