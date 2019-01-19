@@ -180,7 +180,7 @@ input[type=submit]:hover {
 
 <?php
 $location = $_GET["loc"];
-$city = explode (",", $location);
+$address = explode (",", $location);
 ?>
 
 </div> 
@@ -259,9 +259,8 @@ include_once "includes/dbh.inc.php"; // this will include a.php
 		<tr>
 			<td>
 			<?php
-			$loc_wiki = "https://en.wikipedia.org/wiki/".$city[0];
-			//echo readfile ($loc_wiki);
-                        $_GET['city'] = $city[0];
+                        $_GET['city'] = $address[0];
+                        $_GET['state'] = $address[1];
                         $_GET['location'] = $location;
 			include "loc_cloud.php";
 			?>
