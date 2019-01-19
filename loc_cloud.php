@@ -144,6 +144,7 @@ $query_pulse = $db->query("SELECT * FROM pulse");
 //echo "$query_pulse";
 
 $city = $_GET['city'];
+$location = $_GET['location'];
 
 //echo ($city);
 
@@ -165,11 +166,20 @@ $city = $_GET['city'];
     <p><textarea id="text">
 
       <?php
-$loc_wiki = "https://en.wikipedia.org/wiki/".$city;
-        
-	 $loc_content = readfile ($loc_wiki);
-         $loc_content = str_replace ("<li>", "", $loc_content);
-         $loc_content = str_replace ("class=", "", $loc_content);
+	$loc_wiki = "https://en.wikipedia.org/wiki/".$city;
+	$loc_content = file_get_contents ($loc_wiki);
+	$loc_content = preg_replace ('/<(\w+)/', '', $loc_content);
+	$loc_content = preg_replace ('/<(\w+)>/', '', $loc_content);
+	$loc_content = preg_replace ('/(\w+)>/', '', $loc_content);		
+	$loc_content = preg_replace ('/</', '', $loc_content);
+	$loc_content = preg_replace ('/<>/', '', $loc_content);
+	$loc_content = preg_replace ('/>/', '', $loc_content);		
+	$loc_content = preg_replace ('/x/', '', $loc_content);		
+	$loc_content = preg_replace ('/[0-9]/', '', $loc_content);		
+	$loc_content = preg_replace ('/(\w+)=.*/', '', $loc_content);		
+	$loc_content = preg_replace ('/document/', '', $loc_content);		
+	$loc_content = preg_replace ('/class/', '', $loc_content);		
+	$loc_content = preg_replace ('/preprocessor/', '', $loc_content);		
 	echo ($loc_content);
       ?>
 
