@@ -170,9 +170,9 @@ $location = $_GET['location'];
     <button id="go" type="submit">Change!</button>
     <p><textarea id="text">
 
-      <?php
+<?php
+        // city, state
         $loc_wiki = "https://en.wikipedia.org/wiki/".$city.$state;
-       
 	$loc_content = file_get_contents ($loc_wiki);
 	$loc_content = preg_replace ('/<(\w+)/', '', $loc_content);
 	$loc_content = preg_replace ('/<(\w+)>/', '', $loc_content);
@@ -185,12 +185,57 @@ $location = $_GET['location'];
 	$loc_content = preg_replace ('/(\w+)=.*/', '', $loc_content);		
 	$loc_content = preg_replace ('/document/', '', $loc_content);		
 	$loc_content = preg_replace ('/class/', '', $loc_content);		
-	$loc_content = preg_replace ('/Preprocessor/', '', $loc_content);		
-	$loc_content = preg_replace ('/Unstrip/', '', $loc_content);		
-	$loc_content = preg_replace ('/bytes/', '', $loc_content);		
+	$loc_content = preg_replace ('/ Preprocessor /', '', $loc_content);		
+	$loc_content = preg_replace ('/ Unstrip /', '', $loc_content);		
+	$loc_content = preg_replace ('/ bytes /', '', $loc_content);		
 	$loc_content = preg_replace ('/cache/', '', $loc_content);		
-	$loc_content = preg_replace ('/units/', '', $loc_content);		
-	$loc_content = preg_replace ('/parser/', '', $loc_content);		
+	$loc_content = preg_replace ('/name/', '', $loc_content);		
+	$loc_content = preg_replace ('/ units /', '', $loc_content);		
+	$loc_content = preg_replace ('/ parser /', '', $loc_content);		
+	$loc_content = preg_replace ('/ size /', '', $loc_content);	
+	$loc_content = preg_replace ('/ count /', '', $loc_content);	
+	$loc_content = preg_replace ('/ area /', '', $loc_content);	
+	$loc_content = preg_replace ('/ postepand /', '', $loc_content);	
+	$loc_content = preg_replace ('/ wikipedia /', '', $loc_content);	
+	$loc_content = preg_replace ('/ DOCTYPE /', '', $loc_content);	
+	$loc_content = preg_replace ('/ also /', '', $loc_content);	
+	$loc_content = preg_replace ('/ total /', '', $loc_content);	
+	$loc_content = preg_replace ('/ NA /', '', $loc_content);	
+	$loc_content = preg_replace ('/ th /', '', $loc_content);	
+	echo ($loc_content);
+
+        // city
+        $loc_wiki = "https://en.wikipedia.org/wiki/".$city;
+	$loc_content = file_get_contents ($loc_wiki);
+	$loc_content = preg_replace ('/<(\w+)/', '', $loc_content);
+	$loc_content = preg_replace ('/<(\w+)>/', '', $loc_content);
+	$loc_content = preg_replace ('/(\w+)>/', '', $loc_content);		
+	$loc_content = preg_replace ('/</', '', $loc_content);
+	$loc_content = preg_replace ('/<>/', '', $loc_content);
+	$loc_content = preg_replace ('/>/', '', $loc_content);		
+	$loc_content = preg_replace ('/x/', '', $loc_content);		
+	$loc_content = preg_replace ('/[0-9]/', '', $loc_content);		
+	$loc_content = preg_replace ('/(\w+)=.*/', '', $loc_content);		
+	$loc_content = preg_replace ('/document/', '', $loc_content);		
+	$loc_content = preg_replace ('/class/', '', $loc_content);		
+	$loc_content = preg_replace ('/ Preprocessor /', '', $loc_content);		
+	$loc_content = preg_replace ('/ Unstrip /', '', $loc_content);		
+	$loc_content = preg_replace ('/ bytes /', '', $loc_content);		
+	$loc_content = preg_replace ('/cache/', '', $loc_content);		
+	$loc_content = preg_replace ('/name/', '', $loc_content);		
+	$loc_content = preg_replace ('/ units /', '', $loc_content);		
+	$loc_content = preg_replace ('/ parser /', '', $loc_content);		
+	$loc_content = preg_replace ('/ size /', '', $loc_content);	
+	$loc_content = preg_replace ('/ count /', '', $loc_content);	
+	$loc_content = preg_replace ('/ area /', '', $loc_content);	
+	$loc_content = preg_replace ('/ postepand /', '', $loc_content);	
+	$loc_content = preg_replace ('/ wikipedia /', '', $loc_content);	
+	$loc_content = preg_replace ('/ DOCTYPE /', '', $loc_content);	
+	$loc_content = preg_replace ('/ also /', '', $loc_content);	
+	$loc_content = preg_replace ('/ total /', '', $loc_content);	
+	$loc_content = preg_replace ('/ NA /', '', $loc_content);	
+	$loc_content = preg_replace ('/ th /', '', $loc_content);	
+
 	echo ($loc_content);
       ?>
 

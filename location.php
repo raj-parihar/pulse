@@ -240,10 +240,14 @@ include_once "includes/dbh.inc.php"; // this will include a.php
 		<tbody>
 		<tr>
 			<td>
-			<a href="https://en.wikipedia.org/wiki/<?php echo $city[0]?>"><div class="w3-xxxlarge"><i class="fa fa-wikipedia-w"></i></div></a>
+                        <center>
+			<a href="https://en.wikipedia.org/wiki/<?php echo $address[0]?>"><div class="w3-xxxlarge"><i class="fa fa-wikipedia-w"></i></div></a>
+                        </center>
 			</td>
 			<td>
-			<a href="https://www.google.com/search?q=<?php echo $location?>"><div class="w3-xxxlarge"><i class="fa fa-google"></i></div></a>
+                        <center>
+			<a href="https://www.google.com/search?q=<?php echo $location?>"><div class="w3-xxxlarge"><i class="fa fa-search-plus"></i></div></a>
+                        </center>
 			</td>
 		</tr>
 
