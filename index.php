@@ -304,9 +304,8 @@ input[type=submit]:hover {
       <option value="blank">(select one)</option>
       <option value="male">Male</option>
       <option value="female">Female</option>
-      <option value="trans">Trans</option>
       <option value="other">Other</option>
-      <option value="NA">Perfer not to disclose</option>
+      <option value="NA">Decline</option>
     </select></td></tr>
 
     <tr><td>

@@ -180,6 +180,7 @@ input[type=submit]:hover {
 
 <?php
 $location = $_GET["loc"];
+$city = explode (",", $location);
 ?>
 
 </div> 
@@ -228,6 +229,42 @@ include_once "includes/dbh.inc.php"; // this will include a.php
 		<tbody>
 		<tr>
 			<td><div id="histgram2"></div> </td>
+		</tr>
+
+		</tbody>
+	</table>
+<br><br>
+
+<table id="cities" align="center">
+    		<th colspan="2"><center>Web Content</center></th>
+		<tbody>
+		<tr>
+			<td>
+			<a href="https://en.wikipedia.org/wiki/<?php echo $city[0]?>"><div class="w3-xxxlarge"><i class="fa fa-wikipedia-w"></i></div></a>
+			</td>
+			<td>
+			<a href="https://www.google.com/search?q=<?php echo $location?>"><div class="w3-xxxlarge"><i class="fa fa-google"></i></div></a>
+			</td>
+		</tr>
+
+		</tbody>
+	</table>
+<br><br>
+
+
+
+<table id="cities" align="center">
+<th colspan="2"><center>Wiki Info Cloud: <b> <?php echo $location ?> </b> </center></th>
+		<tbody>
+		<tr>
+			<td>
+			<?php
+			$loc_wiki = "https://en.wikipedia.org/wiki/".$city[0];
+			//echo readfile ($loc_wiki);
+                        $_GET['city'] = $city[0];
+			include "loc_cloud.php";
+			?>
+			</td>
 		</tr>
 
 		</tbody>
