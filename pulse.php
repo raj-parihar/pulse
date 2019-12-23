@@ -2,7 +2,7 @@
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <title>pulse.fyi</title>
+    <title>nrou.info</title>
     <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
@@ -149,13 +149,13 @@ input[type=submit]:hover {
 <?php
 include_once "includes/track.php";
 $v_loc = ip_info("Visitor", "city");
-$v_url = "https://www.pulse.fyi/location.php?loc=";
+$v_url = "https://www.nrou.info/location.php?loc=";
 ?>
 
 	  <br><br>
 
 	  <center>
-	  <font size="100" face="georgia">Pulse @ Your Location: <font color="darkviolet"><b><?php echo $v_loc ?></b></font> </font>
+	  <font size="100" face="georgia">Your Location: <font color="darkviolet"><b><?php echo $v_loc ?></b></font> </font>
 	   </center>
 	  <br><br>
     <div id="map"></div>

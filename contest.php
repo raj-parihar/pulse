@@ -5,7 +5,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>pulse.fyi</title>
+    <title>nrou.info</title>
     <style>
 
       #map {
@@ -158,14 +158,14 @@ input[type=submit]:hover {
 	  <br><br>
 
 	  <center>
-		   <font size="100" face="georgia">Pulse <font color="darkviolet"><b>Contest</b></font>: Make a Difference!</font>
+		   <font size="100" face="georgia">NROU <font color="darkviolet"><b>Process</b></font>: Make a Difference!</font>
 
 	  <br>
 
 <div class="container">
     <p> <b>
     <font face="georgia" color="blue" size="5">
-    Submit your <a href="index.php"><font color="fuchsia">pulse</font></a> with a valid email in the name field <font size="6" color="fuchsia"><i class="fa fa-heartbeat"></i></font>
+    Submit your <a href="index.php"><font color="fuchsia">information</font></a> with a valid email in the name field <font size="6" color="fuchsia"><i class="fa fa-heartbeat"></i></font>
     </font>
     </b>
     </p>
@@ -174,7 +174,7 @@ input[type=submit]:hover {
 <div class="container">
     <p> <b>
     <font face="georgia" color="blue" size="5">
-    Pulses from the location with highest entries will enter in a draw <font size="6" color="gold"><i class="fa fa-ticket"></i></font>
+    Information from same location will be clubbed together  <font size="6" color="gold"><i class="fa fa-ticket"></i></font>
     </font>
     </b>
     </p>
@@ -183,48 +183,11 @@ input[type=submit]:hover {
 <div class="container">
     <p> <b>
     <font face="georgia" color="blue" size="5">
-    Three random winners will be picked from the draw every week <font size="6" color="darkgoldenrod"><i class="fa fa-trophy"></i></font>
+    We reach out to govt bodies with this information routinely <font size="6" color="darkgoldenrod"><i class="fa fa-trophy"></i></font>
     </font>
     </b>
     </p>
 </div>
-
-<div class="container">
-    <p> <b>
-    <font face="georgia" color="blue" size="5">
-    Winners will receive $21, $15, $11 reward along with a certificate <font size="6" color="mediumseagreen"><i class="fa fa-money"></i></font>
-    </font>
-    </b>
-    </p>
-</div>
-
-<div class="container">
-    <p> <b>
-    <font face="georgia" color="blue" size="5">
-    A team of volunteers will be assigned to understand the problem better <font size="6" color="cadetblue"><i class="fa fa-handshake-o"></i></font>
-    </font>
-    </b>
-    </p>
-</div>
-
-<div class="container">
-    <p> <b>
-    <font face="georgia" color="blue" size="5">
-    Approach appropriate authorities to register the concerns and follow ups <font size="6" color="red"><i class="fa fa-comments"></i></font>
-    </font>
-    </b>
-    </p>
-</div>
-
-<div class="container">
-    <p> <b>
-    <font face="georgia" color="blue" size="5">
-    Finally, winners will be archived on pulse platform with a badge of honor! <font size="6" color="gold"><i class="fa fa-star"></i></font>
-    </font>
-    </b>
-    </p>
-</div>
-
 
 	   </center>
 

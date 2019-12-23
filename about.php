@@ -2,7 +2,7 @@
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <title>pulse.fyi</title>
+    <title>nrou.info</title>
     <style>
 
 
@@ -152,7 +152,7 @@ input[type=submit]:hover {
 	   <font face="georgia">Mission</font> 
 	  <br>
 	  </h1>
-	  To provide socioecominic data, trends and insights across various geographical locations ...
+	  To provide comprehensive unemployment data, trends and insights across various geographical locations ...
 	  <br><br>
 	  <br><br>
 
@@ -161,7 +161,7 @@ input[type=submit]:hover {
 	   <font face="georgia">Team</font> 
 	  <br>
 	  </h1>
-	  A bunch of dedicated individuals who believe in democratizing access to information ...
+	  A bunch of dedicated individuals who believe in democratizing access to information and making a difference in people's life ...
 	  <br><br>
 	  <br><br>
 	  <br><br>

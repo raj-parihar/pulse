@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <title>pulse.fyi</title>
+    <title>nrou.info</title>
     <style>
 
       #map {
@@ -183,7 +183,7 @@ input[type=submit]:hover {
 	  <br><br>
 
 	  <center>
-		   <font size="50" face="georgia"><font color="darkviolet"><b>Global</b></font> Pulse Directory</font> 
+		   <font size="50" face="georgia"><font color="darkviolet"><b>NROU</b></font> Directory </font> 
 	  <br><br>
 
 <div class="srch_eng" align="center">
@@ -209,7 +209,7 @@ input[type=submit]:hover {
 <div>
 <?php
 include_once "includes/dbh.inc.php"; // this will include a.php
-$loc_address = "https://www.pulse.fyi/location.php"; 
+$loc_address = "https://www.nrou.info/location.php"; 
 ?>
 
 <table id="cities" align="center">

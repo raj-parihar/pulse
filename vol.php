@@ -91,7 +91,7 @@ if(isset($_POST["submit"]))
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <title>pulse.fyi</title>
+    <title>nrou.info</title>
     <style>
 
       #map {

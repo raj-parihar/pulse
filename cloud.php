@@ -2,7 +2,7 @@
  <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <title>pulse.fyi</title>
+    <title>nrou.info</title>
     <style>
 /* Add a black background color to the top navigation */
 .topnav {
@@ -121,14 +121,14 @@ input[type=submit]:hover {
 </div>
           <br><br>
           <center>
-                   <font size="50" face="georgia">Pulse Info <font color="darkviolet"><b>Cloud</b></font></font>
+                   <font size="50" face="georgia">NROU Info <font color="darkviolet"><b>Cloud</b></font></font>
           <br><br>
            </center>
 
 
 
 <meta charset="utf-8">
-<title>pulse.fyi</title>
+<title>nrou.info</title>
 <style>
 body {
   position: relative;

@@ -5,7 +5,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>pulse.fyi</title>
+    <title>nrou.info</title>
     <style>
 
       #map {
@@ -154,7 +154,7 @@ input[type=submit]:hover {
 	  <br><br>
 
 	  <center>
-		   <font size="100" face="georgia"><font color="darkviolet"><b>Pulse:</b></font> A Socio-Economic Info Platform</font>
+		   <font size="100" face="georgia"><font color="darkviolet"><b>NROU:</b></font> National Registry of Unemployment</font>
 
 	  <br><br>
 <?php
@@ -309,7 +309,7 @@ input[type=submit]:hover {
     </select></td></tr>
 
     <tr><td>
-    <label for="category">Category*</label>
+    <label for="category">Sector*</label>
     <select id="category" name="category">
       <option value='blank'>(select one)</option>
       <option value='general'>General</option>
@@ -341,7 +341,7 @@ input[type=submit]:hover {
     </tr>
 
     <tr><td colspan="2">
-    <label for="pulse"><b>*Pulse Info:</b></label>
+    <label for="pulse"><b>*Unempolyment Info:</b></label>
     <textarea id="pulse" name="pulse" placeholder="Enter your pulse info here ..." style="height:50px"></textarea>
     </td> </tr>
     <br><br>
@@ -411,10 +411,10 @@ include_once "includes/track.php";
 
       function initMap() {
         var california = {lat: 37.4419, lng: -122.1419};
-        var map_ctr = {lat: 25, lng: 0};
+        var map_ctr = {lat: 23, lng: 80};
         map = new google.maps.Map(document.getElementById('map'), {
           center: map_ctr,
-          zoom: 2.9
+          zoom: 5.0
         });
 
         infowindow = new google.maps.InfoWindow({
