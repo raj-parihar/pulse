@@ -279,8 +279,8 @@ input[type=submit]:hover {
     </td>
 
     <tr><td>
-    <label for="name">Name/email (opt)</label>
-    <input type="text" id="name" name="name" placeholder="First, Last / abc@xyz.com"> 
+    <label for="name">Name/email/phone (all optional)</label>
+    <input type="text" id="name" name="name" placeholder="First, Last / abc@xyz.com / +91 ..."> 
     </td>
     <td>
     <label for="age">Age Group*</label>
@@ -295,11 +295,11 @@ input[type=submit]:hover {
     </td></tr>
 
     <tr><td>
-    <label for="location"><b>Location*</b></label>
+    <label for="location"><b>Place*</b></label>
     <input type="text" id="location" name="location" placeholder="Town, State, Country"> 
     </td>
     <td>
-    <label for="sex">Sex*</label>
+    <label for="sex">Gender*</label>
     <select id="sex" name="sex">
       <option value="blank">(select one)</option>
       <option value="male">Male</option>
@@ -312,37 +312,39 @@ input[type=submit]:hover {
     <label for="category">Sector*</label>
     <select id="category" name="category">
       <option value='blank'>(select one)</option>
-      <option value='general'>General</option>
-      <option value='health'>Health</option>
+      <option value='agriculture'>Agriculture</option>
+      <option value='automobile'>Automobile & Transport</option>
       <option value='education'>Education</option>
-      <option value='water'>Water</option>
-      <option value='economic'>Economic</option>
-      <option value='governence'>Governence</option>
-      <option value='social'>Social</option>
-      <option value='cultural'>Cultural</option>
-      <option value='environment'>Environmental</option>
-      <option value='housing'>Housing</option>
+      <option value='engineering'>Engineering</option>
+      <option value='government'>Government</option>
+      <option value='healtcareh'>Healthcare</option>
+      <option value='hospitality'>Hospitality</option>
+      <option value='information technology'>Information Technology</option>
+      <option value='realstate'>Real State & Housing</option>
+      <option value='semigovernment'>Semi Government</option>
+      <option value='private'>Private</option>
       <option value='laworder'>Law and Order</option>
-      <option value='malnourishment'>Malnourishment</option>
-      <option value='agrarian'>Agrarian</option>
-      <option value='industrial'>Industrial</option>
+      <option value='legal'>Legal and Consulting</option>
+      <option value='unorganized'>Unorganized</option>
       <option value='other'>Other</option>
     </select></td>
     <td>
-    <label for="sentiment">Sentiment*</label>
+    <label for="sentiment">Qualification*</label>
     <select id="sentiment" name="sentiment">
       <option value='blank'>(select one)</option>
-      <option value="positive">Positive</option>
-      <option value="negative">Negative</option>
-      <option value="neutral">Neutral</option>
+      <option value="positive">Primary</option>
+      <option value="positive">High School</option>
+      <option value="negative">Graduate</option>
+      <option value="neutral">Postgraduate</option>
+      <option value="neutral">Doctorate</option>
       <option value="other">Other</option>
     </select></td></tr>
     </td>
     </tr>
 
     <tr><td colspan="2">
-    <label for="pulse"><b>*Unempolyment Info:</b></label>
-    <textarea id="pulse" name="pulse" placeholder="Enter your pulse info here ..." style="height:50px"></textarea>
+    <label for="pulse"><b>*Additional Info:</b></label>
+    <textarea id="pulse" name="pulse" placeholder="Enter your unemployment info here, including when were you employed last ..." style="height:50px"></textarea>
     </td> </tr>
     <br><br>
     <tr><td colspan="2" align="center">
