@@ -2,7 +2,7 @@
  <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <title>nrou.info</title>
+    <title>nruinfo.org</title>
     <style>
 /* Add a black background color to the top navigation */
 .topnav {
@@ -101,7 +101,7 @@ input[type=submit]:hover {
 
 
 <meta charset="utf-8">
-<title>nrou.info</title>
+<title>nruinfo.org</title>
 <style>
 body {
   position: relative;
@@ -240,7 +240,7 @@ $location = $_GET['location'];
       ?>
 
     </textarea>
-    <p><label for="text"><b>Customize Pulse Cloud</b></label>
+    <p><label for="text"><b>Customize NRU Cloud</b></label>
   </div>
 </div>
 </center>
