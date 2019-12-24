@@ -2,7 +2,7 @@
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <title>nrou.info</title>
+    <title>nruinfo.org</title>
     <style>
 
 
@@ -171,7 +171,7 @@ input[type=submit]:hover {
 
     <!---div id="message">Pulse info saved!</div--->
         <br><br>
-	<footer>&copy; Copyright 2018 Pulse Infographics </footer>
+	<footer>&copy; NRUinfo org </footer>
         <br>
 
   </body>

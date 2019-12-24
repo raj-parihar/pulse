@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <title>nrou.info</title>
+    <title>nruinfo.org</title>
     <style>
 
       #map {
@@ -212,7 +212,7 @@ include_once "includes/dbh.inc.php"; // this will include a.php
 
 <br><br>
 <table id="cities" align="center">
-    		<th colspan="2"><center>Pulse Analysis</center></th>
+    		<th colspan="2"><center>NRU Analysis</center></th>
 		<tbody>
 		<tr>
 			<td><div id="piechart1"></div> </td>
@@ -225,7 +225,7 @@ include_once "includes/dbh.inc.php"; // this will include a.php
 <br><br>
 
 <table id="cities" align="center">
-    		<th colspan="2"><center>Pulse Timeline</center></th>
+    		<th colspan="2"><center>NRU Reporting Timeline</center></th>
 		<tbody>
 		<tr>
 			<td><div id="histgram2"></div> </td>
@@ -279,7 +279,7 @@ include_once "includes/dbh.inc.php"; // this will include a.php
 
     <!---div id="message">Pulse info saved!</div--->
         <br><br>
-	<footer>&copy; Copyright 2018 Pulse Infographics </footer>
+	<footer>&copy; NRUinfo org </footer>
         <br>
 
 <?php
@@ -349,7 +349,7 @@ function drawChart_time() {
     ]);
     
     var options = {
-        title: 'Pulse Timeline',
+        title: 'NRU Timeline',
         width: 1120,
 	height: 500,
 	bar: {groupWidth: "20%"},
@@ -401,7 +401,7 @@ function drawChart_senti() {
     ]);
     
     var options = {
-        title: 'Pulse Sentiment',
+        title: 'NRU Sentiment',
         width: 500,
 	height: 300,
 	pieHole: 0.4,
@@ -453,7 +453,7 @@ function drawChart_cat() {
     ]);
     
     var options = {
-        title: 'Pulse by Categories',
+        title: 'NRU by Categories',
         width: 600,
 	height: 300,
 	bar: {groupWidth: "20%"},

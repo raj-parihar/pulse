@@ -121,14 +121,14 @@ input[type=submit]:hover {
 </div>
           <br><br>
           <center>
-                   <font size="50" face="georgia">NROU Info <font color="darkviolet"><b>Cloud</b></font></font>
+                   <font size="50" face="georgia">NRU Info <font color="darkviolet"><b>Cloud</b></font></font>
           <br><br>
            </center>
 
 
 
 <meta charset="utf-8">
-<title>nrou.info</title>
+<title>nruinfo.org</title>
 <style>
 body {
   position: relative;
@@ -197,7 +197,7 @@ $query_pulse = $db->query("SELECT * FROM pulse");
       ?>
 
     </textarea>
-    <p><label for="text"><b>Customize Pulse Cloud</b></label>
+    <p><label for="text"><b>Customize NRU Cloud</b></label>
   </div>
 </div>
 </center>
@@ -242,7 +242,7 @@ $query_pulse = $db->query("SELECT * FROM pulse");
 
     <!---div id="message">Pulse info saved!</div--->
         <br><br>
-        <footer>&copy; Copyright 2018 Pulse Infographics </footer>
+        <footer>&copy;NRUinfo org </footer>
         <br><br>
         <footer><font size="2">*Credits: inspired from jasondavies/d3-cloud </font></footer>
         <br>

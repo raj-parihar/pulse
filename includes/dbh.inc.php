@@ -82,7 +82,7 @@ if (!$query_pulse) {
             $visits = $row["visits"];
         }
     } else {
-        echo "no results";
+        echo "";
     }
     
     $conn_v->close();

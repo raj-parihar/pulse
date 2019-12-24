@@ -5,7 +5,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>nrou.info</title>
+    <title>nruinfo.org</title>
     <style>
 
       #map {
@@ -154,7 +154,7 @@ input[type=submit]:hover {
 	  <br><br>
 
 	  <center>
-		   <font size="100" face="georgia"><font color="darkviolet"><b>NROU:</b></font> National Registry of Unemployment</font>
+		   <font size="100" face="georgia"><font color="darkviolet"><b>NRU:</b></font> <u>N</u>ational <u>R</u>egistry of <u>U</u>nemployment</font>
 
 	  <br><br>
 <?php
@@ -354,12 +354,6 @@ input[type=submit]:hover {
 
 	<br><br>
 
-<?php
-include_once "includes/dbh.inc.php"; // this will include a.php
-//$cntr = str_split($visits);
-$cntr  = array_map('intval', str_split($visits));
-?>
-
 <style>
 span {
   display: inline-block;
@@ -379,16 +373,8 @@ span {
   font-size: 12px;
 </style>
 
-<div class="center message">
-  Pulse visitor #: 
-</div>
-<div class="center">
-  <span> <?php print $visits; ?></span>
-
-</div>
-
         <br><br>
-	<footer>&copy; Copyright 2018 Pulse Infographics </footer>
+	<footer>&copy; NRUinfo org </footer>
         <br>
 
 <?php

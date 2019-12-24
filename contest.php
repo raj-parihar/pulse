@@ -5,7 +5,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>nrou.info</title>
+    <title>nruinfo.org</title>
     <style>
 
       #map {
@@ -158,14 +158,14 @@ input[type=submit]:hover {
 	  <br><br>
 
 	  <center>
-		   <font size="100" face="georgia">NROU <font color="darkviolet"><b>Process</b></font>: Make a Difference!</font>
+		   <font size="100" face="georgia"><font color="darkviolet"><b>NRU Process</b></font>: How It Works?</font>
 
 	  <br>
 
 <div class="container">
     <p> <b>
     <font face="georgia" color="blue" size="5">
-    Submit your <a href="index.php"><font color="fuchsia">information</font></a> with a valid email in the name field <font size="6" color="fuchsia"><i class="fa fa-heartbeat"></i></font>
+    Submit your <a href="index.php"><font color="fuchsia">unemployment information</font></a> with email or phone number<font size="6" color="fuchsia"><i class="fa fa-heartbeat"></i></font>
     </font>
     </b>
     </p>
@@ -174,7 +174,7 @@ input[type=submit]:hover {
 <div class="container">
     <p> <b>
     <font face="georgia" color="blue" size="5">
-    Information from same location will be clubbed together  <font size="6" color="gold"><i class="fa fa-ticket"></i></font>
+    Information from same places will be combined together  <font size="6" color="gold"><i class="fa fa-ticket"></i></font>
     </font>
     </b>
     </p>
@@ -183,11 +183,12 @@ input[type=submit]:hover {
 <div class="container">
     <p> <b>
     <font face="georgia" color="blue" size="5">
-    We reach out to govt bodies with this information routinely <font size="6" color="darkgoldenrod"><i class="fa fa-trophy"></i></font>
+    We rountinely reach out to local and central govt adminstrations with this information <font size="6" color="darkgoldenrod"><i class="fa fa-trophy"></i></font>
     </font>
     </b>
     </p>
 </div>
+
 
 	   </center>
 
@@ -197,7 +198,7 @@ input[type=submit]:hover {
 
 
         <br><br>
-	<footer>&copy; Copyright 2018 Pulse Infographics </footer>
+	<footer>&copy; NRUinfo org </footer>
         <br>
 
 <?php

@@ -2,7 +2,7 @@
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <title>nrou.info</title>
+    <title>nruinfo.org</title>
     <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
@@ -181,7 +181,7 @@ $v_url = "https://www.nrou.info/location.php?loc=";
 
 
         <br><br>
-	<footer>&copy; Copyright 2018 Pulse Infographics </footer>
+	<footer>&copy; NRUinfo org </footer>
         <br>
 
      <script>
