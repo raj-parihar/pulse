@@ -149,7 +149,7 @@ input[type=submit]:hover {
 <?php
 include_once "includes/track.php";
 $v_loc = ip_info("Visitor", "city");
-$v_url = "http://www.nruinfo.org/location.php?loc=";
+$v_url = "https://www.nruinfo.org/location.php?loc=";
 ?>
 
 	  <br><br>

@@ -162,11 +162,11 @@ a.active { text-decoration: none; color: #000; font-weight: bold; cursor: text; 
 $dbHost = 'localhost';
 $dbUsername = 'user';
 $dbPassword = 'password';
-$dbName = 'pulseinfo';
+$dbName = 'nruinfo';
 // Create connection and select db
 $db = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
 // Get data from database
-$query_pulse = $db->query("SELECT * FROM pulse");
+$query_pulse = $db->query("SELECT * FROM NRU");
 
 //echo "$query_pulse";
 ?>
@@ -190,7 +190,7 @@ $query_pulse = $db->query("SELECT * FROM pulse");
           while($row = $query_pulse->fetch_assoc()){
 		  //echo "['".$row['category']."', ".$row['pulse']."],";
 		  //echo $row['sentiment']." ".$row['location']." ";
-		  echo $row['category']." ".$row['pulse']." ";
+		  echo $row['sector']." ".$row['qualification']." ".$row['location']." ".$row['extrainfo']." ";
 		  //print_r($row);
           }
       }

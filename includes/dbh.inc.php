@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "user";
 $password = "password";
-$dbname = "pulseinfo";
+$dbname = "nruinfo";
 $dbuser = "pulseuser";
 
 // Create connection
@@ -14,7 +14,7 @@ if (!$conn) {
 }
 
 //$sql = 'SELECT DISTINCT location FROM pulse';
-$sql = 'SELECT location, COUNT(location) as freq FROM pulse GROUP BY location';
+$sql = 'SELECT location, COUNT(location) as freq FROM NRU GROUP BY location';
 		
 $query = mysqli_query($conn, $sql);
 
@@ -22,41 +22,39 @@ if (!$query) {
 	die ('SQL Error: ' . mysqli_error($conn));
 }
 
-
 //sex ratio 
-$sql1 = 'SELECT sex, COUNT(sex) AS freq FROM pulse GROUP BY sex';
+$sql1 = 'SELECT gender, COUNT(gender) AS freq FROM NRU GROUP BY gender';
 $query1 = mysqli_query($conn, $sql1);
 if (!$query1) {
 	die ('SQL Error: ' . mysqli_error($conn));
 }
 
 // age histogram
-$sql2 = 'SELECT age, COUNT(age) AS freq FROM pulse GROUP BY age';
+$sql2 = 'SELECT age, COUNT(age) AS freq FROM NRU GROUP BY age';
 $query2 = mysqli_query($conn, $sql2);
 if (!$query2) {
 	die ('SQL Error: ' . mysqli_error($conn));
 }
 
 
-// category histogram
-$sql3 = 'SELECT category, COUNT(category) AS freq FROM pulse GROUP BY category';
+// sector histogram
+$sql3 = 'SELECT sector, COUNT(sector) AS freq FROM NRU GROUP BY sector';
 $query3 = mysqli_query($conn, $sql3);
 if (!$query3) {
 	die ('SQL Error: ' . mysqli_error($conn));
 }
 
 
-// sentiment histogram
-$sql4 = 'SELECT sentiment, COUNT(sentiment) AS freq FROM pulse GROUP BY sentiment';
+// state histogram
+$sql4 = 'SELECT state, COUNT(state) AS freq FROM NRU GROUP BY state';
 $query4 = mysqli_query($conn, $sql4);
 if (!$query4) {
 	die ('SQL Error: ' . mysqli_error($conn));
 }
 
 
-
 /////////////////////// tag cloud: location, category, and pulse
-$sql5 = 'SELECT location, category, pulse FROM pulse';
+$sql5 = 'SELECT location, sector, qualification, extrainfo FROM NRU';
 $query_pulse = mysqli_query($conn, $sql5);
 if (!$query_pulse) {
 	die ('SQL Error: ' . mysqli_error($conn));

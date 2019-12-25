@@ -211,18 +211,34 @@ include_once "includes/dbh.inc.php"; // this will include a.php
 	</table>
 
 <br><br>
+
 <table id="cities" align="center">
-    		<th colspan="2"><center>NRU Analysis</center></th>
+    		<th colspan="2"><center>NRU Analysis: Sectors and Durations</center></th>
 		<tbody>
 		<tr>
 			<td><div id="piechart1"></div> </td>
-			<td><div id="histgram1"></div> </td>
+			<td><div id="piechart2"></div> </td>
 
 		</tr>
 
 		</tbody>
 	</table>
 <br><br>
+
+
+<table id="cities" align="center">
+    		<th colspan="2"><center>NRU Analysis: Qualification</center></th>
+		<tbody>
+		<tr>
+			<td><div id="piechart3"></div> </td>
+			<td><div id="piechart3"></div> </td>
+
+		</tr>
+
+		</tbody>
+	</table>
+<br><br>
+
 
 <table id="cities" align="center">
     		<th colspan="2"><center>NRU Reporting Timeline</center></th>
@@ -287,19 +303,21 @@ include_once "includes/dbh.inc.php"; // this will include a.php
 $dbHost = 'localhost';
 $dbUsername = 'user';
 $dbPassword = 'password';
-$dbName = 'pulseinfo';
+$dbName = 'nruinfo';
 // Create connection and select db
 $db = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
 
 // Get data from database
-$sex_pie = $db->query("SELECT sex, COUNT(sex) AS freq FROM (SELECT * FROM pulse WHERE location='$location') AS pulse_loc GROUP BY sex");
-$senti_pie = $db->query("SELECT sentiment, COUNT(sentiment) AS freq FROM (SELECT * FROM pulse WHERE location='$location') AS pulse_loc GROUP BY sentiment");
-$age_hist = $db->query("SELECT age, COUNT(age) AS freq FROM (SELECT * FROM pulse WHERE location='$location') AS pulse_loc GROUP BY age");
-$cat_hist = $db->query("SELECT category, COUNT(category) AS freq FROM (SELECT * FROM pulse WHERE location='$location') AS pulse_loc GROUP BY category");
-$time_hist = $db->query("SELECT date(time), category FROM (SELECT * FROM pulse WHERE location='$location') AS pulse_loc");
+$gender_pie = $db->query("SELECT gender, COUNT(gender) AS freq FROM (SELECT * FROM NRU WHERE location='$location') AS pulse_loc GROUP BY gender");
+$sector_pie = $db->query("SELECT sector, COUNT(sector) AS freq FROM (SELECT * FROM NRU WHERE location='$location') AS pulse_loc GROUP BY sector");
+$duration_pie = $db->query("SELECT duration, COUNT(duration) AS freq FROM (SELECT * FROM NRU WHERE location='$location') AS pulse_loc GROUP BY duration");
+$qual_pie = $db->query("SELECT qualification, COUNT(qualification) AS freq FROM (SELECT * FROM NRU WHERE location='$location') AS pulse_loc GROUP BY qualification");
+$age_hist = $db->query("SELECT age, COUNT(age) AS freq FROM (SELECT * FROM NRU WHERE location='$location') AS pulse_loc GROUP BY age");
+$cat_hist = $db->query("SELECT category, COUNT(category) AS freq FROM (SELECT * FROM NRU WHERE location='$location') AS pulse_loc GROUP BY category");
+$time_hist = $db->query("SELECT date(time), sector FROM (SELECT * FROM NRU WHERE location='$location') AS pulse_loc");
 
 $time_stamp = array();
-$cats = array("general", "health", "education", "water", "economic", "governence", "social", "cultural", "environment", "housing", "laworder", "malnourishment", "agrarian", "industrial", "other");
+$cats = array("general", "agriculture", "automobile", "education", "engineering", "government", "healthcare", "hospitality", "information technology", "realstate", "semigovernment", "private", "laworder", "legal", "unorganized", "other");
 
 if($time_hist->num_rows > 0){
    while($row = $time_hist->fetch_assoc()){
@@ -311,7 +329,7 @@ if($time_hist->num_rows > 0){
 		   $time_stamp[$row['date(time)']] = array_fill(0, count($cats), 0);
 	   }
            
-	   $cat_idx = array_search($row['category'], $cats);
+	   $cat_idx = array_search($row['sector'], $cats);
 	   //echo "<br>";
 
 	   $time_stamp[$row['date(time)']][$cat_idx] ++;
@@ -324,7 +342,9 @@ if($time_hist->num_rows > 0){
 <script type="text/javascript">
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart_sex);
-google.charts.setOnLoadCallback(drawChart_senti);
+google.charts.setOnLoadCallback(drawChart_sector);
+google.charts.setOnLoadCallback(drawChart_duration);
+google.charts.setOnLoadCallback(drawChart_qualification);
 google.charts.setOnLoadCallback(drawChart_age);
 google.charts.setOnLoadCallback(drawChart_cat);
 google.charts.setOnLoadCallback(drawChart_time);
@@ -332,7 +352,7 @@ google.charts.setOnLoadCallback(drawChart_time);
 function drawChart_time() {
 
     var data = google.visualization.arrayToDataTable([
-       ["TimeStamp", "general", "health", "education", "water", "economic", "governence", "social", "cultural", "environment", "housing", "laworder", "malnourishment", "agrarian", "industrial", "other"],
+       ["TimeStamp", "general", "agriculture", "automobile", "education", "engineering", "government", "healthcare", "hospitality", "information technology", "realstate", "semigovernment", "private", "laworder", "legal", "unorganized", "other"],
 <?php
 
       foreach($time_stamp as $key => $value){
@@ -349,7 +369,7 @@ function drawChart_time() {
     ]);
     
     var options = {
-        title: 'NRU Timeline',
+    title: 'NRU Timeline: By Sectors',
         width: 1120,
 	height: 500,
 	bar: {groupWidth: "20%"},
@@ -367,9 +387,9 @@ function drawChart_sex() {
     var data = google.visualization.arrayToDataTable([
       ['Language', 'Rating'],
       <?php
-      if($sex_pie->num_rows > 0){
-          while($row = $sex_pie->fetch_assoc()){
-            echo "['".$row['sex']."', ".$row['freq']."],";
+      if($gender_pie->num_rows > 0){
+          while($row = $gender_pie->fetch_assoc()){
+            echo "['".$row['gender']."', ".$row['freq']."],";
           }
       }
       ?>
@@ -387,21 +407,21 @@ function drawChart_sex() {
     chart.draw(data, options);
 }
 
-function drawChart_senti() {
+function drawChart_sector() {
 
     var data = google.visualization.arrayToDataTable([
       ['Language', 'Rating'],
       <?php
-      if($senti_pie->num_rows > 0){
-          while($row = $senti_pie->fetch_assoc()){
-            echo "['".$row['sentiment']."', ".$row['freq']."],";
+      if($sector_pie->num_rows > 0){
+          while($row = $sector_pie->fetch_assoc()){
+            echo "['".$row['sector']."', ".$row['freq']."],";
           }
       }
       ?>
     ]);
     
     var options = {
-        title: 'NRU Sentiment',
+        title: 'NRU by Sector',
         width: 500,
 	height: 300,
 	pieHole: 0.4,
@@ -411,6 +431,57 @@ function drawChart_senti() {
     
     chart.draw(data, options);
 }
+
+function drawChart_duration() {
+
+    var data = google.visualization.arrayToDataTable([
+      ['Language', 'Rating'],
+      <?php
+      if($duration_pie->num_rows > 0){
+          while($row = $duration_pie->fetch_assoc()){
+            echo "['".$row['duration']."', ".$row['freq']."],";
+          }
+      }
+      ?>
+    ]);
+    
+    var options = {
+        title: 'NRU by Duration',
+        width: 500,
+	height: 300,
+	pieHole: 0.4,
+    };
+    
+    var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+    
+    chart.draw(data, options);
+}
+
+function drawChart_qualification() {
+
+    var data = google.visualization.arrayToDataTable([
+      ['Language', 'Rating'],
+      <?php
+      if($qual_pie->num_rows > 0){
+          while($row = $qual_pie->fetch_assoc()){
+            echo "['".$row['qualification']."', ".$row['freq']."],";
+          }
+      }
+      ?>
+    ]);
+    
+    var options = {
+        title: 'NRU by Qualifcations',
+        width: 500,
+	height: 300,
+	pieHole: 0.4,
+    };
+    
+    var chart = new google.visualization.PieChart(document.getElementById('piechart3'));
+    
+    chart.draw(data, options);
+}
+
 
 
 function drawChart_age() {
