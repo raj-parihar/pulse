@@ -339,6 +339,39 @@ input[type=submit]:hover {
     <input type="text" id="email" name="email" placeholder="abc@xyz.com"> 
     </td></tr>
 
+    <tr><td>
+    <label for="income">Household income (optional)</label>
+    <select id="income" name="income">
+      <option value='blank'>(select one)</option>
+      <option value="bpl">BPL</option>
+      <option value="lower">Lower</option>
+      <option value="lowermid">Lower middle</option>
+      <option value="middle">Middle</option>
+      <option value="midupper">Middle upper</option>
+      <option value="upper">Upper</option>
+      <option value="other">Other</option>
+    </select></td>
+    </td>
+    <td>
+    <label for="dependents">Dependents (optional)</label>
+    <select id="dependents" name="dependents">
+      <option value="blank">(select one)</option>
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      <option value="10+">10+</option>
+      <option value="NA">Decline</option>
+    </select></td></tr>
+
+    <tr></tr>
 
     <tr><td>
     <label for="qualification">*Qualification</label>
@@ -348,7 +381,8 @@ input[type=submit]:hover {
       <option value="middleschool">Middle School</option>
       <option value="highschool">High School</option>
       <option value="hrsecschool">Higher Secondary</option>
-      <option value="diploma">Diploma</option>
+      <option value="diploma">Diploma (technical)</option>
+      <option value="skilldeve">Govt Skill Developement</option>
       <option value="graduate">Graduate</option>
       <option value="postgraduate">Postgraduate</option>
       <option value="doctorate">Doctorate</option>
@@ -365,8 +399,8 @@ input[type=submit]:hover {
       <option value="NA">Decline</option>
     </select></td></tr>
 
-
-    <tr><td>
+    <tr>
+    <td>
     <label for="location">*Location</label>
     <input type="text" id="location" name="location" placeholder="Village, Town or City"> 
     </td>
@@ -411,9 +445,7 @@ input[type=submit]:hover {
       <option value="Lakshadweep">Lakshadweep</option>
       <option value="NCT Delhi">NCT Delhi</option>
       <option value="Puducherry">Puducherry</option>
-
     </select></td></tr>
-
 
     <tr><td>
     <label for="sector">*Sector</label>
@@ -435,6 +467,19 @@ input[type=submit]:hover {
       <option value='unorganized'>Unorganized</option>
       <option value='other'>Other</option>
     </select></td>
+
+    <td>
+    <label for="category">*Unemployment category</label>
+    <select id="category" name="category">
+      <option value='blank'>(select one)</option>
+      <option value="unemployed">Unemployed</option>
+      <option value="underemployed">Under employed</option>
+      <option value="undercompensated">Under compensated</option>
+      <option value="other">Other</option>
+    </select></td></tr>
+    </td>
+
+    <tr>
     <td>
     <label for="duration">*Unemployment duration</label>
     <select id="duration" name="duration">
@@ -450,7 +495,11 @@ input[type=submit]:hover {
       <option value="year_10">5-10 years</option>
       <option value="year_10+">10+ years</option>
       <option value="other">Other</option>
-    </select></td></tr>
+    </select></td>
+    </td>
+    <td>
+    <label for="since">Unemployed since</label>
+    <input type="date" id="since" name="since" placeholder=""> 
     </td>
     </tr>
 

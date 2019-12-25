@@ -227,11 +227,11 @@ include_once "includes/dbh.inc.php"; // this will include a.php
 
 
 <table id="cities" align="center">
-    		<th colspan="2"><center>NRU Analysis: Qualification</center></th>
+    		<th colspan="2"><center>NRU Analysis: Qualification and Categories</center></th>
 		<tbody>
 		<tr>
 			<td><div id="piechart3"></div> </td>
-			<td><div id="piechart3"></div> </td>
+			<td><div id="piechart4"></div> </td>
 
 		</tr>
 
@@ -312,6 +312,7 @@ $gender_pie = $db->query("SELECT gender, COUNT(gender) AS freq FROM (SELECT * FR
 $sector_pie = $db->query("SELECT sector, COUNT(sector) AS freq FROM (SELECT * FROM NRU WHERE location='$location') AS pulse_loc GROUP BY sector");
 $duration_pie = $db->query("SELECT duration, COUNT(duration) AS freq FROM (SELECT * FROM NRU WHERE location='$location') AS pulse_loc GROUP BY duration");
 $qual_pie = $db->query("SELECT qualification, COUNT(qualification) AS freq FROM (SELECT * FROM NRU WHERE location='$location') AS pulse_loc GROUP BY qualification");
+$category_pie = $db->query("SELECT category, COUNT(category) AS freq FROM (SELECT * FROM NRU WHERE location='$location') AS pulse_loc GROUP BY category");
 $age_hist = $db->query("SELECT age, COUNT(age) AS freq FROM (SELECT * FROM NRU WHERE location='$location') AS pulse_loc GROUP BY age");
 $cat_hist = $db->query("SELECT category, COUNT(category) AS freq FROM (SELECT * FROM NRU WHERE location='$location') AS pulse_loc GROUP BY category");
 $time_hist = $db->query("SELECT date(time), sector FROM (SELECT * FROM NRU WHERE location='$location') AS pulse_loc");
@@ -345,6 +346,7 @@ google.charts.setOnLoadCallback(drawChart_sex);
 google.charts.setOnLoadCallback(drawChart_sector);
 google.charts.setOnLoadCallback(drawChart_duration);
 google.charts.setOnLoadCallback(drawChart_qualification);
+google.charts.setOnLoadCallback(drawChart_category);
 google.charts.setOnLoadCallback(drawChart_age);
 google.charts.setOnLoadCallback(drawChart_cat);
 google.charts.setOnLoadCallback(drawChart_time);
@@ -482,6 +484,30 @@ function drawChart_qualification() {
     chart.draw(data, options);
 }
 
+function drawChart_category() {
+
+    var data = google.visualization.arrayToDataTable([
+      ['Language', 'Rating'],
+      <?php
+      if($category_pie->num_rows > 0){
+          while($row = $category_pie->fetch_assoc()){
+            echo "['".$row['category']."', ".$row['freq']."],";
+          }
+      }
+      ?>
+    ]);
+    
+    var options = {
+        title: 'NRU by Category',
+        width: 500,
+	height: 300,
+	pieHole: 0.4,
+    };
+    
+    var chart = new google.visualization.PieChart(document.getElementById('piechart4'));
+    
+    chart.draw(data, options);
+}
 
 
 function drawChart_age() {

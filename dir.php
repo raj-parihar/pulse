@@ -255,6 +255,19 @@ $loc_address = "https://www.nruinfo.org/location.php";
 	</table>
 <br><br>
 
+<table id="cities" align="center">
+    		<th colspan="2"><center>NRU Analysis: Category and Income Groups</center></th>
+		<tbody>
+		<tr>
+			<td><div id="piechart5"></div> </td>
+			<td><div id="piechart6"></div> </td>
+
+		</tr>
+
+		</tbody>
+	</table>
+<br><br>
+
 
 <table id="cities" align="center">
     		<th colspan="2"><center>NRU Analysis: States and Qualifications</center></th>
@@ -297,6 +310,8 @@ $db = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
 // Get data from database
 $gender_pie = $db->query("SELECT gender, COUNT(gender) AS freq FROM NRU GROUP BY gender");
 $sector_pie = $db->query("SELECT sector, COUNT(sector) AS freq FROM NRU GROUP BY sector");
+$category_pie = $db->query("SELECT category, COUNT(category) AS freq FROM NRU GROUP BY category");
+$income_pie = $db->query("SELECT income, COUNT(income) AS freq FROM NRU GROUP BY income");
 $state_pie = $db->query("SELECT state, COUNT(state) AS freq FROM NRU GROUP BY state");
 $qual_pie = $db->query("SELECT qualification, COUNT(qualification) AS freq FROM NRU GROUP BY qualification");
 $duration_pie = $db->query("SELECT duration, COUNT(state) AS freq FROM NRU GROUP BY duration");
@@ -336,6 +351,8 @@ google.charts.setOnLoadCallback(drawChart_qualification);
 google.charts.setOnLoadCallback(drawChart_duration);
 google.charts.setOnLoadCallback(drawChart_age);
 google.charts.setOnLoadCallback(drawChart_sector);
+google.charts.setOnLoadCallback(drawChart_category);
+google.charts.setOnLoadCallback(drawChart_income);
 google.charts.setOnLoadCallback(drawChart_time);
 
 function drawChart_time() {
@@ -420,6 +437,57 @@ function drawChart_sector() {
     
     chart.draw(data, options);
 }
+
+function drawChart_category() {
+
+    var data = google.visualization.arrayToDataTable([
+      ['Language', 'Rating'],
+      <?php
+      if($category_pie->num_rows > 0){
+          while($row = $category_pie->fetch_assoc()){
+            echo "['".$row['category']."', ".$row['freq']."],";
+          }
+      }
+      ?>
+    ]);
+    
+    var options = {
+        title: 'NRU by Category',
+        width: 500,
+	height: 300,
+	pieHole: 0.4,
+    };
+    
+    var chart = new google.visualization.PieChart(document.getElementById('piechart5'));
+    
+    chart.draw(data, options);
+}
+
+function drawChart_income() {
+
+    var data = google.visualization.arrayToDataTable([
+      ['Language', 'Rating'],
+      <?php
+      if($income_pie->num_rows > 0){
+          while($row = $income_pie->fetch_assoc()){
+            echo "['".$row['income']."', ".$row['freq']."],";
+          }
+      }
+      ?>
+    ]);
+    
+    var options = {
+        title: 'NRU by Income Group',
+        width: 500,
+	height: 300,
+	pieHole: 0.4,
+    };
+    
+    var chart = new google.visualization.PieChart(document.getElementById('piechart6'));
+    
+    chart.draw(data, options);
+}
+
 
 
 function drawChart_duration() {
