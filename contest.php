@@ -138,13 +138,13 @@ input[type=submit]:hover {
   </div>
 
   <!-- Left-aligned links (default) -->
-  <a href="dir.php"><div class="w3-xxlarge"><i class="fa fa-globe"></i></div></a>
-  <a href="cloud.php"><div class="w3-xxlarge"><i class="fa fa-cloud"></i></div></a>
-  <a href="pulse.php"><div class="w3-xxlarge"><i class="fa fa-heartbeat"></i></div></a>
+  <a href="dir.php"><div class="w3-xxlarge"><i class="fa fa-bar-chart"></i></div></a>
+  <a href="cloud.php"><div class="w3-xxlarge"><i class="fa fa-eye"></i></div></a>
+  <a href="pulse.php"><div class="w3-xxlarge"><i class="fa fa-location-arrow"></i></div></a>
 
   <!-- Right-aligned links -->
   <div class="topnav-right">
-    <a href="contest.php" class="active"><font color="darkviolet"><div class="w3-xxlarge"><i class="fa fa-trophy"></i></div></a></font>
+    <a href="contest.php" class="active"><font color="darkviolet"><div class="w3-xxlarge"><i class="fa fa-tasks"></i></div></a></font>
     <a href="contact.php"><div class="w3-xxlarge"><i class="fa fa-envelope"></i></div></a>
     <a href="about.php"><div class="w3-xxlarge"><i class="fa fa-users"></i></div></a>
   </div>
