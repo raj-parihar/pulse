@@ -167,9 +167,9 @@ input[type=submit]:hover {
   </div>
 
   <!-- Left-aligned links (default) -->
-  <a href="pulse.php"><div class="w3-xxlarge"><i class="fa fa-heartbeat"></i></div></a>
   <a href="" class="active"><div class="w3-xxlarge"><font color="darkviolet"><i class="fa fa-globe"></i></font></div></a>
   <a href="cloud.php"><div class="w3-xxlarge"><i class="fa fa-cloud"></i></div></a>
+  <a href="pulse.php"><div class="w3-xxlarge"><i class="fa fa-heartbeat"></i></div></a>
 
   <!-- Right-aligned links -->
   <div class="topnav-right">

@@ -138,9 +138,9 @@ input[type=submit]:hover {
   </div>
 
   <!-- Left-aligned links (default) -->
-  <a href="pulse.php"><div class="w3-xxlarge"><i class="fa fa-heartbeat"></i></div></a>
   <a href="dir.php"><div class="w3-xxlarge"><i class="fa fa-globe"></i></div></a>
   <a href="cloud.php"><div class="w3-xxlarge"><i class="fa fa-cloud"></i></div></a>
+  <a href="pulse.php"><div class="w3-xxlarge"><i class="fa fa-heartbeat"></i></div></a>
 
   <!-- Right-aligned links -->
   <div class="topnav-right">
@@ -156,6 +156,12 @@ input[type=submit]:hover {
 	  <center>
 		   <font size="100" face="georgia"><font color="darkviolet"><b>NRU:</b></font> <u>N</u>ational <u>R</u>egistry of <u>U</u>nemployment</font>
 
+    <center>
+   <br>
+    <font face="georgia" color="black" size="6">
+    <b>An effort to document every unemployed person of the country!</b>
+    </font>
+    </center>
 	  <br><br>
 <?php
     if($_GET['msg'] == "success")
@@ -164,11 +170,12 @@ input[type=submit]:hover {
 <div class="container">
     <p> <b>
     <font face="georgia" color="green" size="6">
-    Thank you for submitting your pulse info! <font size="8"><i class="fa fa-smile-o"></i></font>
+    Thank you for submitting your info! <font size="8"><i class="fa fa-smile-o"></i></font>
     </font>
     </b>
     </p>
 </div>
+
 <?php }
 ?>
 
@@ -179,7 +186,7 @@ input[type=submit]:hover {
 <div class="container">
     <p> <b>
     <font face="georgia" color="red" size="6">
-    Please submit pulse info with a location! <font size="8"><i class="fa fa-frown-o"></i></font>
+    Please submit your info with a location! <font size="8"><i class="fa fa-frown-o"></i></font>
     </font>
     </b>
     </p>
@@ -225,7 +232,7 @@ input[type=submit]:hover {
 <div class="container">
     <p> <b>
     <font face="georgia" color="red" size="6">
-    Please select an apporopriate sentiment! <font size="8"><i class="fa fa-frown-o"></i></font>
+    Please select an apporopriate qualification! <font size="8"><i class="fa fa-frown-o"></i></font>
     </font>
     </b>
     </p>
@@ -240,7 +247,7 @@ input[type=submit]:hover {
 <div class="container">
     <p> <b>
     <font face="georgia" color="red" size="6">
-    Please select an apporopriate category! <font size="8"><i class="fa fa-frown-o"></i></font>
+    Please select an applicable sector! <font size="8"><i class="fa fa-frown-o"></i></font>
     </font>
     </b>
     </p>
@@ -255,7 +262,7 @@ input[type=submit]:hover {
 <div class="container">
     <p> <b>
     <font face="georgia" color="red" size="6">
-    Please describe your pulse in a few words! <font size="8"><i class="fa fa-frown-o"></i></font>
+    Please describe your unemployment situation in a few words! <font size="8"><i class="fa fa-frown-o"></i></font>
     </font>
     </b>
     </p>
@@ -265,11 +272,12 @@ input[type=submit]:hover {
 
 
 
-
 	   </center>
+
 
     <div id="map" height="460px" width="100%"></div>
 	<br>
+
 
 <div id="form">
   <form action="info.php">
