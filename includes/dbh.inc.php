@@ -18,6 +18,11 @@ if (!$conn) {
 $sql = 'SELECT name as name, email as email, phone as phone, location as location, state as state FROM NRU';		
 $query = mysqli_query($conn, $sql);
 
+$sql = 'SELECT location, COUNT(location) as freq FROM NRU GROUP BY location';		
+
+$query_freq = mysqli_query($conn, $sql);
+
+
 if (!$query) {
 	die ('SQL Error: ' . mysqli_error($conn));
 }

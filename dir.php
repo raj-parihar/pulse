@@ -216,7 +216,7 @@ $loc_address = "https://www.nruinfo.org/location.php";
     		<th colspan=2><center>Locations Reporting NRU data (A-Z)</center></th>
 		<tbody>
 		<?php
-		while ($row = mysqli_fetch_array($query))
+		while ($row = mysqli_fetch_array($query_freq))
 		{
 			//echo '<tr><td>'.$row['location'].'</td></tr>';
 			$loc = $row['location'];
