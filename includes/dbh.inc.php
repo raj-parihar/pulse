@@ -14,8 +14,8 @@ if (!$conn) {
 }
 
 //$sql = 'SELECT DISTINCT location FROM pulse';
-$sql = 'SELECT location, COUNT(location) as freq FROM NRU GROUP BY location';
-		
+//$sql = 'SELECT location, COUNT(location) as freq FROM NRU GROUP BY location';		
+$sql = 'SELECT name as name, email as email, phone as phone, location as location, state as state FROM NRU';		
 $query = mysqli_query($conn, $sql);
 
 if (!$query) {
