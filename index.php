@@ -158,11 +158,14 @@ input[type=submit]:hover {
 
     <center>
    <br>
-    <font face="georgia" color="black" size="6">
+    <font face="georgia" color="blue" size="6">
     <b>
-      People’s Initiative to Document Every Unemployed Person of the Country!
+      People’s Initiative to Document Every Unemployed* Person of the Country!
     </b>
     </font>
+    <br>
+
+
     </center>
 	  <br><br>
 <?php
@@ -297,6 +300,18 @@ input[type=submit]:hover {
     <div id="map" height="460px" width="100%"></div>
 	<br>
 
+<div class="textbox" style="margin-left:45px;">
+    <font face="georgia" color="black" size="4">
+
+     *According to Govt. of India, a person in the age group of 15 - 65 years, willing to work, having 
+     made adequate efforts to find work but failed is considerd as <u><b>unemployed</b></u>.
+
+     <br><br>
+     If you believe you fall under this category, you are eligible candidate for NRU survey.
+
+    </font>
+
+</div>
 
 
 <div id="form">
@@ -380,6 +395,7 @@ input[type=submit]:hover {
       <option value="high">High School</option>
       <option value="hrsec">Hr. Sec. (10+2)</option>
       <option value="skill_dev">Skill Developement</option>
+      <option value="certificate">Certificate</option>
       <option value="diploma">Diploma (technical)</option>
       <option value="diploma_nt">Diploma (Non technical)</option>
 
@@ -394,7 +410,10 @@ input[type=submit]:hover {
       <option value="ba_art">BA - Arts</option>
       <option value="ba_lit">BA - Litreture</option>
       <option value="bsc">B.Sc</option>
+      <option value="bsc_nurse">B.Sc(Nursing)</option>
+      <option value="bhsc">B.H.Sc</option>
       <option value="bfarma">B.Farma</option>
+      <option value="ba_agri">B.Agri</option>
       <option value="bca">BCA</option>
       <option value="bba">BBA</option>
       <option value="llb">LLB</option>
@@ -419,13 +438,17 @@ input[type=submit]:hover {
       <option value="md_med">MD (Medicine)</option>
       <option value="md_sur">MD (Surgery)</option>
       <option value="mds">MDS</option>
+      <option value="mph">MPH</option>
 
       <option value="ma_art">MA - Arts</option>
       <option value="ma_lit">MA - Litreture</option>
       <option value="msc">M.Sc</option>
+      <option value="msc_nurse">M.Sc(Nursing)</option>
       <option value="mfarma">M.Farma</option>
       <option value="mca">MCA</option>
+      <option value="pgdm">PGDM</option>
       <option value="mba">MBA</option>
+      <option value="llm">LLM</option>
       <option value="mphil">M.Phil</option>
       <option value="med">M.Ed</option>
       <option value="mjmc">MJMC (Journalism)</option> 
@@ -577,10 +600,12 @@ input[type=submit]:hover {
       <option value="educated">Educated Unemployment</option>
       <option value="technological">Technological Unemployment</option>
       <option value="strucutral">Structural Unemployment</option>
-      <option value="under">Underemployment</option>
       <option value="casual">Casual Unemployment</option>
       <option value="chronic">Chronic Unemployment</option>
       <option value="frictional">Frictional Unemployment</option>
+      <option value="under">Under Employment</option>
+      <option value="partial">Partial employment</option>
+      <option value="under_comp">Under compensated</option>
 
       <option value="other">Other</option>
     </select></td></tr>
