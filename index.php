@@ -314,9 +314,7 @@ input[type=submit]:hover {
     <label for="age">*Age Group (in years)</label>
     <select id="age" name="age">
       <option value="blank"> (select one) </option>
-      <option value="below_10"><10</option>
-      <option value="year_15">11-15</option>
-      <option value="year_20">16-20</option>
+      <option value="year_20">15-20</option>
       <option value="year_25">21-25</option>
       <option value="year_30">26-30</option>
       <option value="year_35">31-35</option>
@@ -326,8 +324,6 @@ input[type=submit]:hover {
       <option value="year_55">51-55</option>
       <option value="year_60">56-60</option>
       <option value="year_65">61-65</option>
-      <option value="year_70">66-70</option>
-      <option value="year_70+">70+</option>
     </td></tr>
 
     <tr><td>
@@ -340,16 +336,18 @@ input[type=submit]:hover {
     </td></tr>
 
     <tr><td>
-    <label for="income">Household income (optional)</label>
+    <label for="income">Household income in INR (optional)</label>
     <select id="income" name="income">
       <option value='blank'>(select one)</option>
-      <option value="bpl">BPL</option>
-      <option value="lower">Lower</option>
-      <option value="lowermid">Lower middle</option>
-      <option value="middle">Middle</option>
-      <option value="midupper">Middle upper</option>
-      <option value="upper">Upper</option>
-      <option value="other">Other</option>
+      <option value="below_5k">Below 5,000</option>
+      <option value="below_10k">5,000 - 10,000</option>
+      <option value="below_20k">10,000 - 20,000</option>
+      <option value="below_30k">20,000 - 30,000</option>
+      <option value="below_40k">30,000 - 40,000</option>
+      <option value="below_50k">40,000 - 50,000</option>
+      <option value="below_75k">50,000 - 75,000</option>
+      <option value="below_100k">75,000 - 100,000</option>
+      <option value="above_100k">Above 100,000</option>
     </select></td>
     </td>
     <td>
@@ -377,15 +375,68 @@ input[type=submit]:hover {
     <label for="qualification">*Qualification</label>
     <select id="qualification" name="qualification">
       <option value='blank'>(select one)</option>
-      <option value="primary">Primary</option>
-      <option value="middleschool">Middle School</option>
-      <option value="highschool">High School</option>
-      <option value="hrsecschool">Higher Secondary</option>
+      <option value="primary">Primary School</option>
+      <option value="middle">Middle School</option>
+      <option value="high">High School</option>
+      <option value="hrsec">Hr. Sec. (10+2)</option>
+      <option value="skill_dev">Skill Developement</option>
       <option value="diploma">Diploma (technical)</option>
-      <option value="skilldeve">Govt Skill Developement</option>
-      <option value="graduate">Graduate</option>
-      <option value="postgraduate">Postgraduate</option>
+      <option value="diploma_nt">Diploma (Non technical)</option>
+
+      <option value="be_cs">BE - Computer Science</option>
+      <option value="be_ce">BE - Communication Engineering</option>
+      <option value="be_ee">BE - Electrical Engineering</option>
+      <option value="be_ece">BE - Eletronics Engineering</option>
+      <option value="be_it">BE - Information Techology</option>
+      <option value="be_me">BE - Mechanical Engineering</option>
+      <option value="be_cie">BE - Civil Engineering</option>
+
+      <option value="ba_art">BA - Arts</option>
+      <option value="ba_lit">BA - Litreture</option>
+      <option value="bsc">B.Sc</option>
+      <option value="bfarma">B.Farma</option>
+      <option value="bca">BCA</option>
+      <option value="bba">BBA</option>
+      <option value="llb">LLB</option>
+      <option value="bed">B.Ed</option>
+      <option value="mbbs">MBBS</option>
+      <option value="dds">DDS</option>
+      <option value="bams">BAMS</option>
+      <option value="barch">BArch</option>
+      <option value="bjmc">BJMC (Journalism)</option> 
+      <option value="bcomm">BComm</option>
+      <option value="bfa">BFA (Fine Arts)</option>
+
+
+      <option value="me_cs">ME - Computer Science</option>
+      <option value="me_ce">ME - Communication Engineering</option>
+      <option value="me_ee">ME - Electrical Engineering</option>
+      <option value="me_ece">ME - Eletronics Engineering</option>
+      <option value="me_it">ME - Information Techology</option>
+      <option value="me_me">ME - Mechanical Engineering</option>
+      <option value="me_cie">ME - Civil Engineering</option>
+
+      <option value="md_med">MD (Medicine)</option>
+      <option value="md_sur">MD (Surgery)</option>
+      <option value="mds">MDS</option>
+
+      <option value="ma_art">MA - Arts</option>
+      <option value="ma_lit">MA - Litreture</option>
+      <option value="msc">M.Sc</option>
+      <option value="mfarma">M.Farma</option>
+      <option value="mca">MCA</option>
+      <option value="mba">MBA</option>
+      <option value="mphil">M.Phil</option>
+      <option value="med">M.Ed</option>
+      <option value="mjmc">MJMC (Journalism)</option> 
+      <option value="mcomm">MComm</option>
+      <option value="mfa">MFA (Fine Arts)</option>
+
+
       <option value="doctorate">Doctorate</option>
+      <option value="dphil">D.Phil</option>
+      <option value="dlit">D.Lit</option>
+
       <option value="other">Other</option>
     </select></td>
     </td>
@@ -395,6 +446,7 @@ input[type=submit]:hover {
       <option value="blank">(select one)</option>
       <option value="male">Male</option>
       <option value="female">Female</option>
+      <option value="trans">Trans</option>
       <option value="other">Other</option>
       <option value="NA">Decline</option>
     </select></td></tr>
@@ -451,31 +503,47 @@ input[type=submit]:hover {
     <label for="sector">*Sector</label>
     <select id="sector" name="sector">
       <option value='blank'>(select one)</option>
-      <option value='agriculture'>Agriculture</option>
-      <option value='automobile'>Automobile & Transport</option>
-      <option value='education'>Education</option>
-      <option value='engineering'>Engineering</option>
       <option value='government'>Government</option>
-      <option value='healthcare'>Healthcare</option>
-      <option value='hospitality'>Hospitality</option>
-      <option value='information technology'>Information Technology</option>
-      <option value='realstate'>Real State & Housing</option>
       <option value='semigovernment'>Semi Government</option>
       <option value='private'>Private</option>
-      <option value='laworder'>Law and Order</option>
-      <option value='legal'>Legal and Consulting</option>
+      <option value='nonprofit'>Non Profit</option>
       <option value='unorganized'>Unorganized</option>
       <option value='other'>Other</option>
     </select></td>
 
     <td>
-    <label for="category">*Unemployment category</label>
-    <select id="category" name="category">
+    <label for="field">*Field/Area</label>
+    <select id="field" name="field">
       <option value='blank'>(select one)</option>
-      <option value="unemployed">Unemployed</option>
-      <option value="underemployed">Under employed</option>
-      <option value="undercompensated">Under compensated</option>
-      <option value="other">Other</option>
+      <option value='agriculture'>Agriculture</option>
+      <option value='adminstration'>Administration</option>
+      <option value='automobile'>Automobile</option>
+      <option value='consulting'>Consulting</option>
+      <option value='construction'>Contruction</option>
+      <option value='distribution'>Distribution</option>
+      <option value='entertainment'>Entertainment</option>
+      <option value='education'>Education</option>
+      <option value='engineering'>Engineering</option>
+      <option value='finance'>Finance</option>
+      <option value='food'>Food Products</option>
+      <option value='healthcare'>Healthcare</option>
+      <option value='hospitality'>Hospitality</option>
+      <option value='humrsc'>Human Resoruces</option>
+      <option value='infotech'>Information Technology</option>
+      <option value='realstate'>Real State/Housing</option>
+      <option value='laworder'>Law and Order</option>
+      <option value='legal'>Legal</option>
+      <option value='manufacturing'>Manufacturing</option>
+      <option value='mining'>Mining</option>
+      <option value='public service'>Public Services</option>
+      <option value='retail'>Retail</option>
+      <option value='restaurents'>Restaurents</option>
+      <option value='sports'>Sports</option>
+      <option value='service'>Services</option>
+      <option value='social'>Social work</option>
+      <option value='transpost'>Transport</option>
+      <option value='trade'>Trade</option>
+      <option value='other'>Other</option>
     </select></td></tr>
     </td>
 
@@ -498,8 +566,26 @@ input[type=submit]:hover {
     </select></td>
     </td>
     <td>
-    <label for="since">Unemployed since</label>
-    <input type="date" id="since" name="since" placeholder=""> 
+
+    <label for="category">*Unemployment <a href="cat.php">category</a></label>
+    <select id="category" name="category">
+      <option value='blank'>(select one)</option>
+      <option value="open">Open Unemployment</option>
+      <option value="disguised">Disguised Unemployment</option>
+      <option value="seasonal">Seasonal Unemployment</option>
+      <option value="cyclical">Cyclical Unemployment</option>
+      <option value="educated">Educated Unemployment</option>
+      <option value="technological">Technological Unemployment</option>
+      <option value="strucutral">Structural Unemployment</option>
+      <option value="under">Underemployment</option>
+      <option value="casual">Casual Unemployment</option>
+      <option value="chronic">Chronic Unemployment</option>
+      <option value="frictional">Frictional Unemployment</option>
+
+      <option value="other">Other</option>
+    </select></td></tr>
+    </td>
+
     </td>
     </tr>
 

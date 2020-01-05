@@ -164,6 +164,7 @@ input[type=submit]:hover {
 
  ?>
 
+
 <div class="container">
   <form action="action.php">
 
@@ -192,6 +193,10 @@ input[type=submit]:hover {
 </div>
 
 
+<div class="textbox" style="margin-left:45px;">
+	  Alternatively, you can contact us at: <b> nrou.info [AT] gmail.com </b>
+	  <br><br>
+</div>
 
 
         <br><br>

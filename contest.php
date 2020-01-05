@@ -158,39 +158,43 @@ input[type=submit]:hover {
 	  <br><br>
 
 	  <center>
-		   <font size="100" face="georgia"><font color="darkviolet"><b>NRU Process</b></font>: How It Works?</font>
-
-	  <br>
-
-<div class="container">
-    <p> <b>
-    <font face="georgia" color="blue" size="5">
-    Submit your <a href="index.php"><font color="fuchsia">unemployment information</font></a> with email or phone number<font size="6" color="fuchsia"><i class="fa fa-heartbeat"></i></font>
-    </font>
-    </b>
-    </p>
-</div>
-
-<div class="container">
-    <p> <b>
-    <font face="georgia" color="blue" size="5">
-    Information from same places will be combined together  <font size="6" color="gold"><i class="fa fa-ticket"></i></font>
-    </font>
-    </b>
-    </p>
-</div>
-
-<div class="container">
-    <p> <b>
-    <font face="georgia" color="blue" size="5">
-    We rountinely reach out to local and central govt adminstrations with this information <font size="6" color="darkgoldenrod"><i class="fa fa-trophy"></i></font>
-    </font>
-    </b>
-    </p>
-</div>
-
+		   <font size="100" face="georgia"><font color="darkviolet"><b>NRU</b></font> Objectives</font>
 
 	   </center>
+	  <br>
+
+
+<div class="container">
+    <p> 
+    <font face="georgia" color="blue" size="5">
+    #1: Collect country-wide unemployment data to generate comprehensive analysis, insights
+    </font>
+    </p>
+</div>
+
+<div class="container">
+    <p>
+    <font face="georgia" color="blue" size="5">
+    #2: Connect closely located people to foster focus groups geographically, demographically 
+    </font>
+    </p>
+</div>
+
+<div class="container">
+    <p>
+    <font face="georgia" color="blue" size="5">
+     #3: Enable focus groups to approach various government bodies and forums routinely 
+    </font>
+    </p>
+</div>
+
+<div class="container">
+    <p>
+    <font face="georgia" color="blue" size="5">
+    #4: Provide opportunities for selective and focused volunteer work and outreach
+    </font>
+    </p>
+</div>
 
 	<br>
 
