@@ -83,7 +83,7 @@
 
   <body>
 	  <div>
-	  <img src="pulse_logo.png" alt="Pulse Infographics" style="max-width:128px; max-height:128px;" align="right">
+	  <img src="cwd_src_logo.jpg" alt="Pulse Infographics" style="max-width:191px; max-height:128px;" align="right">
 	  </div>
 
 	  <br><br>

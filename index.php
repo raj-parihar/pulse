@@ -87,7 +87,7 @@
   </head>
   <body>
 	  <div>
-	  <img src="pulse_logo.png" alt="Pulse Infographics" style="max-width:128px; max-height:128px;" align="right">
+	  <img src="cwd_src_logo.jpg" alt="Pulse Infographics" style="max-width:191px; max-height:128px;" align="right">
 	  </div>
 
 	  <br><br>
@@ -244,8 +244,26 @@ input[type=submit]:hover {
 <?php }
 ?>
 
+
 <?php
-    if($_GET['msg'] == "errdurection")
+    if($_GET['msg'] == "errfield")
+    { 
+?>
+<div class="container">
+    <p> <b>
+    <font face="georgia" color="red" size="6">
+    Please select your field or are! <font size="8"><i class="fa fa-frown-o"></i></font>
+    </font>
+    </b>
+    </p>
+</div>
+<?php }
+?>
+
+
+
+<?php
+    if($_GET['msg'] == "errduration")
     { 
 ?>
 <div class="container">
@@ -329,20 +347,20 @@ input[type=submit]:hover {
     <label for="age">*Age Group (in years)</label>
     <select id="age" name="age">
       <option value="blank"> (select one) </option>
-      <option value="year_20">15-20</option>
-      <option value="year_25">21-25</option>
-      <option value="year_30">26-30</option>
-      <option value="year_35">31-35</option>
-      <option value="year_40">36-40</option>
-      <option value="year_45">41-45</option>
-      <option value="year_50">46-50</option>
-      <option value="year_55">51-55</option>
-      <option value="year_60">56-60</option>
-      <option value="year_65">61-65</option>
+      <option value="15-20">15-20</option>
+      <option value="21-25">21-25</option>
+      <option value="26-30">26-30</option>
+      <option value="31-35">31-35</option>
+      <option value="36-40">36-40</option>
+      <option value="41-45">41-45</option>
+      <option value="46-50">46-50</option>
+      <option value="51-55">51-55</option>
+      <option value="56-60">56-60</option>
+      <option value="61-65">61-65</option>
     </td></tr>
 
     <tr><td>
-    <label for="phone">Phone (optional)</label>
+    <label for="phone">Phone No. (optional)</label>
     <input type="text" id="phone" name="phone" placeholder="+91..."> 
     </td>
     <td>
@@ -351,13 +369,15 @@ input[type=submit]:hover {
     </td></tr>
 
     <tr><td>
-    <label for="income">Household income in INR (optional)</label>
+    <label for="income">Monthly income in INR (optional)</label>
     <select id="income" name="income">
       <option value='blank'>(select one)</option>
-      <option value="below_5k">Below 5,000</option>
+      <option value="below_5k"> <5,000</option>
       <option value="below_10k">5,000 - 10,000</option>
-      <option value="below_20k">10,000 - 20,000</option>
-      <option value="below_30k">20,000 - 30,000</option>
+      <option value="below_15k">10,000 - 15,000</option>
+      <option value="below_20k">15,000 - 20,000</option>
+      <option value="below_25k">20,000 - 25,000</option>
+      <option value="below_30k">25,000 - 30,000</option>
       <option value="below_40k">30,000 - 40,000</option>
       <option value="below_50k">40,000 - 50,000</option>
       <option value="below_75k">50,000 - 75,000</option>
@@ -381,7 +401,6 @@ input[type=submit]:hover {
       <option value="9">9</option>
       <option value="10">10</option>
       <option value="10+">10+</option>
-      <option value="NA">Decline</option>
     </select></td></tr>
 
     <tr></tr>
@@ -410,7 +429,7 @@ input[type=submit]:hover {
       <option value="ba_art">BA - Arts</option>
       <option value="ba_lit">BA - Litreture</option>
       <option value="bsc">B.Sc</option>
-      <option value="bsc_nurse">B.Sc(Nursing)</option>
+      <option value="bsc_nurse">B.Sc (Nursing)</option>
       <option value="bhsc">B.H.Sc</option>
       <option value="bfarma">B.Farma</option>
       <option value="ba_agri">B.Agri</option>
@@ -590,7 +609,7 @@ input[type=submit]:hover {
     </td>
     <td>
 
-    <label for="category">*Unemployment <a href="cat.php">category</a></label>
+    <label for="category">*Unemployment <a href="cat.php"><font color="blue">category</font></a></label>
     <select id="category" name="category">
       <option value='blank'>(select one)</option>
       <option value="open">Open Unemployment</option>

@@ -23,7 +23,7 @@ $location = $_GET["location"];
 $state = $_GET["state"];
 $sector = $_GET["sector"];
 $category = $_GET["category"];
-$since = $_GET["since"];
+$field = $_GET["field"];
 $dependents = $_GET["dependents"];
 $income = $_GET["income"];
 $duration = $_GET["duration"];
@@ -32,8 +32,8 @@ $extrainfo = $_GET["extrainfo"];
 
 
 // creating info into the nruinfo db
-$sql = "INSERT INTO NRU (name, age, phone, email, qualification, gender, location, state, sector, duration, extrainfo, category, since, income, dependents)
-VALUES ('$name', '$age', '$phone', '$email', '$qualification', '$gender', '$location', '$state', '$sector', '$duration', '$extrainfo', '$category', '$since', '$income', '$dependents')";
+$sql = "INSERT INTO NRU (name, age, phone, email, qualification, gender, location, state, sector, duration, extrainfo, category, field, income, dependents)
+VALUES ('$name', '$age', '$phone', '$email', '$qualification', '$gender', '$location', '$state', '$sector', '$duration', '$extrainfo', '$category', '$field', '$income', '$dependents')";
 
 
 if ($age == "blank") {
@@ -53,6 +53,9 @@ elseif ($state == "blank") {
 }
 elseif($sector =="blank"){
 	header('Location: index.php?msg=errsector');
+}
+elseif($field =="blank"){
+	header('Location: index.php?msg=errfield');
 }
 elseif($category =="blank"){
 	header('Location: index.php?msg=errcategory');
