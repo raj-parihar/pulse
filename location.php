@@ -239,12 +239,22 @@ include_once "includes/dbh.inc.php"; // this will include a.php
 	</table>
 <br><br>
 
-
 <table id="cities" align="center">
-    		<th colspan="2"><center>NRU Reporting Timeline</center></th>
+    		<th colspan="2"><center>NRU Reporting Timeline: Job Sector wise</center></th>
 		<tbody>
 		<tr>
 			<td><div id="histgram2"></div> </td>
+		</tr>
+
+		</tbody>
+	</table>
+<br><br>
+
+<table id="cities" align="center">
+    		<th colspan="2"><center>NRU Reporting Timeline: Field/Area wise</center></th>
+		<tbody>
+		<tr>
+			<td><div id="histgram3"></div> </td>
 		</tr>
 
 		</tbody>
@@ -315,28 +325,54 @@ $qual_pie = $db->query("SELECT qualification, COUNT(qualification) AS freq FROM 
 $category_pie = $db->query("SELECT category, COUNT(category) AS freq FROM (SELECT * FROM NRU WHERE location='$location') AS pulse_loc GROUP BY category");
 $age_hist = $db->query("SELECT age, COUNT(age) AS freq FROM (SELECT * FROM NRU WHERE location='$location') AS pulse_loc GROUP BY age");
 $cat_hist = $db->query("SELECT category, COUNT(category) AS freq FROM (SELECT * FROM NRU WHERE location='$location') AS pulse_loc GROUP BY category");
+
 $time_hist = $db->query("SELECT date(time), sector FROM (SELECT * FROM NRU WHERE location='$location') AS pulse_loc");
+$time_hist1 = $db->query("SELECT date(time), field FROM (SELECT * FROM NRU WHERE location='$location') AS pulse_loc");
 
 $time_stamp = array();
-$cats = array("general", "agriculture", "automobile", "education", "engineering", "government", "healthcare", "hospitality", "information technology", "realstate", "semigovernment", "private", "laworder", "legal", "unorganized", "other");
+$time_stamp1 = array();
+
+#$cats = array("general", "health", "education", "water", "economic", "governence", "social", "cultural", "environment", "housing", "laworder", "malnourishment", "agrarian", "industrial", "other");
+$sectors = array("government", "semigovernment", "private", "nonprofit", "unorganized", "other");
+$fields = array("agriculture", "adminstration", "automobile", "consulting", "construction", "distribution", "entertainment", "education", "engineering", "finance", "food", "healthcare", "hospitality", "infotech", "realstate", "laworder", "legal", "manufacturing", "mining", "public service", "retail", "restaurents", "sports", "service", "social", "transport", "trade", "other");
+
+
 
 if($time_hist->num_rows > 0){
    while($row = $time_hist->fetch_assoc()){
-	   //echo "['".$row[0]."', ".$row[1]."],";
-	   //echo $row['date(time)'], $row['category']; 
+	   //echo $row['date(time)'], $row['sector']; 
 	   //echo "<br>";
 
 	   if(!array_key_exists($row['date(time)'], $time_stamp)) {
-		   $time_stamp[$row['date(time)']] = array_fill(0, count($cats), 0);
+		   $time_stamp[$row['date(time)']] = array_fill(0, count($sectors), 0);
 	   }
            
-	   $cat_idx = array_search($row['sector'], $cats);
+	   $cat_idx = array_search($row['sector'], $sectors);
 	   //echo "<br>";
 
 	   $time_stamp[$row['date(time)']][$cat_idx] ++;
    }
 
 }
+if($time_hist1->num_rows > 0){
+   while($row = $time_hist1->fetch_assoc()){
+	   //echo $row['date(time)'], $row['field']; 
+	   //echo "<br>";
+
+	   if(!array_key_exists($row['date(time)'], $time_stamp1)) {
+		   $time_stamp1[$row['date(time)']] = array_fill(0, count($fields), 0);
+	   }
+           
+	   $cat_idx = array_search($row['field'], $fields);
+	   //echo "<br>";
+
+	   $time_stamp1[$row['date(time)']][$cat_idx] ++;
+   }
+
+}
+
+
+
 ?>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -350,11 +386,12 @@ google.charts.setOnLoadCallback(drawChart_category);
 google.charts.setOnLoadCallback(drawChart_age);
 google.charts.setOnLoadCallback(drawChart_cat);
 google.charts.setOnLoadCallback(drawChart_time);
+google.charts.setOnLoadCallback(drawChart_time1);
 
 function drawChart_time() {
 
     var data = google.visualization.arrayToDataTable([
-       ["TimeStamp", "general", "agriculture", "automobile", "education", "engineering", "government", "healthcare", "hospitality", "information technology", "realstate", "semigovernment", "private", "laworder", "legal", "unorganized", "other"],
+       ["TimeStamp", "government", "semigovernment", "private", "nonprofit", "unorganized", "other"],
 <?php
 
       foreach($time_stamp as $key => $value){
@@ -371,7 +408,7 @@ function drawChart_time() {
     ]);
     
     var options = {
-    title: 'NRU Timeline: By Sectors',
+    title: 'Sector wise information',
         width: 1120,
 	height: 500,
 	bar: {groupWidth: "20%"},
@@ -383,6 +420,42 @@ function drawChart_time() {
     
     chart.draw(data, options);
 }
+
+
+function drawChart_time1() {
+
+    var data = google.visualization.arrayToDataTable([
+        ["TimeStamp", "agriculture", "adminstration", "automobile", "consulting", "construction", "distribution", "entertainment", "education", "engineering", "finance", "food", "healthcare", "hospitality", "infotech", "realstate", "laworder", "legal", "manufacturing", "mining", "public service", "retail", "restaurents", "sports", "service", "social", "transport", "trade", "other"],
+<?php
+
+      foreach($time_stamp1 as $key => $value){
+	      $line =  "['".$key."', ";
+
+	  foreach($value as $val) {
+              $line = $line.$val.", ";
+	  }
+	  $line = $line."],";
+	  echo $line;
+      }   
+
+      ?>
+    ]);
+    
+    var options = {
+    title: 'Field/Area wise information',
+        width: 1120,
+	height: 500,
+	bar: {groupWidth: "20%"},
+	isStacked: true,
+	legend: { position: 'top', maxLines: 3 },
+    };
+    
+    var chart = new google.visualization.ColumnChart(document.getElementById('histgram3'));
+    
+    chart.draw(data, options);
+}
+
+
 
 function drawChart_sex() {
 

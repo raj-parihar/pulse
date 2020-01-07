@@ -243,7 +243,7 @@ $loc_address = "https://www.nruinfo.org/location.php";
 
 <br><br>
 <table id="cities" align="center">
-    		<th colspan="2"><center>NRU Analysis: Sectors and Duration</center></th>
+    		<th colspan="2"><center>Job Sectors and Unemploment Duration</center></th>
 		<tbody>
 		<tr>
 			<td><div id="piechart1"></div> </td>
@@ -256,7 +256,7 @@ $loc_address = "https://www.nruinfo.org/location.php";
 <br><br>
 
 <table id="cities" align="center">
-    		<th colspan="2"><center>NRU Analysis: Category and Income Groups</center></th>
+    		<th colspan="2"><center>Unemployment Category and Income Groups</center></th>
 		<tbody>
 		<tr>
 			<td><div id="piechart5"></div> </td>
@@ -270,7 +270,7 @@ $loc_address = "https://www.nruinfo.org/location.php";
 
 
 <table id="cities" align="center">
-    		<th colspan="2"><center>NRU Analysis: States and Qualifications</center></th>
+    		<th colspan="2"><center>States and Qualifications/Education</center></th>
 		<tbody>
 		<tr>
 			<td><div id="piechart3"></div> </td>
@@ -283,7 +283,7 @@ $loc_address = "https://www.nruinfo.org/location.php";
 
 
 <table id="cities" align="center">
-    		<th colspan="2"><center>NRU Reporting Timeline</center></th>
+    		<th colspan="2"><center>NRU Reporting Timeline: Job Sector wise</center></th>
 		<tbody>
 		<tr>
 			<td><div id="histgram2"></div> </td>
@@ -292,6 +292,19 @@ $loc_address = "https://www.nruinfo.org/location.php";
 		</tbody>
 	</table>
 <br><br>
+
+<table id="cities" align="center">
+    		<th colspan="2"><center>NRU Reporting Timeline: Field/Area wise</center></th>
+		<tbody>
+		<tr>
+			<td><div id="histgram3"></div> </td>
+		</tr>
+
+		</tbody>
+	</table>
+<br><br>
+
+
 
     <!--div id="message">Pulse info saved!</div-->
         <br><br>
@@ -318,28 +331,52 @@ $duration_pie = $db->query("SELECT duration, COUNT(state) AS freq FROM NRU GROUP
 $age_hist = $db->query("SELECT age, COUNT(age) AS freq FROM NRU GROUP BY age");
 $qual_hist = $db->query("SELECT qualification, COUNT(qualification) AS freq FROM NRU GROUP BY qualification");
 $time_hist = $db->query("SELECT date(time), sector FROM NRU");
+$time_hist1 = $db->query("SELECT date(time), field FROM NRU");
 
 $time_stamp = array();
+$time_stamp1 = array();
+
 #$cats = array("general", "health", "education", "water", "economic", "governence", "social", "cultural", "environment", "housing", "laworder", "malnourishment", "agrarian", "industrial", "other");
-$cats = array("general", "agriculture", "automobile", "education", "engineering", "government", "healthcare", "hospitality", "information technology", "realstate", "semigovernment", "private", "laworder", "legal", "unorganized", "other");
+$sectors = array("government", "semigovernment", "private", "nonprofit", "unorganized", "other");
+$fields = array("agriculture", "adminstration", "automobile", "consulting", "construction", "distribution", "entertainment", "education", "engineering", "finance", "food", "healthcare", "hospitality", "infotech", "realstate", "laworder", "legal", "manufacturing", "mining", "public service", "retail", "restaurents", "sports", "service", "social", "transport", "trade", "other");
+
+
 
 if($time_hist->num_rows > 0){
    while($row = $time_hist->fetch_assoc()){
-	   //echo "['".$row[0]."', ".$row[1]."],";
-	   //echo $row['date(time)'], $row['category']; 
+	   //echo $row['date(time)'], $row['sector']; 
 	   //echo "<br>";
 
 	   if(!array_key_exists($row['date(time)'], $time_stamp)) {
-		   $time_stamp[$row['date(time)']] = array_fill(0, count($cats), 0);
+		   $time_stamp[$row['date(time)']] = array_fill(0, count($sectors), 0);
 	   }
            
-	   $cat_idx = array_search($row['sector'], $cats);
+	   $cat_idx = array_search($row['sector'], $sectors);
 	   //echo "<br>";
 
 	   $time_stamp[$row['date(time)']][$cat_idx] ++;
    }
 
 }
+if($time_hist1->num_rows > 0){
+   while($row = $time_hist1->fetch_assoc()){
+	   //echo $row['date(time)'], $row['field']; 
+	   //echo "<br>";
+
+	   if(!array_key_exists($row['date(time)'], $time_stamp1)) {
+		   $time_stamp1[$row['date(time)']] = array_fill(0, count($fields), 0);
+	   }
+           
+	   $cat_idx = array_search($row['field'], $fields);
+	   //echo "<br>";
+
+	   $time_stamp1[$row['date(time)']][$cat_idx] ++;
+   }
+
+}
+
+
+
 ?>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -354,11 +391,12 @@ google.charts.setOnLoadCallback(drawChart_sector);
 google.charts.setOnLoadCallback(drawChart_category);
 google.charts.setOnLoadCallback(drawChart_income);
 google.charts.setOnLoadCallback(drawChart_time);
+google.charts.setOnLoadCallback(drawChart_time1);
 
 function drawChart_time() {
 
     var data = google.visualization.arrayToDataTable([
-       ["TimeStamp", "general", "agriculture", "automobile", "education", "engineering", "government", "healthcare", "hospitality", "information technology", "realstate", "semigovernment", "private", "laworder", "legal", "unorganized", "other"],
+       ["TimeStamp", "government", "semigovernment", "private", "nonprofit", "unorganized", "other"],
 <?php
 
       foreach($time_stamp as $key => $value){
@@ -375,7 +413,7 @@ function drawChart_time() {
     ]);
     
     var options = {
-    title: 'Sectorwise information',
+    title: 'Sector wise information',
         width: 1120,
 	height: 500,
 	bar: {groupWidth: "20%"},
@@ -387,6 +425,41 @@ function drawChart_time() {
     
     chart.draw(data, options);
 }
+
+
+function drawChart_time1() {
+
+    var data = google.visualization.arrayToDataTable([
+        ["TimeStamp", "agriculture", "adminstration", "automobile", "consulting", "construction", "distribution", "entertainment", "education", "engineering", "finance", "food", "healthcare", "hospitality", "infotech", "realstate", "laworder", "legal", "manufacturing", "mining", "public service", "retail", "restaurents", "sports", "service", "social", "transport", "trade", "other"],
+<?php
+
+      foreach($time_stamp1 as $key => $value){
+	      $line =  "['".$key."', ";
+
+	  foreach($value as $val) {
+              $line = $line.$val.", ";
+	  }
+	  $line = $line."],";
+	  echo $line;
+      }   
+
+      ?>
+    ]);
+    
+    var options = {
+    title: 'Field/Area wise information',
+        width: 1120,
+	height: 500,
+	bar: {groupWidth: "20%"},
+	isStacked: true,
+	legend: { position: 'top', maxLines: 3 },
+    };
+    
+    var chart = new google.visualization.ColumnChart(document.getElementById('histgram3'));
+    
+    chart.draw(data, options);
+}
+
 
 function drawChart_gender() {
 
