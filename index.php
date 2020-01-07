@@ -126,7 +126,11 @@ input[type=submit]:hover {
 </style>
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
 
 
  <!-- Top navigation -->
@@ -178,6 +182,13 @@ input[type=submit]:hover {
     Thank you for submitting your info! <font size="8"><i class="fa fa-smile-o"></i></font>
     </font>
     </b>
+ 
+      <h2>Share With Your Social Media</h2>
+      <body>
+    <a href="https://www.facebook.com" class=""><div class="w3-xxxlarge"><font color="#3B5998"><i class="fa fa-facebook"></i></font></div></a> 
+    <a href="https://www.twitter.com" class=""><div class="w3-xxxlarge"><font color="#55ACEE"><i class="fa fa-twitter"></i></font></div></a> 
+    <a href="https://www.linkedin.com" class=""><div class="w3-xxxlarge"><font color="#007bb5"><i class="fa fa-linkedin"></i></font></div></a> 
+     </body>
     </p>
 </div>
 
