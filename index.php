@@ -182,12 +182,18 @@ input[type=submit]:hover {
     Thank you for submitting your info! <font size="8"><i class="fa fa-smile-o"></i></font>
     </font>
     </b>
- 
-      <h2>Share With Your Social Media</h2>
+
+<?php
+	    $Url = (@$_SERVER["HTTPS"] == "on") ? "https://" : "http://";
+	    $Url .= $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
+	    $Url = "https://www.nruinfo.org";
+?>
+      <h2>Share at social media pages:</h2>
+
       <body>
-    <a href="https://www.facebook.com" class=""><div class="w3-xxxlarge"><font color="#3B5998"><i class="fa fa-facebook"></i></font></div></a> 
-    <a href="https://www.twitter.com" class=""><div class="w3-xxxlarge"><font color="#55ACEE"><i class="fa fa-twitter"></i></font></div></a> 
-    <a href="https://www.linkedin.com" class=""><div class="w3-xxxlarge"><font color="#007bb5"><i class="fa fa-linkedin"></i></font></div></a> 
+    <a href="http://www.facebook.com/sharer.php?u=<?php echo $Url; ?>" class=""><div class="w3-xxxlarge"><font color="#3B5998"><i class="fa fa-facebook"></i></font></div></a> 
+    <a href="https://twitter.com/share?url=<?php echo $Url; ?>" class=""><div class="w3-xxxlarge"><font color="#55ACEE"><i class="fa fa-twitter"></i></font></div></a> 
+    <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo $Url; ?>" class=""><div class="w3-xxxlarge"><font color="#007bb5"><i class="fa fa-linkedin"></i></font></div></a> 
      </body>
     </p>
 </div>
